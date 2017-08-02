@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.5.0)
+  - SideMenu (2.3.3)
+  - SwiftMessages (3.4.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - SideMenu
+  - SwiftMessages
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
+  SwiftMessages: e20aa1557fde1525ea369361bec4943cc0d08e7c
+
+PODFILE CHECKSUM: 934fbdf542e7f2d6a450acc5d911e290a8cc2b50
+
+COCOAPODS: 1.2.1
