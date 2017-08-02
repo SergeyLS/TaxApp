@@ -23,6 +23,9 @@
 		F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC51F310D820057EBA5 /* AppDataManager.swift */; };
 		F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */; };
 		F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC71F310D820057EBA5 /* CoreDataManager.swift */; };
+		F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A8EAE21F31CBCA00FA584E /* Main.storyboard */; };
+		F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */; };
+		F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		F7829BC51F310D820057EBA5 /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDataManager.swift; path = TaxApp/Managers/AppDataManager.swift; sourceTree = "<group>"; };
 		F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationManager.swift; path = TaxApp/Managers/AuthorizationManager.swift; sourceTree = "<group>"; };
 		F7829BC71F310D820057EBA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = TaxApp/Managers/CoreDataManager.swift; sourceTree = "<group>"; };
+		F7A8EAE21F31CBCA00FA584E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = TaxApp/Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNewsViewController.swift; path = TaxApp/Classes/News/ListNewsViewController.swift; sourceTree = "<group>"; };
+		F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = TaxApp/Classes/Menu/LeftMenuViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,22 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		F7A8EAE41F31CCA800FA584E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		F7A8EAE51F31D5FD00FA584E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		F7B42BAD1F2F63D6007632BC = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F74F77561F30B6160006FCD7 /* Login.storyboard */,
+				F7A8EAE21F31CBCA00FA584E /* Main.storyboard */,
 				F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -159,6 +182,8 @@
 			children = (
 				F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */,
 				F74F774E1F30B4B30006FCD7 /* BaseViewControllers */,
+				F7A8EAE41F31CCA800FA584E /* Menu */,
+				F7A8EAE51F31D5FD00FA584E /* News */,
 				F74F774B1F30A2470006FCD7 /* Login */,
 			);
 			name = Classes;
@@ -228,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F74F77521F30B5FE0006FCD7 /* Assets.xcassets in Resources */,
+				F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */,
 				F74F77581F30B6160006FCD7 /* Login.storyboard in Resources */,
 				F74F77541F30B60A0006FCD7 /* Info.plist in Resources */,
 				F74F77571F30B6160006FCD7 /* LaunchScreen.storyboard in Resources */,
@@ -296,8 +322,10 @@
 				F7829BC31F310BA70057EBA5 /* User+CoreDataProperties.swift in Sources */,
 				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
 				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,
+				F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */,
 				F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */,
 				F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */,
+				F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */,
 				F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */,
 				F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */,
 			);

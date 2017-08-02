@@ -7,7 +7,7 @@ target 'TaxApp' do
 
   # Pods for TaxApp
   
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire'
   
   pod 'SwiftMessages'
   

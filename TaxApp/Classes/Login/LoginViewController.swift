@@ -30,6 +30,8 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         eMailFieldUI.delegate = self
         passwordFieldUI.delegate = self
         

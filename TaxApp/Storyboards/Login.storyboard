@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,24 +24,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-1T-122">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXv-NL-ek1">
-                                <rect key="frame" x="221.5" y="238" width="126" height="32"/>
+                                <rect key="frame" x="221.5" y="258" width="126" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="Забыли пароль?">
                                     <color key="titleColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biE-4a-5rg">
-                                <rect key="frame" x="27.5" y="29" width="105" height="33"/>
+                                <rect key="frame" x="27.5" y="49" width="105" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Регистрация">
                                     <color key="titleColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6lI-ic-l0e" kind="show" id="uHZ-Eh-N3v"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tos-9R-mMH">
-                                <rect key="frame" x="27.5" y="62" width="105" height="1"/>
+                                <rect key="frame" x="27.5" y="82" width="105" height="1"/>
                                 <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Dia-RP-AKi"/>
@@ -50,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xN3-5q-CSe">
-                                <rect key="frame" x="27.5" y="75" width="320" height="45"/>
+                                <rect key="frame" x="27.5" y="95" width="320" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zhf-B5-yOu"/>
                                 </constraints>
@@ -59,7 +63,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-iO-Ikr">
-                                <rect key="frame" x="27.5" y="133" width="320" height="45"/>
+                                <rect key="frame" x="27.5" y="153" width="320" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="TjN-kc-anR"/>
                                 </constraints>
@@ -68,7 +72,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-25-eAu">
-                                <rect key="frame" x="27.5" y="194" width="172" height="40"/>
+                                <rect key="frame" x="27.5" y="214" width="172" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eG0-Qx-QtJ">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -111,7 +115,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tar-Nw-7yW">
-                                <rect key="frame" x="229.5" y="194" width="118" height="40"/>
+                                <rect key="frame" x="229.5" y="214" width="118" height="40"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.46274509803921571" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IQh-bk-dbU"/>
@@ -135,6 +139,9 @@
                                 <state key="normal" title="Пропустить">
                                     <color key="titleColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="qzL-BM-ypY" kind="show" id="e27-3e-3cg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,7 +173,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Авторизация" id="JM6-g7-Whb"/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -181,25 +187,113 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999.2" y="120.98950524737631"/>
+            <point key="canvasLocation" x="2009" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="asL-VO-vMj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ug3-Of-Dne" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ug3-Of-Dne" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gMZ-tJ-4EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Dey-Lv-Ghr">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ngb-HG-ymf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roh-P1-1D2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="121"/>
+            <point key="canvasLocation" x="1057" y="121"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Cp1-ix-8b2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="qzL-BM-ypY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JnJ-UJ-BlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="586"/>
+        </scene>
+        <!--Авторизация-->
+        <scene sceneID="5YG-2C-V89">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Maz-VY-IdL" sceneMemberID="firstResponder"/>
+                <viewController id="6lI-ic-l0e" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fx3-G6-hoy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bzh-eB-0X3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x1U-Nb-Z1n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-8F-LZ1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-xy-RmN">
+                                <rect key="frame" x="27.5" y="95" width="320" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4aN-wv-vWR"/>
+                                </constraints>
+                                <color key="textColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CIW-M5-Qsg">
+                                <rect key="frame" x="27.5" y="153" width="320" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="2GT-JR-sVr"/>
+                                </constraints>
+                                <color key="textColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oK8-d8-NE1">
+                                <rect key="frame" x="187.5" y="214" width="160" height="40"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="aiA-1F-CWd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Регистрация">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInAction:" destination="6lI-ic-l0e" eventType="touchUpInside" id="kK4-4y-Uew"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oK8-d8-NE1" firstAttribute="width" secondItem="CIW-M5-Qsg" secondAttribute="width" multiplier="1:2" id="2Cw-Yg-6EF"/>
+                            <constraint firstItem="NX3-xy-RmN" firstAttribute="top" secondItem="fx3-G6-hoy" secondAttribute="bottom" constant="75" id="4iI-kx-BBU"/>
+                            <constraint firstItem="oK8-d8-NE1" firstAttribute="top" secondItem="CIW-M5-Qsg" secondAttribute="bottom" constant="16" id="Lnp-XJ-f6A"/>
+                            <constraint firstAttribute="trailing" secondItem="nfk-8F-LZ1" secondAttribute="trailing" id="QBv-vI-Hvo"/>
+                            <constraint firstItem="CIW-M5-Qsg" firstAttribute="trailing" secondItem="NX3-xy-RmN" secondAttribute="trailing" id="QLm-MX-ADC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NX3-xy-RmN" secondAttribute="trailing" constant="12" id="WZY-8u-y18"/>
+                            <constraint firstItem="CIW-M5-Qsg" firstAttribute="top" secondItem="NX3-xy-RmN" secondAttribute="bottom" constant="13" id="XLn-jJ-yYt"/>
+                            <constraint firstItem="CIW-M5-Qsg" firstAttribute="leading" secondItem="NX3-xy-RmN" secondAttribute="leading" id="bJG-IL-1Ku"/>
+                            <constraint firstItem="nfk-8F-LZ1" firstAttribute="top" secondItem="fx3-G6-hoy" secondAttribute="bottom" id="e74-ZH-wvz"/>
+                            <constraint firstItem="bzh-eB-0X3" firstAttribute="top" secondItem="nfk-8F-LZ1" secondAttribute="bottom" id="ka6-nC-QoL"/>
+                            <constraint firstItem="nfk-8F-LZ1" firstAttribute="leading" secondItem="x1U-Nb-Z1n" secondAttribute="leading" id="lJT-Tt-EM4"/>
+                            <constraint firstItem="NX3-xy-RmN" firstAttribute="leading" secondItem="x1U-Nb-Z1n" secondAttribute="leadingMargin" constant="12" id="lKI-1h-2TK"/>
+                            <constraint firstItem="oK8-d8-NE1" firstAttribute="trailing" secondItem="CIW-M5-Qsg" secondAttribute="trailing" id="vR7-mV-jw2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Авторизация" id="gaF-v6-xyX"/>
+                    <connections>
+                        <outlet property="eMailFieldUI" destination="NX3-xy-RmN" id="jg9-Ps-ISg"/>
+                        <outlet property="enterButtonUI" destination="oK8-d8-NE1" id="E1Q-TE-qWP"/>
+                        <outlet property="passwordFieldUI" destination="CIW-M5-Qsg" id="3PK-at-twn"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3103" y="121"/>
         </scene>
     </scenes>
     <resources>
