@@ -15,6 +15,9 @@
 		F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F77591F30B61F0006FCD7 /* LoginViewController.swift */; };
 		F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F775B1F30B6260006FCD7 /* BaseViewController.swift */; };
 		F74F775E1F30B62C0006FCD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */; };
+		F74FF8881F33683C00A1780A /* BaseFetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */; };
+		F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */; };
+		F74FF88C1F3369CB00A1780A /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */; };
 		F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7829BB91F3100970057EBA5 /* TaxApp.xcdatamodeld */; };
 		F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */; };
 		F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC01F310BA70057EBA5 /* User+CoreDataClass.swift */; };
@@ -39,6 +42,9 @@
 		F74F77591F30B61F0006FCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = TaxApp/Classes/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		F74F775B1F30B6260006FCD7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = TaxApp/Classes/Base/BaseViewController.swift; sourceTree = "<group>"; };
 		F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TaxApp/Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFetchViewController.swift; path = TaxApp/Classes/Base/BaseFetchViewController.swift; sourceTree = "<group>"; };
+		F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFetchTableViewController.swift; path = TaxApp/Classes/Base/BaseFetchTableViewController.swift; sourceTree = "<group>"; };
+		F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuTableViewCell.swift; path = TaxApp/Classes/Menu/LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F7829BBA1F3100970057EBA5 /* TaxApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaxApp.xcdatamodel; sourceTree = "<group>"; };
 		F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigAPI.swift; path = TaxApp/Managers/ConfigAPI.swift; sourceTree = "<group>"; };
 		F7829BC01F310BA70057EBA5 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "TaxApp/Model/User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				F74F775B1F30B6260006FCD7 /* BaseViewController.swift */,
+				F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */,
+				F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */,
 			);
 			name = BaseViewControllers;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */,
+				F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -319,14 +328,17 @@
 				F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */,
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
 				F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */,
+				F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */,
 				F7829BC31F310BA70057EBA5 /* User+CoreDataProperties.swift in Sources */,
 				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
 				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,
 				F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */,
+				F74FF88C1F3369CB00A1780A /* LeftMenuTableViewCell.swift in Sources */,
 				F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */,
 				F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */,
 				F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */,
 				F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */,
+				F74FF8881F33683C00A1780A /* BaseFetchViewController.swift in Sources */,
 				F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

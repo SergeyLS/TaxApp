@@ -45,6 +45,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h8a-Xz-Xfj">
                                 <rect key="frame" x="0.0" y="220" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RMO-f9-dmT" customClass="LeftMenuTableViewCell" customModule="TaxApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMO-f9-dmT" id="s3b-5n-6bQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2OR-Xo-vmW">
                                 <rect key="frame" x="0.0" y="20" width="375" height="200"/>
@@ -116,6 +126,7 @@
                     <connections>
                         <outlet property="nameUI" destination="lmm-jh-avy" id="Urk-fh-6Xq"/>
                         <outlet property="photoUI" destination="qa5-9z-CsT" id="ZaC-GF-FT9"/>
+                        <outlet property="tableView" destination="h8a-Xz-Xfj" id="98V-ps-2bx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uQ-Gi-s2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
