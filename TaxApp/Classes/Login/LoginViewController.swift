@@ -16,6 +16,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var googleButtonUI: UIButton!
     @IBOutlet weak var enterButtonUI: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var signUpButtonUI: UIButton!
     
     @IBOutlet weak var eMailFieldUI: UITextField!
     @IBOutlet weak var passwordFieldUI: UITextField!
@@ -40,6 +41,7 @@ class LoginViewController: BaseViewController {
         congigButton(button: googleButtonUI)
         congigButton(button: enterButtonUI)
         congigButton(button: nextButton)
+        congigButton(button: signUpButtonUI)
     }
     
     override func didReceiveMemoryWarning() {
