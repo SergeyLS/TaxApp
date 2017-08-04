@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E905BBC3131641B573B3B22 /* Pods_TaxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */; };
+		F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */; };
 		F74F77521F30B5FE0006FCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74F77511F30B5FE0006FCD7 /* Assets.xcassets */; };
 		F74F77541F30B60A0006FCD7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F74F77531F30B60A0006FCD7 /* Info.plist */; };
 		F74F77571F30B6160006FCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 		3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
+		F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = TaxApp/Classes/Login/SignUpViewController.swift; sourceTree = "<group>"; };
 		F74F77511F30B5FE0006FCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TaxApp/Resurses/Assets.xcassets; sourceTree = "<group>"; };
 		F74F77531F30B60A0006FCD7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TaxApp/Resurses/Info.plist; sourceTree = "<group>"; };
 		F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TaxApp/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				F74F77591F30B61F0006FCD7 /* LoginViewController.swift */,
+				F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
 				F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */,
 				F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */,
+				F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */,
 				F7829BC31F310BA70057EBA5 /* User+CoreDataProperties.swift in Sources */,
 				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
 				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,

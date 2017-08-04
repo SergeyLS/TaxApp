@@ -1,56 +1,51 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/1/17.
+//  Created by Sergey Leskov on 8/4/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+class SignUpViewController: BaseViewController {
     
-    
-    @IBOutlet weak var facebookButtonUI: UIButton!
-    @IBOutlet weak var twitterButtonUI: UIButton!
-    @IBOutlet weak var googleButtonUI: UIButton!
-    @IBOutlet weak var enterButtonUI: UIButton!
-    @IBOutlet weak var nextButtonUI: UIButton!
     @IBOutlet weak var signUpButtonUI: UIButton!
     
     @IBOutlet weak var eMailFieldUI: UITextField!
+    @IBOutlet weak var loginFieldUI: UITextField!
+    
     @IBOutlet weak var passwordFieldUI: UITextField!
+    @IBOutlet weak var password2FieldUI: UITextField!
     
     
     //==================================================
     // MARK: - General
     //==================================================
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         eMailFieldUI.delegate = self
         passwordFieldUI.delegate = self
+        password2FieldUI.delegate = self
         
-        congigButton(button: facebookButtonUI)
-        congigButton(button: twitterButtonUI)
-        congigButton(button: googleButtonUI)
-        congigButton(button: enterButtonUI)
-        congigButton(button: nextButtonUI)
         congigButton(button: signUpButtonUI)
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+
     
     //==================================================
     // MARK: - config
@@ -64,21 +59,33 @@ class LoginViewController: BaseViewController {
     //==================================================
     // MARK: - action
     //==================================================
-    @IBAction func signInAction(_ sender: UIButton) {
+   
+    @IBAction func signUpAction(_ sender: UIButton) {
         
         let password = passwordFieldUI.text!
+        let password2 = password2FieldUI.text!
         let eMail = eMailFieldUI.text!
+        let login = loginFieldUI.text!
         
         
-        if  password == "" || eMail == "" {
-            let title = NSLocalizedString("Ошибка!", comment: "LoginViewController")
-            let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "LoginViewController")
+        if login == "" || eMail == "" || password == "" || password2 == "" {
+            let title = NSLocalizedString("Ошибка!", comment: "Oops")
+            let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "SignUpViewController - signUpAction")
             
             MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
             return
         }
         
-        AuthorizationManager.login(eMailOrLogin: eMail, password: password) { (error) in
+        if password  != password2 {
+            let title = NSLocalizedString("Ошибка!", comment: "Oops")
+            let message = NSLocalizedString("Пароли не совпадают!", comment: "SignUpViewController - signUpAction")
+            
+            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            return
+        }
+ 
+        
+        AuthorizationManager.registration(eMail: eMail, login: login, password: password) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                 return
@@ -93,4 +100,12 @@ class LoginViewController: BaseViewController {
     }
     
     
+    //==================================================
+    // MARK: - navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openNews" {
+        }
+     }
+   
 }
