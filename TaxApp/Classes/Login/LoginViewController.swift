@@ -29,15 +29,16 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         
+        
         eMailFieldUI.delegate = self
         passwordFieldUI.delegate = self
         
-        congigButton(button: facebookButtonUI)
-        congigButton(button: twitterButtonUI)
-        congigButton(button: googleButtonUI)
-        congigButton(button: enterButtonUI)
-        congigButton(button: nextButtonUI)
-        congigButton(button: signUpButtonUI)
+        configButton(button: facebookButtonUI)
+        configButton(button: twitterButtonUI)
+        configButton(button: googleButtonUI)
+        configButton(button: enterButtonUI)
+        configButton(button: nextButtonUI)
+        configButton(button: signUpButtonUI)
         
     }
     
@@ -50,16 +51,9 @@ class LoginViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
-    //==================================================
-    // MARK: - config
-    //==================================================
-    func congigButton(button: UIButton)  {
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        button.layer.cornerRadius = 5
-    }
     
     //==================================================
     // MARK: - action
@@ -84,11 +78,25 @@ class LoginViewController: BaseViewController {
                 return
             }
             
-            
-            
-            MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
-            self.performSegue(withIdentifier: "openNews", sender: nil)
-        }
+            UserManager.getUserFromAPI(token: AppDataManager.shared.userToken) { (errorUser) in
+                if let error = errorUser  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
+
+                if AppDataManager.shared.currentUser != nil {
+                    UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
+                        if errorAvatar != nil {
+                            print(errorAvatar!)
+                            return
+                        }
+                    }
+                }
+                
+                MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                self.performSegue(withIdentifier: "openNews", sender: nil)
+            }
+         }
         
     }
     

@@ -10,6 +10,10 @@ import UIKit
 
 class LeftMenuTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var nameUI: UILabel!
+    @IBOutlet weak var nextImageUI: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

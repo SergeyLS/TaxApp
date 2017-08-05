@@ -30,7 +30,7 @@ class SignUpViewController: BaseViewController {
         passwordFieldUI.delegate = self
         password2FieldUI.delegate = self
         
-        congigButton(button: signUpButtonUI)
+        configButton(button: signUpButtonUI)
         
     }
     
@@ -44,17 +44,10 @@ class SignUpViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = NSLocalizedString("Регистрация", comment: "SignUpViewController - navigationItem.title")
     }
 
     
-    //==================================================
-    // MARK: - config
-    //==================================================
-    func congigButton(button: UIButton)  {
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        button.layer.cornerRadius = 5
-    }
     
     //==================================================
     // MARK: - action
@@ -91,11 +84,19 @@ class SignUpViewController: BaseViewController {
                 return
             }
             
+            AppDataManager.shared.userLogin = login
             
+            if let user = User(userName: login) {
+                user.eMail = eMail
+                user.lastLogin = Date()
+                CoreDataManager.shared.saveContext()
+                
+                MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                self.performSegue(withIdentifier: "openNews", sender: nil)
+            }
+
             
-            MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
-            self.performSegue(withIdentifier: "openNews", sender: nil)
-        }
+         }
         
     }
     

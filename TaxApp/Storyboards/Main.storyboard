@@ -52,7 +52,34 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMO-f9-dmT" id="s3b-5n-6bQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-tm-zqd">
+                                                    <rect key="frame" x="8" y="0.0" width="331" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableNext" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-Z7-b0X">
+                                                    <rect key="frame" x="347" y="12" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="UW7-KF-yIJ"/>
+                                                        <constraint firstAttribute="width" constant="20" id="cgd-yd-FDe"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PA0-Z7-b0X" firstAttribute="centerY" secondItem="s3b-5n-6bQ" secondAttribute="centerY" id="8oA-PI-CmF"/>
+                                                <constraint firstAttribute="trailing" secondItem="PA0-Z7-b0X" secondAttribute="trailing" constant="8" id="Gt0-S1-ccq"/>
+                                                <constraint firstItem="PA0-Z7-b0X" firstAttribute="leading" secondItem="x7U-tm-zqd" secondAttribute="trailing" constant="8" id="Q5A-LJ-3by"/>
+                                                <constraint firstItem="x7U-tm-zqd" firstAttribute="top" secondItem="s3b-5n-6bQ" secondAttribute="top" id="R6s-9X-zTs"/>
+                                                <constraint firstAttribute="bottom" secondItem="x7U-tm-zqd" secondAttribute="bottom" id="kfD-zj-pUT"/>
+                                                <constraint firstItem="x7U-tm-zqd" firstAttribute="leading" secondItem="s3b-5n-6bQ" secondAttribute="leading" constant="8" id="rt2-Lx-DCA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameUI" destination="x7U-tm-zqd" id="IXV-TA-ilA"/>
+                                            <outlet property="nextImageUI" destination="PA0-Z7-b0X" id="T9B-4u-4cj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -89,6 +116,17 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iml-ho-cWB">
+                                        <rect key="frame" x="20" y="50" width="96" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Exit login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exitButton:" destination="lGk-P5-gq2" eventType="touchUpInside" id="eRg-ZR-hOG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -193,6 +231,7 @@
         <image name="menuBack" width="309" height="232"/>
         <image name="menuHome" width="90" height="82"/>
         <image name="menuLogo" width="130" height="35"/>
+        <image name="tableNext" width="122" height="122"/>
         <image name="userNoPhoto" width="92" height="92"/>
     </resources>
 </document>

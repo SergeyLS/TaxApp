@@ -16,6 +16,14 @@ class ListNewsViewController: UIViewController {
 
         configSideMenu()
         
+        MenuManager.getMenuFromAPI(token: AppDataManager.shared.userToken) { (error) in
+            if let error = error  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                return
+            }
+        }
+
+        
     }
 
     

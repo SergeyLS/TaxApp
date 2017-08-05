@@ -23,29 +23,42 @@ class AppDataManager {
     // MARK: - Application Settings
     //==================================================
     
-    private let userNameKey = "userName";
     private let userTokenKey = "userToken";
+    private let userLoginKey = "userLogin";
     
-    //var userName
-    public var userName: String? {
+    public var userToken: String {
         get {
-            let result = UserDefaults.standard.value(forKey: userNameKey) as? String
-            return result
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: userNameKey)
-        }
-    }
-    
-    //var userToken
-    public var userToken: String? {
-        get {
-            let result = UserDefaults.standard.value(forKey: userTokenKey) as? String
+            let result = (UserDefaults.standard.value(forKey: userTokenKey) as? String) ?? ""
             return result
         }
         set {
             UserDefaults.standard.set(newValue, forKey: userTokenKey)
         }
+    }
+    
+    public var userLogin: String {
+        get {
+            let result = (UserDefaults.standard.value(forKey: userLoginKey) as? String) ?? ""
+            return result
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: userLoginKey)
+        }
+    }
+
+
+    
+    public var currentUser: User? {
+        
+        if AppDataManager.shared.userLogin == "" {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastLogin", ascending: true)]
+        
+        let results = (try? CoreDataManager.shared.viewContext.fetch(fetchRequest)) as? [User] ?? []
+        return results.first ?? nil
     }
 
 

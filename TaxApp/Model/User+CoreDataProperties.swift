@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/1/17.
+//  Created by Sergey Leskov on 8/5/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
@@ -16,12 +16,15 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var userName: String?
     @NSManaged public var eMail: String?
     @NSManaged public var firstName: String?
-    @NSManaged public var middleName: String?
     @NSManaged public var lastName: String?
-    @NSManaged public var categoryID: String?
-    @NSManaged public var authID: String?
+    @NSManaged public var middleName: String?
+    @NSManaged public var userName: String?
+    @NSManaged public var lastLogin: Date?
+    @NSManaged public var photo: Data?
+    
+    @NSManaged public var menuMany: NSSet?
 
 }
+

@@ -11,18 +11,36 @@ import Foundation
 class ConfigAPI {
     
     static var serverAPI = "http://185.79.244.158/taxapp/api"
-    static var loginStr = "/login"
-    static var signUpStr = "/login/signup"
+   
+    static var loginString = "/login"
+    static var signUpString = "/login/signup"
     
+    static var getUserString = "/user"
+    static var getUserAvatarString = "/user/avatar"
     
+    static var getMenuString = "/menu"
+    
+    //login
     static func loginURL() -> URL {
-        return URL(string: serverAPI.appending(loginStr))!
+        return URL(string: serverAPI.appending(loginString))!
     }
-
     static func signUpURL() -> URL {
-        return URL(string: serverAPI.appending(signUpStr))!
+        return URL(string: serverAPI.appending(signUpString))!
     }
 
+    //user
+    static func getUserURL() -> URL {
+        return URL(string: serverAPI.appending(getUserString))!
+    }
+    static func getUserAvatarURL() -> URL {
+        return URL(string: serverAPI.appending(getUserAvatarString))!
+    }
     
+    //menu
+    static func getMenuURL() -> URL {
+        return URL(string: serverAPI.appending(getMenuString))!
+    }
+
+
  }
 

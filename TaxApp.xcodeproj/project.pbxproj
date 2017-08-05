@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7E905BBC3131641B573B3B22 /* Pods_TaxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */; };
+		F71AA1381F35ECC900399589 /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */; };
+		F71AA13A1F35F1A500399589 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1391F35F1A500399589 /* MainNavigationController.swift */; };
+		F71AA13D1F36058700399589 /* Menu+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA13B1F36058700399589 /* Menu+CoreDataClass.swift */; };
+		F71AA13E1F36058700399589 /* Menu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA13C1F36058700399589 /* Menu+CoreDataProperties.swift */; };
+		F71AA1401F36078200399589 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA13F1F36078200399589 /* UserManager.swift */; };
+		F71AA1421F36538B00399589 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1411F36538B00399589 /* MenuManager.swift */; };
 		F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */; };
 		F74F77521F30B5FE0006FCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74F77511F30B5FE0006FCD7 /* Assets.xcassets */; };
 		F74F77541F30B60A0006FCD7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F74F77531F30B60A0006FCD7 /* Info.plist */; };
@@ -36,6 +42,12 @@
 		3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
+		F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordViewController.swift; path = TaxApp/Classes/Login/RestorePasswordViewController.swift; sourceTree = "<group>"; };
+		F71AA1391F35F1A500399589 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = TaxApp/Classes/Login/MainNavigationController.swift; sourceTree = "<group>"; };
+		F71AA13B1F36058700399589 /* Menu+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Menu+CoreDataClass.swift"; path = "TaxApp/Model/Menu+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F71AA13C1F36058700399589 /* Menu+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Menu+CoreDataProperties.swift"; path = "TaxApp/Model/Menu+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F71AA13F1F36078200399589 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = TaxApp/Managers/UserManager.swift; sourceTree = "<group>"; };
+		F71AA1411F36538B00399589 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = TaxApp/Managers/MenuManager.swift; sourceTree = "<group>"; };
 		F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = TaxApp/Classes/Login/SignUpViewController.swift; sourceTree = "<group>"; };
 		F74F77511F30B5FE0006FCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TaxApp/Resurses/Assets.xcassets; sourceTree = "<group>"; };
 		F74F77531F30B60A0006FCD7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TaxApp/Resurses/Info.plist; sourceTree = "<group>"; };
@@ -93,8 +105,10 @@
 		F74F774B1F30A2470006FCD7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				F71AA1391F35F1A500399589 /* MainNavigationController.swift */,
 				F74F77591F30B61F0006FCD7 /* LoginViewController.swift */,
 				F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */,
+				F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -117,6 +131,8 @@
 				F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */,
 				F7829BC41F310D820057EBA5 /* MessagerManager.swift */,
 				F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */,
+				F71AA13F1F36078200399589 /* UserManager.swift */,
+				F71AA1411F36538B00399589 /* MenuManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -124,6 +140,8 @@
 		F7829BBF1F310B660057EBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F71AA13B1F36058700399589 /* Menu+CoreDataClass.swift */,
+				F71AA13C1F36058700399589 /* Menu+CoreDataProperties.swift */,
 				F7829BC01F310BA70057EBA5 /* User+CoreDataClass.swift */,
 				F7829BC11F310BA70057EBA5 /* User+CoreDataProperties.swift */,
 				F7829BB91F3100970057EBA5 /* TaxApp.xcdatamodeld */,
@@ -327,6 +345,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71AA13E1F36058700399589 /* Menu+CoreDataProperties.swift in Sources */,
+				F71AA13D1F36058700399589 /* Menu+CoreDataClass.swift in Sources */,
 				F74F775E1F30B62C0006FCD7 /* AppDelegate.swift in Sources */,
 				F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */,
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
@@ -336,13 +356,17 @@
 				F7829BC31F310BA70057EBA5 /* User+CoreDataProperties.swift in Sources */,
 				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
 				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,
+				F71AA1421F36538B00399589 /* MenuManager.swift in Sources */,
+				F71AA13A1F35F1A500399589 /* MainNavigationController.swift in Sources */,
 				F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */,
+				F71AA1381F35ECC900399589 /* RestorePasswordViewController.swift in Sources */,
 				F74FF88C1F3369CB00A1780A /* LeftMenuTableViewCell.swift in Sources */,
 				F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */,
 				F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */,
 				F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */,
 				F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */,
 				F74FF8881F33683C00A1780A /* BaseFetchViewController.swift in Sources */,
+				F71AA1401F36078200399589 /* UserManager.swift in Sources */,
 				F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

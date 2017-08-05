@@ -12,6 +12,8 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.topItem?.title = ""
 
         // Do any additional setup after loading the view.
     }
@@ -20,7 +22,16 @@ class BaseViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    //==================================================
+    // MARK: - config
+    //==================================================
+    func configButton(button: UIButton)  {
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
+        button.layer.cornerRadius = 5
+    }
+
 
 }
 

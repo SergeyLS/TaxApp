@@ -12,7 +12,7 @@
         <!--Авторизация-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginStoryboardIdentifier" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -37,6 +37,9 @@
                                 <state key="normal" title="Забыли пароль?">
                                     <color key="titleColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="cGT-N2-vfJ" kind="show" id="lWn-SZ-mo9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tar-Nw-7yW">
                                 <rect key="frame" x="20" y="212" width="335" height="44"/>
@@ -177,10 +180,20 @@
             </objects>
             <point key="canvasLocation" x="2008.8" y="120.98950524737631"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--LaunchScreen-->
+        <scene sceneID="jBj-eA-XYu">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="splashStoryboardIdentifier" storyboardName="LaunchScreen" id="VSC-r8-hwE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KGt-d8-ijJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2WQ-Vn-WKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="-402"/>
+        </scene>
+        <!--Main Navigation Controller-->
         <scene sceneID="asL-VO-vMj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ug3-Of-Dne" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ug3-Of-Dne" customClass="MainNavigationController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gMZ-tJ-4EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -192,20 +205,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ngb-HG-ymf"/>
+                        <segue destination="VSC-r8-hwE" kind="relationship" relationship="rootViewController" id="yXY-hD-jH6"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="SQd-fs-clz"/>
+                        <segue destination="qzL-BM-ypY" kind="show" identifier="openNews" id="C79-4y-5Vu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roh-P1-1D2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="121"/>
+            <point key="canvasLocation" x="849" y="121"/>
         </scene>
         <!--Main-->
         <scene sceneID="Cp1-ix-8b2">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="qzL-BM-ypY" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="newsStoryboardIdentifier" storyboardName="Main" id="qzL-BM-ypY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnJ-UJ-BlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2613" y="637"/>
+            <point key="canvasLocation" x="2051" y="873"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="5YG-2C-V89">
@@ -300,7 +315,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Maz-VY-IdL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3514" y="121"/>
+            <point key="canvasLocation" x="2910" y="410"/>
+        </scene>
+        <!--Восстановление-->
+        <scene sceneID="KTg-8L-jIs">
+            <objects>
+                <viewController id="cGT-N2-vfJ" customClass="RestorePasswordViewController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ngt-If-Bvv"/>
+                        <viewControllerLayoutGuide type="bottom" id="3AU-Ys-mzl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N53-gf-a39">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-ei-4K5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин или E-mail" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-HV-Aew">
+                                <rect key="frame" x="20" y="120" width="335" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ptb-T6-rZG"/>
+                                </constraints>
+                                <color key="textColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1J-xB-XI1">
+                                <rect key="frame" x="20" y="184" width="335" height="44"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Отправить запрос">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restoreAction:" destination="cGT-N2-vfJ" eventType="touchUpInside" id="r3M-RL-RZW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bpf-HV-Aew" firstAttribute="leading" secondItem="N53-gf-a39" secondAttribute="leading" constant="20" id="0ct-cZ-kr6"/>
+                            <constraint firstItem="g1J-xB-XI1" firstAttribute="height" secondItem="Bpf-HV-Aew" secondAttribute="height" id="53k-mm-Neh"/>
+                            <constraint firstItem="g1J-xB-XI1" firstAttribute="leading" secondItem="N53-gf-a39" secondAttribute="leading" constant="20" id="Bep-jZ-CVW"/>
+                            <constraint firstItem="Bpf-HV-Aew" firstAttribute="top" secondItem="Ngt-If-Bvv" secondAttribute="bottom" constant="100" id="IP2-9g-zaH"/>
+                            <constraint firstItem="IrS-ei-4K5" firstAttribute="top" secondItem="Ngt-If-Bvv" secondAttribute="bottom" id="K7r-2Q-fSm"/>
+                            <constraint firstItem="3AU-Ys-mzl" firstAttribute="top" secondItem="IrS-ei-4K5" secondAttribute="bottom" id="TJU-i0-7JP"/>
+                            <constraint firstAttribute="trailing" secondItem="g1J-xB-XI1" secondAttribute="trailing" constant="20" id="baF-Us-1rA"/>
+                            <constraint firstAttribute="trailing" secondItem="Bpf-HV-Aew" secondAttribute="trailing" constant="20" id="boi-CW-rYP"/>
+                            <constraint firstAttribute="trailing" secondItem="IrS-ei-4K5" secondAttribute="trailing" id="lFj-18-KUa"/>
+                            <constraint firstItem="IrS-ei-4K5" firstAttribute="leading" secondItem="N53-gf-a39" secondAttribute="leading" id="png-wR-pJb"/>
+                            <constraint firstItem="g1J-xB-XI1" firstAttribute="top" secondItem="Bpf-HV-Aew" secondAttribute="bottom" constant="20" id="tNv-I6-hgI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Восстановление" id="pfx-iq-KJ3"/>
+                    <connections>
+                        <outlet property="eMailFieldUI" destination="Bpf-HV-Aew" id="r1K-2l-7cj"/>
+                        <outlet property="restoreButtonUI" destination="g1J-xB-XI1" id="AMB-eS-vH6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQY-bK-cBa" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2910" y="-287"/>
         </scene>
     </scenes>
     <resources>
@@ -310,6 +386,6 @@
         <image name="icoTwitter" width="86" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oSY-gR-fSv"/>
+        <segue reference="C79-4y-5Vu"/>
     </inferredMetricsTieBreakers>
 </document>

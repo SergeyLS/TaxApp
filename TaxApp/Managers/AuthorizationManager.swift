@@ -14,7 +14,6 @@ class AuthorizationManager {
     
     //login
     static func login(eMailOrLogin: String, password: String, completion: @escaping (_ error: String?) -> Void)  {
-        
         var eMail = ""
         var login = ""
         
@@ -75,9 +74,8 @@ class AuthorizationManager {
                 if let users = responseJSON["User"] as? [String: Any] {
                     for tempUser in users {
                         if tempUser.key == "auth_key" {
-                            AppDataManager.shared.userName = login
                             AppDataManager.shared.userToken = String(describing: tempUser.value)
-                            print("User token: \(String(describing: AppDataManager.shared.userToken))")
+                            print(AppDataManager.shared.userToken)
                             completion(nil)
                             return
                         }
@@ -143,9 +141,8 @@ class AuthorizationManager {
             }
             
             if (Array(responseJSON.keys).contains("auth_key")) == true {
-                AppDataManager.shared.userName = login
-                AppDataManager.shared.userToken = responseJSON["auth_key"] as? String
-                print("User token: \(String(describing: AppDataManager.shared.userToken))")
+                AppDataManager.shared.userToken = (responseJSON["auth_key"] as? String) ?? ""
+                print("User token: \(AppDataManager.shared.userToken)")
                 completion(nil)
                 return
             }
