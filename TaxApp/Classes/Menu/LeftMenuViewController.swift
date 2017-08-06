@@ -55,8 +55,8 @@ class LeftMenuViewController: BaseFetchTableViewController {
     }
     
     @IBAction func exitButton(_ sender: UIButton) {
-        AppDataManager.shared.userToken = ""
-        
+        AppDataManager.shared.userLogin = ""
+        self.performSegue(withIdentifier: "exitUser", sender: nil)
     }
     
     
@@ -71,7 +71,12 @@ class LeftMenuViewController: BaseFetchTableViewController {
                 let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Menu.fetchRequest()
                 let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
                 fetchRequest.sortDescriptors = [sortDescriptor]
-                //fetchRequest.predicate = NSPredicate(format: "isMyFamily = true")
+                
+                var arrayPredicate:[NSPredicate] = []
+                arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+                let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
+                
+                fetchRequest.predicate = predicate
                 let resultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
                 resultController.delegate = self
                 
@@ -86,13 +91,27 @@ class LeftMenuViewController: BaseFetchTableViewController {
     
     internal override func requestData() {
         
-        MenuManager.getMenuFromAPI(token: AppDataManager.shared.userToken) { (error) in
+        MenuManager.getMenuFromAPI() { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                 return
             }
         }
     }
+    
+    
+    //==================================================
+    // MARK: - Navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "openNews") {
+            let destinationController = segue.destination as! ListNewsViewController
+            destinationController.menu = sender as? Menu
+         }
+        
+    }
+
 }
 
 
@@ -112,4 +131,9 @@ extension LeftMenuViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let menu = fetchController.object(at: indexPath) as! Menu
+         self.performSegue(withIdentifier: "openNews", sender: menu)
+    }
+
 }

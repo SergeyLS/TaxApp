@@ -20,6 +20,8 @@ class ConfigAPI {
     
     static var getMenuString = "/menu"
     
+    static var getArticleString = "/article/section/"
+    
     //login
     static func loginURL() -> URL {
         return URL(string: serverAPI.appending(loginString))!

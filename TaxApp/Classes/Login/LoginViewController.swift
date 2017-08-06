@@ -51,13 +51,31 @@ class LoginViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
     }
     
     
     //==================================================
     // MARK: - action
     //==================================================
+    @IBAction func nextAction(_ sender: UIButton) {
+        if UserManager.getUserByLogin(login: User.noLoginUserKey) != nil  {
+            CoreDataManager.shared.saveContext()
+            AppDataManager.shared.userLogin = User.noLoginUserKey
+            self.performSegue(withIdentifier: "openNews", sender: nil)
+        } else {
+            // New
+            guard let user = User(userName: User.noLoginUserKey)   else {
+                print("Error: Could not create a new default User.")
+                return
+            }
+            user.firstName = "User"
+            CoreDataManager.shared.saveContext()
+            self.performSegue(withIdentifier: "openNews", sender: nil)
+        } //else
+
+        
+    }
+    
     @IBAction func signInAction(_ sender: UIButton) {
         
         let password = passwordFieldUI.text!

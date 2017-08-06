@@ -13,7 +13,7 @@ import UIKit
 public class User: NSManagedObject {
  
     static let type = "User"
-    
+    static let noLoginUserKey = "noLoginUser"
     
     var photoImage: UIImage? {
         if let tempPhoto = self.photo {

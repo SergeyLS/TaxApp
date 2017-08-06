@@ -55,8 +55,9 @@ class AppDataManager {
         }
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastLogin", ascending: true)]
-        
+        //fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastLogin", ascending: true)]
+        let predicate = NSPredicate(format: "userName == %@", AppDataManager.shared.userLogin)
+        fetchRequest.predicate = predicate
         let results = (try? CoreDataManager.shared.viewContext.fetch(fetchRequest)) as? [User] ?? []
         return results.first ?? nil
     }

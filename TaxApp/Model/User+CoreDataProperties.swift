@@ -25,6 +25,7 @@ extension User {
     @NSManaged public var photo: Data?
     
     @NSManaged public var menuMany: NSSet?
+    @NSManaged public var articlies: NSSet?
 
 }
 

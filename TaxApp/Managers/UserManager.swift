@@ -13,6 +13,22 @@ import Alamofire
 class UserManager {
     
     
+    //getMenuByID
+    static func getUserByLogin(login: String,
+                               context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> User? {
+        
+        if  login == "" { return nil }
+        
+        let request = NSFetchRequest<User>(entityName: User.type)
+        let predicate = NSPredicate(format: "userName == %@", login)
+        request.predicate = predicate
+        
+        let resultsArray = (try? context.fetch(request))
+        
+        return resultsArray?.first ?? nil
+    }
+
+    
     //get user
     static func getUserFromAPI(token: String, completion: @escaping (_ error: String?) -> Void)  {
         
@@ -86,11 +102,6 @@ class UserManager {
                 return
             }
             
-//            guard let responseData = response.result.value as? Data else {
-//                completion("Invalid tag information received from service")
-//                return
-//            }
-
             if let user = AppDataManager.shared.currentUser {
                 user.photo = response.result.value
                 CoreDataManager.shared.saveContext()

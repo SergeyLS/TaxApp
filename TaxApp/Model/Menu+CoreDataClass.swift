@@ -23,12 +23,12 @@ public class Menu: NSManagedObject {
     //==================================================
     // MARK: - Initializers
     //==================================================
-    convenience init?(dictionary: NSDictionary){
-        guard let tempEntity = NSEntityDescription.entity(forEntityName: Menu.type, in: CoreDataManager.shared.viewContext) else {
+    convenience init?(dictionary: NSDictionary, context: NSManagedObjectContext = CoreDataManager.shared.viewContext){
+        guard let tempEntity = NSEntityDescription.entity(forEntityName: Menu.type, in: context) else {
             fatalError("Could not initialize \(Menu.type)")
             return nil
         }
-        self.init(entity: tempEntity, insertInto: CoreDataManager.shared.viewContext)
+        self.init(entity: tempEntity, insertInto: context)
         
         guard let tempId = dictionary["id"] as? Int,
             let tempTitle = dictionary["title"] as? String,
@@ -42,7 +42,7 @@ public class Menu: NSManagedObject {
         accessType = TempAccessType
         title = tempTitle
         
-        user = AppDataManager.shared.currentUser
+        self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)
         
         print("add \(Menu.type): " + title!)
     }
