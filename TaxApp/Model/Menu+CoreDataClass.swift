@@ -38,8 +38,8 @@ public class Menu: NSManagedObject {
         }
         
         
-        id = tempId
-        accessType = TempAccessType
+        id = Int64(tempId)
+        accessType = Int64(TempAccessType)
         title = tempTitle
         
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)

@@ -13,5 +13,6 @@ target 'TaxApp' do
   
   pod 'SideMenu'
 
+  pod 'FacebookLogin'
 
 end

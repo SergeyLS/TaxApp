@@ -73,7 +73,10 @@ class LeftMenuViewController: BaseFetchTableViewController {
                 fetchRequest.sortDescriptors = [sortDescriptor]
                 
                 var arrayPredicate:[NSPredicate] = []
-                arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+                if AppDataManager.shared.currentUser != nil {
+                    arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+                }
+                
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
                 
                 fetchRequest.predicate = predicate

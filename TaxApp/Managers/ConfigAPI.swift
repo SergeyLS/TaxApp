@@ -13,7 +13,9 @@ class ConfigAPI {
     static var serverAPI = "http://185.79.244.158/taxapp/api"
    
     static var loginString = "/login"
+    static var loginSocialString = "/login/by-key"
     static var signUpString = "/login/signup"
+    static var resetString = "/login/reset"
     
     static var getUserString = "/user"
     static var getUserAvatarString = "/user/avatar"
@@ -26,9 +28,16 @@ class ConfigAPI {
     static func loginURL() -> URL {
         return URL(string: serverAPI.appending(loginString))!
     }
+    static func loginSocial() -> URL {
+        return URL(string: serverAPI.appending(loginSocialString))!
+    }
     static func signUpURL() -> URL {
         return URL(string: serverAPI.appending(signUpString))!
     }
+    static func resetURL() -> URL {
+        return URL(string: serverAPI.appending(resetString))!
+    }
+
 
     //user
     static func getUserURL() -> URL {

@@ -45,7 +45,7 @@ public class Article: NSManagedObject {
         link = tempLink
         shortDescr = tempDescr
  
-        self.menu = MenuManager.getMenuByID(id: menu.id, context: context)
+        self.menu = MenuManager.getMenuByID(id: Int(menu.id), context: context)
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)
         
         print("add \(Article.type): " + title!)

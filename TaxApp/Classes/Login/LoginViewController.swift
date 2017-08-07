@@ -8,6 +8,9 @@
 
 import UIKit
 
+import FacebookCore
+import FacebookLogin
+
 class LoginViewController: BaseViewController {
     
     
@@ -72,7 +75,7 @@ class LoginViewController: BaseViewController {
             CoreDataManager.shared.saveContext()
             self.performSegue(withIdentifier: "openNews", sender: nil)
         } //else
-
+        
         
     }
     
@@ -101,7 +104,7 @@ class LoginViewController: BaseViewController {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                     return
                 }
-
+                
                 if AppDataManager.shared.currentUser != nil {
                     UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
                         if errorAvatar != nil {
@@ -114,8 +117,38 @@ class LoginViewController: BaseViewController {
                 MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
                 self.performSegue(withIdentifier: "openNews", sender: nil)
             }
-         }
+        }
         
+    }
+    
+    
+    @IBAction func facebookAction(_ sender: UIButton) {
+        
+        let loginManager = LoginManager()
+        loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success( _, _, let accessToken):
+//                print("Logged into Facebook")
+//                print(grantedPermissions)
+//                print(declinedPermissions)
+//                // Save Facebook info in cookies
+//                let defaults = UserDefaults.standard
+//                defaults.set(accessToken.authenticationToken, forKey: "facebookAuthenticationToken")
+//                defaults.set(accessToken.userId, forKey: "facebookUserID")
+                AuthorizationManager.login(socialNetwork: .facebook, userId: accessToken.userId!) { (error) in
+                    if let error = error  {
+                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                        return
+                    }
+
+                    
+                }
+            }
+        }
     }
     
     

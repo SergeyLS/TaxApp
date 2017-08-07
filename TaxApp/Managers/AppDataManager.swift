@@ -46,8 +46,6 @@ class AppDataManager {
         }
     }
 
-
-    
     public var currentUser: User? {
         
         if AppDataManager.shared.userLogin == "" {

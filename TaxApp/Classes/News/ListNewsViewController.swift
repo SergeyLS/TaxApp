@@ -61,7 +61,9 @@ class ListNewsViewController: BaseFetchTableViewController {
                 } else {
                     arrayPredicate.append(NSPredicate(format: "menu = %@", menu!))
                 }
-                arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+                if AppDataManager.shared.currentUser != nil {
+                    arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+                }
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
                 
                 fetchRequest.predicate = predicate

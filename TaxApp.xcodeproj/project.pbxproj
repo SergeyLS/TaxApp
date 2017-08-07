@@ -47,6 +47,7 @@
 		3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
+		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = TaxApp/TaxApp.entitlements; sourceTree = "<group>"; };
 		F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordViewController.swift; path = TaxApp/Classes/Login/RestorePasswordViewController.swift; sourceTree = "<group>"; };
 		F71AA1391F35F1A500399589 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = TaxApp/Classes/Login/MainNavigationController.swift; sourceTree = "<group>"; };
 		F71AA13B1F36058700399589 /* Menu+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Menu+CoreDataClass.swift"; path = "TaxApp/Model/Menu+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		F7B42BAD1F2F63D6007632BC = {
 			isa = PBXGroup;
 			children = (
+				F70DC4481F38B5A10006773E /* TaxApp.entitlements */,
 				F7829BBF1F310B660057EBA5 /* Model */,
 				F7829BBC1F3104250057EBA5 /* Managers */,
 				F7B42BCD1F2F6A42007632BC /* Classes */,
@@ -269,8 +271,13 @@
 				TargetAttributes = {
 					F7B42BB51F2F63D6007632BC = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = UR2UCZHHPB;
+						DevelopmentTeam = EG6AMXNLL4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -496,10 +503,12 @@
 			baseConfigurationReference = 3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UR2UCZHHPB;
+				CODE_SIGN_ENTITLEMENTS = TaxApp/TaxApp.entitlements;
+				DEVELOPMENT_TEAM = EG6AMXNLL4;
 				INFOPLIST_FILE = "$(SRCROOT)/TaxApp/Resurses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SergeyLeskov.TaxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitsolutions.taxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -510,10 +519,12 @@
 			baseConfigurationReference = E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UR2UCZHHPB;
+				CODE_SIGN_ENTITLEMENTS = TaxApp/TaxApp.entitlements;
+				DEVELOPMENT_TEAM = EG6AMXNLL4;
 				INFOPLIST_FILE = "$(SRCROOT)/TaxApp/Resurses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SergeyLeskov.TaxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitsolutions.taxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

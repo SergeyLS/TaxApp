@@ -16,8 +16,8 @@ extension Menu {
         return NSFetchRequest<Menu>(entityName: "Menu")
     }
 
-    @NSManaged public var id: Int
-    @NSManaged public var accessType: Int
+    @NSManaged public var id: Int64
+    @NSManaged public var accessType: Int64
     @NSManaged public var title: String?
     
     @NSManaged public var user: User?
