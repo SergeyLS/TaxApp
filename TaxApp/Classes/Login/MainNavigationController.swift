@@ -41,6 +41,7 @@ class MainNavigationController: UINavigationController {
         
         setViewControllers([splashViewController], animated:false)
         
+          
         addObservers()
     }
     

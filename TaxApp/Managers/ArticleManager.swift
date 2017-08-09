@@ -73,6 +73,14 @@ class ArticleManager {
                                 continue
                         }
                         
+                        //dateUpdate
+                        //                        if let tempDaties = tempElement["time"] as? [String: Any] {
+                        //                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
+                        //                                print(DateManager.datefromString(string: tempDate))
+                        //                            }
+                        //                        }
+                        
+                        
                         
                         if let _ = getArticleByID(id: id )  {
                             //update
@@ -108,6 +116,42 @@ class ArticleManager {
     }
     
     
+    
+    
+    static func getImage(article: Article, completion: @escaping (_ image: UIImage) -> Void)  {
+        
+        let empfyPhoto = UIImage()
+        
+        if article.photo != nil {
+            completion(article.photoImage!)
+            return
+        }
+        
+        guard let linkPhoto = article.linkPhoto else {
+            completion(empfyPhoto)
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        
+        let req = request(linkPhoto, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseData { response in
+            if response.result.isFailure  {
+                completion(empfyPhoto)
+                return
+            }
+            
+            
+            article.photo = response.result.value
+            CoreDataManager.shared.saveContext()
+            completion(article.photoImage!)
+            return
+        }
+    } //func getImage
     
     
 }

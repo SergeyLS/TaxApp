@@ -41,6 +41,7 @@
 		F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A8EAE21F31CBCA00FA584E /* Main.storyboard */; };
 		F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */; };
 		F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */; };
+		F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C34C4B1F3B197000B330DE /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNewsViewController.swift; path = TaxApp/Classes/News/ListNewsViewController.swift; sourceTree = "<group>"; };
 		F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = TaxApp/Classes/Menu/LeftMenuViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7C34C4B1F3B197000B330DE /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = TaxApp/Managers/DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				F7829BC51F310D820057EBA5 /* AppDataManager.swift */,
 				F7829BC71F310D820057EBA5 /* CoreDataManager.swift */,
 				F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */,
+				F7C34C4B1F3B197000B330DE /* DateManager.swift */,
 				F7829BC41F310D820057EBA5 /* MessagerManager.swift */,
 				F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */,
 				F71AA13F1F36078200399589 /* UserManager.swift */,
@@ -152,13 +155,13 @@
 		F7829BBF1F310B660057EBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F7829BB91F3100970057EBA5 /* TaxApp.xcdatamodeld */,
 				F78B41B61F37988C004B2959 /* Article+CoreDataClass.swift */,
 				F78B41B71F37988C004B2959 /* Article+CoreDataProperties.swift */,
 				F71AA13B1F36058700399589 /* Menu+CoreDataClass.swift */,
 				F71AA13C1F36058700399589 /* Menu+CoreDataProperties.swift */,
 				F7829BC01F310BA70057EBA5 /* User+CoreDataClass.swift */,
 				F7829BC11F310BA70057EBA5 /* User+CoreDataProperties.swift */,
-				F7829BB91F3100970057EBA5 /* TaxApp.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */,
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
 				F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */,
+				F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */,
 				F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */,
 				F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */,
 				F78B41BB1F37A17D004B2959 /* ArticleManager.swift in Sources */,

@@ -31,8 +31,6 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         eMailFieldUI.delegate = self
         passwordFieldUI.delegate = self
         
@@ -42,7 +40,6 @@ class LoginViewController: BaseViewController {
         configButton(button: enterButtonUI)
         configButton(button: nextButtonUI)
         configButton(button: signUpButtonUI)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,9 +58,10 @@ class LoginViewController: BaseViewController {
     // MARK: - action
     //==================================================
     @IBAction func nextAction(_ sender: UIButton) {
+        AppDataManager.shared.userLogin = User.noLoginUserKey
+        
+        
         if UserManager.getUserByLogin(login: User.noLoginUserKey) != nil  {
-            CoreDataManager.shared.saveContext()
-            AppDataManager.shared.userLogin = User.noLoginUserKey
             self.performSegue(withIdentifier: "openNews", sender: nil)
         } else {
             // New
@@ -75,8 +73,6 @@ class LoginViewController: BaseViewController {
             CoreDataManager.shared.saveContext()
             self.performSegue(withIdentifier: "openNews", sender: nil)
         } //else
-        
-        
     }
     
     @IBAction func signInAction(_ sender: UIButton) {

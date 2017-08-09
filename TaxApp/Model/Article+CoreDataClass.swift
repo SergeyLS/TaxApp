@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 public class Article: NSManagedObject {
 
@@ -18,6 +18,14 @@ public class Article: NSManagedObject {
     
     static let type = "Article"
     
+    
+    var photoImage: UIImage? {
+        if let tempPhoto = self.photo {
+            return UIImage(data: tempPhoto)
+        } else {
+            return UIImage(named: "noImage")
+        }
+    }
     
     //==================================================
     // MARK: - Initializers
@@ -33,7 +41,9 @@ public class Article: NSManagedObject {
             let tempTitle = dictionary["title"] as? String,
             let tempLink = dictionary["source_link"] as? String,
             let tempId = dictionary["id"] as? String,
-            let tempDescr = dictionary["short_description"] as? String
+            let tempDescr = dictionary["short_description"] as? String,
+            let tempPhotoLink = dictionary["imageLink"] as? String
+            
             else {
                 return nil
         }
@@ -44,6 +54,17 @@ public class Article: NSManagedObject {
         isCanOpen = tempCanOpen
         link = tempLink
         shortDescr = tempDescr
+        linkPhoto = tempPhotoLink
+        
+        if let tempDaties = dictionary["time"] as? [String: Any] {
+            if let tempDate = tempDaties["createdAtFormatted"] as? String {
+                dateCreated =  DateManager.datefromString(string: tempDate)
+            }
+            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
+                dateUpdate =  DateManager.datefromString(string: tempDate)
+            }
+
+        }
  
         self.menu = MenuManager.getMenuByID(id: Int(menu.id), context: context)
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)

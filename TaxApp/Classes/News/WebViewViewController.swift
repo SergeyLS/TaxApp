@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebViewViewController: UIViewController {
+class WebViewViewController: BaseViewController {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!

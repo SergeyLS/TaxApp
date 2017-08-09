@@ -199,15 +199,16 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ug3-Of-Dne" customClass="MainNavigationController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gMZ-tJ-4EN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="gMZ-tJ-4EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.086274509803921567" green="0.46274509803921571" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Dey-Lv-Ghr">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="VSC-r8-hwE" kind="relationship" relationship="rootViewController" id="yXY-hD-jH6"/>
                         <segue destination="BYZ-38-t0r" kind="show" id="SQd-fs-clz"/>
@@ -390,6 +391,6 @@
         <image name="icoTwitter" width="86" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2wI-mx-nSE"/>
+        <segue reference="C79-4y-5Vu"/>
     </inferredMetricsTieBreakers>
 </document>

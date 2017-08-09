@@ -20,9 +20,8 @@ class AppDataManager {
     
     
     //==================================================
-    // MARK: - Application Settings
+    // MARK: - User
     //==================================================
-    
     private let userTokenKey = "userToken";
     private let userLoginKey = "userLogin";
     
@@ -58,6 +57,22 @@ class AppDataManager {
         fetchRequest.predicate = predicate
         let results = (try? CoreDataManager.shared.viewContext.fetch(fetchRequest)) as? [User] ?? []
         return results.first ?? nil
+    }
+
+    
+    //==================================================
+    // MARK: - Menu
+    //==================================================
+    private let currentMenuKey = "currentMenu";
+    
+    public var currentMenu: String {
+        get {
+            let result = (UserDefaults.standard.value(forKey: currentMenuKey) as? String) ?? ""
+            return result
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: currentMenuKey)
+        }
     }
 
 

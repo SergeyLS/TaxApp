@@ -111,10 +111,9 @@ class LeftMenuViewController: BaseFetchTableViewController {
         if (segue.identifier == "openNews") {
             let destinationController = segue.destination as! ListNewsViewController
             destinationController.menu = sender as? Menu
-         }
-        
+        }
     }
-
+    
 }
 
 
@@ -128,6 +127,12 @@ extension LeftMenuViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LeftMenuTableViewCell
         let menu = fetchController.object(at: indexPath) as! Menu
         
+        if menu.title == AppDataManager.shared.currentMenu {
+            cell.nextImageUI.isHidden = false
+        } else {
+            cell.nextImageUI.isHidden = true
+        }
+        
         cell.nameUI.text = menu.title
         
         return cell
@@ -136,7 +141,8 @@ extension LeftMenuViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menu = fetchController.object(at: indexPath) as! Menu
-         self.performSegue(withIdentifier: "openNews", sender: menu)
+        AppDataManager.shared.currentMenu = menu.title!
+        self.performSegue(withIdentifier: "openNews", sender: menu)
     }
-
+    
 }

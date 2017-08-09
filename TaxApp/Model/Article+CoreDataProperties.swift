@@ -23,6 +23,10 @@ extension Article {
     @NSManaged public var link: String?
     @NSManaged public var createdAt: NSDate?
     @NSManaged public var isCanOpen: Bool
+    @NSManaged public var photo: Data?
+    @NSManaged public var dateCreated: Date?
+    @NSManaged public var dateUpdate: Date?
+    @NSManaged public var linkPhoto: String?
     
     @NSManaged public var user: User?
     @NSManaged public var menu: Menu?

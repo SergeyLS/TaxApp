@@ -36,7 +36,8 @@ class ListNewsViewController: BaseFetchTableViewController {
         super.viewWillAppear(animated)
         
         if menu == nil {
-            navigationItem.title = NSLocalizedString("Новости", comment: "ListNewsViewController - navigationItem.title")
+            navigationItem.title = NSLocalizedString("Все новости", comment: "ListNewsViewController - navigationItem.title")
+            AppDataManager.shared.currentMenu = ""
         } else {
             navigationItem.title = menu?.title
         }
@@ -52,13 +53,12 @@ class ListNewsViewController: BaseFetchTableViewController {
         get {
             if _fetchController == nil {
                 let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Article.fetchRequest()
-                let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+                
+                let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: false)
                 fetchRequest.sortDescriptors = [sortDescriptor]
                 
                 var arrayPredicate:[NSPredicate] = []
-                if menu == nil {
-                    arrayPredicate.append(NSPredicate(format: "menu = nil"))
-                } else {
+                if menu != nil {
                     arrayPredicate.append(NSPredicate(format: "menu = %@", menu!))
                 }
                 if AppDataManager.shared.currentUser != nil {
@@ -91,9 +91,7 @@ class ListNewsViewController: BaseFetchTableViewController {
                 return
             }
             
-            
-            
-            ArticleManager.getArticleFromAPI(menu: self.menu!) { (errorArticle) in
+             ArticleManager.getArticleFromAPI(menu: self.menu!) { (errorArticle) in
                 if let error = errorArticle  {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                     return
@@ -140,6 +138,18 @@ extension ListNewsViewController {
         
         cell.titleUI.text = article.title
         cell.descriptUI.text = article.shortDescr
+        cell.photoUI.image = article.photoImage
+        cell.nameMenuUI.text = article.menu?.title
+        cell.dateUI.text = DateManager.dateToString(date: article.dateCreated!)
+        cell.indicatorUI.startAnimating()
+
+        DispatchQueue.main.async {
+            ArticleManager.getImage(article: article, completion: { (image) in
+                cell.photoUI.image = image
+                cell.indicatorUI.stopAnimating()
+              })
+        }
+
         
         return cell
     }
@@ -150,7 +160,12 @@ extension ListNewsViewController {
     }
 
     
-    
-    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
 }
 
