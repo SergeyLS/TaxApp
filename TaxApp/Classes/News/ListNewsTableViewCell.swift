@@ -46,9 +46,9 @@ class ListNewsTableViewCell: UITableViewCell {
     
     func addShadow()  {
         mainViewUI.layer.shadowColor = UIColor.darkGray.cgColor
-        mainViewUI.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        mainViewUI.layer.shadowRadius = 1.0
-        mainViewUI.layer.shadowOpacity = 0.18
+        mainViewUI.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        mainViewUI.layer.shadowRadius = 3.0
+        mainViewUI.layer.shadowOpacity = 0.4
         mainViewUI.layer.masksToBounds = false
         
     }

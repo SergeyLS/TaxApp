@@ -140,14 +140,27 @@ extension ListNewsViewController {
         cell.descriptUI.text = article.shortDescr
         cell.photoUI.image = article.photoImage
         cell.nameMenuUI.text = article.menu?.title
-        cell.dateUI.text = DateManager.dateToString(date: article.dateCreated!)
-        cell.indicatorUI.startAnimating()
-
-        DispatchQueue.main.async {
-            ArticleManager.getImage(article: article, completion: { (image) in
-                cell.photoUI.image = image
-                cell.indicatorUI.stopAnimating()
-              })
+        if let date  = article.dateCreated {
+            cell.dateUI.text = DateManager.dateToString(date: date)
+        } else {
+            cell.dateUI.text = ""
+        }
+        
+//        cell.indicatorUI.startAnimating()
+//
+//        DispatchQueue.main.async {
+//            ArticleManager.getImage(article: article, completion: { (image) in
+//                cell.photoUI.image = image
+//                cell.indicatorUI.stopAnimating()
+//              })
+//        }
+        
+        if article.photoImage == nil {
+            cell.indicatorUI.startAnimating()
+            ArticleManager.getImage(article: article) {_ in }
+        } else {
+            cell.photoUI.image = article.photoImage
+            cell.indicatorUI.stopAnimating()
         }
 
         
