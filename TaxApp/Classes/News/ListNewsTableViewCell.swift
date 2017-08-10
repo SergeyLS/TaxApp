@@ -46,6 +46,7 @@ class ListNewsTableViewCell: UITableViewCell {
         photoUI.image = nil
         nameMenuUI.text = nil
         dateUI.text = nil
+        likeButtonUI.setTitle(nil, for: .normal)
       }
 
     
