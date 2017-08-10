@@ -42,7 +42,7 @@ class ListNewsViewController: BaseFetchTableViewController {
             navigationItem.title = menu?.title
         }
     }
-
+    
     
     //==================================================
     // MARK: - Fetch Data
@@ -87,11 +87,7 @@ class ListNewsViewController: BaseFetchTableViewController {
                 return
             }
             
-            if self.menu == nil {
-                return
-            }
-            
-             ArticleManager.getArticleFromAPI(menu: self.menu!) { (errorArticle) in
+            ArticleManager.getArticleFromAPI() { (errorArticle) in
                 if let error = errorArticle  {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                     return
@@ -107,8 +103,13 @@ class ListNewsViewController: BaseFetchTableViewController {
     func configSideMenu()  {
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuFadeStatusBar = false
-        SideMenuManager.menuWidth = view.layer.bounds.width * 0.8 //%
+        SideMenuManager.menuWidth = view.layer.bounds.width * 0.8 //80%
     }
+    
+    //==================================================
+    // MARK: - action
+    //==================================================
+    
     
     //==================================================
     // MARK: - Navigation
@@ -118,12 +119,12 @@ class ListNewsViewController: BaseFetchTableViewController {
         if (segue.identifier == "openWeb") {
             let destinationController = segue.destination as! WebViewViewController
             if  let article = sender as? Article {
-                 destinationController.link = article.link
+                destinationController.link = article.link
             }
         }
         
     }
-
+    
 }
 
 
@@ -136,6 +137,9 @@ extension ListNewsViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListNewsTableViewCell
         let article = fetchController.object(at: indexPath) as! Article
         
+        cell.article = article
+        cell.mainView = view
+        
         cell.titleUI.text = article.title
         cell.descriptUI.text = article.shortDescr
         cell.photoUI.image = article.photoImage
@@ -146,14 +150,21 @@ extension ListNewsViewController {
             cell.dateUI.text = ""
         }
         
-//        cell.indicatorUI.startAnimating()
-//
-//        DispatchQueue.main.async {
-//            ArticleManager.getImage(article: article, completion: { (image) in
-//                cell.photoUI.image = image
-//                cell.indicatorUI.stopAnimating()
-//              })
-//        }
+        
+        if article.isLike {
+            cell.likeButtonUI.setImage(UIImage(named: "buttonLikeOn"), for: .normal)
+        } else {
+            cell.likeButtonUI.setImage(UIImage(named: "buttonLike"), for: .normal)
+        }
+        
+        //        cell.indicatorUI.startAnimating()
+        //
+        //        DispatchQueue.main.async {
+        //            ArticleManager.getImage(article: article, completion: { (image) in
+        //                cell.photoUI.image = image
+        //                cell.indicatorUI.stopAnimating()
+        //              })
+        //        }
         
         if article.photoImage == nil {
             cell.indicatorUI.startAnimating()
@@ -162,23 +173,23 @@ extension ListNewsViewController {
             cell.photoUI.image = article.photoImage
             cell.indicatorUI.stopAnimating()
         }
-
+        
         
         return cell
     }
-   
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = fetchController.object(at: indexPath) as! Article
         self.performSegue(withIdentifier: "openWeb", sender: article)
     }
-
     
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-//    
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
+    
+    //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        return UITableViewAutomaticDimension
+    //    }
+    //
+    //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //        return UITableViewAutomaticDimension
+    //    }
 }
 

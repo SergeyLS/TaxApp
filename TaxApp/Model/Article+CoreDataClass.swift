@@ -55,6 +55,7 @@ public class Article: NSManagedObject {
         link = tempLink
         shortDescr = tempDescr
         linkPhoto = tempPhotoLink
+        isLike = false
         
         if let tempDaties = dictionary["time"] as? [String: Any] {
             if let tempDate = tempDaties["createdAtFormatted"] as? String {

@@ -102,6 +102,13 @@ class LeftMenuViewController: BaseFetchTableViewController {
         }
     }
     
+    //==================================================
+    // MARK: - action
+    //==================================================
+    @IBAction func homeAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "openNews", sender: nil)
+    }
+    
     
     //==================================================
     // MARK: - Navigation

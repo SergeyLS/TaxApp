@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListNewsTableViewCell: UITableViewCell {
 
@@ -19,6 +20,10 @@ class ListNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameMenuUI: UILabel!
     @IBOutlet weak var dateUI: UILabel!
     @IBOutlet weak var indicatorUI: UIActivityIndicatorView!
+    @IBOutlet weak var likeButtonUI: UIButton!
+    
+    var article: Article!
+    var mainView: UIView!
 
     
     override func awakeFromNib() {
@@ -52,5 +57,25 @@ class ListNewsTableViewCell: UITableViewCell {
         mainViewUI.layer.masksToBounds = false
         
     }
+    
+    
+    @IBAction func likeButtonAction(_ sender: UIButton) {
+        
+        if article.isLike {
+            return
+        }
+        
+        ArticleManager.getArticleLike(article: article) { (errorArticle) in
+            if let error = errorArticle  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                return
+            }
+  
+            
+            self.article.isLike = true
+            CoreDataManager.shared.saveContext()
+        }
+     }
+    
 
 }
