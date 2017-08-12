@@ -29,8 +29,12 @@
 	<string>4</string>
 	<key>FacebookAppID</key>
 	<string>330941120651796</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) camera use</string>
 	<key>FacebookDisplayName</key>
 	<string>TaxApp</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) photo use</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbauth2</string>

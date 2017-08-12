@@ -29,8 +29,13 @@ class MainNavigationController: UINavigationController {
     }
     
     
+    @IBOutlet weak var navBarUI: UINavigationBar!
+    
+    
     private var appDataManager: AppDataManager {
         return AppDataManager.shared
+        
+        
     }
     
     //==================================================
@@ -41,6 +46,7 @@ class MainNavigationController: UINavigationController {
         
         setViewControllers([splashViewController], animated:false)
         
+        navBarUI.barTintColor = ThemeManager.shared.mainColor()
           
         addObservers()
     }

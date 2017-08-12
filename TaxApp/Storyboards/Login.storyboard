@@ -199,7 +199,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ug3-Of-Dne" customClass="MainNavigationController" customModule="TaxApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="gMZ-tJ-4EN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gMZ-tJ-4EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,6 +210,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="navBarUI" destination="gMZ-tJ-4EN" id="zU2-RJ-HwB"/>
                         <segue destination="VSC-r8-hwE" kind="relationship" relationship="rootViewController" id="yXY-hD-jH6"/>
                         <segue destination="BYZ-38-t0r" kind="show" id="SQd-fs-clz"/>
                         <segue destination="qzL-BM-ypY" kind="show" identifier="openNews" id="C79-4y-5Vu"/>

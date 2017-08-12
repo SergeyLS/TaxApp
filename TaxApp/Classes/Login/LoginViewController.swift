@@ -69,7 +69,7 @@ class LoginViewController: BaseViewController {
                 print("Error: Could not create a new default User.")
                 return
             }
-            user.firstName = "User"
+            user.firstName = "Гость"
             CoreDataManager.shared.saveContext()
             self.performSegue(withIdentifier: "openNews", sender: nil)
         } //else

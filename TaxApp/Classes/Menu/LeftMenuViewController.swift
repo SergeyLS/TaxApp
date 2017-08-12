@@ -25,8 +25,13 @@ class LeftMenuViewController: BaseFetchTableViewController {
         
         photoUI.layer.cornerRadius = photoUI.bounds.size.height / 2
         
+        //image tap
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
+        photoUI.addGestureRecognizer(tapGesture)
+        photoUI.isUserInteractionEnabled = true
+
         loadUserInfo()
-    }
+      }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,12 +59,27 @@ class LeftMenuViewController: BaseFetchTableViewController {
         }
     }
     
+    
+    //==================================================
+    // MARK: - Action
+    //==================================================
+    @IBAction func homeAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "openNews", sender: nil)
+    }
+
     @IBAction func exitButton(_ sender: UIButton) {
         AppDataManager.shared.userLogin = ""
         self.performSegue(withIdentifier: "exitUser", sender: nil)
     }
     
     
+    
+    func imageTapped(gesture: UIGestureRecognizer) {
+        if (gesture.view as? UIImageView) != nil {
+            self.performSegue(withIdentifier: "profile", sender: nil)
+        }
+    }
+   
     //==================================================
     // MARK: - Fetch Data
     //==================================================
@@ -100,13 +120,6 @@ class LeftMenuViewController: BaseFetchTableViewController {
                 return
             }
         }
-    }
-    
-    //==================================================
-    // MARK: - action
-    //==================================================
-    @IBAction func homeAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "openNews", sender: nil)
     }
     
     
@@ -153,3 +166,6 @@ extension LeftMenuViewController {
     }
     
 }
+
+
+

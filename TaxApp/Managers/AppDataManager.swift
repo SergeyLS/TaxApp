@@ -63,7 +63,7 @@ class AppDataManager {
     //==================================================
     // MARK: - Menu
     //==================================================
-    private let currentMenuKey = "currentMenu";
+    private let currentMenuKey = "currentMenu"
     
     public var currentMenu: String {
         get {
