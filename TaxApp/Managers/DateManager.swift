@@ -56,4 +56,12 @@ class DateManager {
     }
 
     
+    static func minutesToHoursAndMinutesString(minutes: Int, completion: @escaping (_ hours: String, _ minutes: String)->()) {
+        
+        let hoursString = String(format: "%02d", minutes / 60)
+        let minutesString = String(format: "%02d", minutes % 60)
+        
+        completion(hoursString, minutesString)
+        
+    }
 }

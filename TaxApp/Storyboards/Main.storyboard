@@ -819,20 +819,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileMail" translatesAutoresizingMaskIntoConstraints="NO" id="7Js-ME-ifb">
-                                                    <rect key="frame" x="35" y="30" width="30" height="30"/>
+                                                    <rect key="frame" x="35" y="15" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="1rf-OX-hBS"/>
                                                         <constraint firstAttribute="height" constant="30" id="lL6-jk-8xZ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8h-sv-F9d">
-                                                    <rect key="frame" x="100" y="35" width="212" height="21.5"/>
+                                                    <rect key="frame" x="100" y="19.5" width="212" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrf-bT-Nkq" userLabel="line">
-                                                    <rect key="frame" x="0.0" y="87.5" width="375" height="2"/>
+                                                    <rect key="frame" x="0.0" y="58" width="375" height="2"/>
                                                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="2Id-F4-hL0"/>
@@ -842,7 +842,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCM-iH-f5b">
-                                                    <rect key="frame" x="320" y="35" width="20" height="20"/>
+                                                    <rect key="frame" x="320" y="20" width="20" height="20"/>
                                                     <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Sxu-Nl-OUt"/>
@@ -1053,7 +1053,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJu-df-Pap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4050" y="679"/>
+            <point key="canvasLocation" x="3876" y="383"/>
         </scene>
     </scenes>
     <resources>

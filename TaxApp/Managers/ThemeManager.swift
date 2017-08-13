@@ -29,7 +29,7 @@ class ThemeManager{
     private let theme2MinutesKey = "theme2Minutes";
     private let theme3MinutesKey = "theme3Minutes";
  
-    private var theme1Minutes: Int {
+    var theme1Minutes: Int {
         get {
             let result = (UserDefaults.standard.value(forKey: theme1MinutesKey) as? Int) ?? 360
             return result
@@ -39,7 +39,7 @@ class ThemeManager{
         }
     }
     
-    private var theme2Minutes: Int {
+    var theme2Minutes: Int {
         get {
             let result = (UserDefaults.standard.value(forKey: theme2MinutesKey) as? Int) ?? 720
             return result
@@ -50,7 +50,7 @@ class ThemeManager{
     }
 
     
-    private var theme3Minutes: Int {
+    var theme3Minutes: Int {
         get {
             let result = (UserDefaults.standard.value(forKey: theme3MinutesKey) as? Int) ?? 1080
             return result

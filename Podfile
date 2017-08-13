@@ -14,5 +14,7 @@ target 'TaxApp' do
   pod 'SideMenu'
 
   pod 'FacebookLogin'
+  
+   pod 'DatePickerDialog'
 
 end

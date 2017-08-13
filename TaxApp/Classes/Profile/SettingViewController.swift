@@ -13,9 +13,6 @@ class SettingViewController: BaseImageViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fonUI: UIImageView!
     
-    let currentTheme = ThemeManager.shared.currentTheme()
-    
-    
     //==================================================
     // MARK: - General
     //==================================================
@@ -38,6 +35,8 @@ class SettingViewController: BaseImageViewController {
         super.viewWillAppear(animated)
         
         navigationItem.title = NSLocalizedString("Настройки", comment: "SettingViewController - navigationItem.title")
+        configTheme()
+        tableView.reloadData()
     }
     
     
@@ -45,7 +44,7 @@ class SettingViewController: BaseImageViewController {
     // MARK: - func
     //==================================================
     func configTheme()  {
-        fonUI.image = ThemeManager.shared.findImage(name: "settingFon", themeApp: currentTheme)
+        fonUI.image = ThemeManager.shared.findImage(name: "settingFon", themeApp:ThemeManager.shared.currentTheme())
     }
     
 }
@@ -74,7 +73,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingCabinet", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingCabinet", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Личный кабинет"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
@@ -82,7 +81,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingThema", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingThema", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Настройки темы"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
@@ -90,7 +89,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingConf", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingConf", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Конфиденциальность"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
@@ -98,7 +97,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingPassword", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingPassword", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Сменить пароль"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
@@ -106,7 +105,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingAbout", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingAbout", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "О программе"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true

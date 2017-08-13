@@ -13,8 +13,6 @@ class MessageViewController: BaseImageViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fonUI: UIImageView!
 
-    let currentTheme = ThemeManager.shared.currentTheme()
-    
     //==================================================
     // MARK: - General
     //==================================================
@@ -39,6 +37,8 @@ class MessageViewController: BaseImageViewController {
         super.viewWillAppear(animated)
         
         navigationItem.title = NSLocalizedString("Сообщения", comment: "MessageViewController - navigationItem.title")
+        configTheme()
+        tableView.reloadData()
     }
 
     
@@ -46,7 +46,7 @@ class MessageViewController: BaseImageViewController {
     // MARK: - func
     //==================================================
     func configTheme()  {
-        fonUI.image = ThemeManager.shared.findImage(name: "messageFon", themeApp: currentTheme)
+        fonUI.image = ThemeManager.shared.findImage(name: "messageFon", themeApp: ThemeManager.shared.currentTheme())
     }
 
     
@@ -77,15 +77,16 @@ extension MessageViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageInbox", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageInbox", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Входящие"
             cell.countUI.setTitle("100", for: .normal)
             cell.countUI.isHidden = false
+            cell.reloadData()
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageSent", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageSent", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Отправленные"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
@@ -93,7 +94,7 @@ extension MessageViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageTrash", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageTrash", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Корзина"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true

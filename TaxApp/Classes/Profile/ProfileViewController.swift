@@ -14,8 +14,6 @@ class ProfileViewController: BaseImageViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fonUI: UIImageView!
     
-    let currentTheme = ThemeManager.shared.currentTheme()
-    
     
     //==================================================
     // MARK: - General
@@ -45,6 +43,8 @@ class ProfileViewController: BaseImageViewController {
         super.viewWillAppear(animated)
         
         navigationItem.title = NSLocalizedString("Мой профиль", comment: "ProfileViewController - navigationItem.title")
+         configTheme()
+        tableView.reloadData()
     }
     
     
@@ -52,7 +52,7 @@ class ProfileViewController: BaseImageViewController {
     // MARK: - func
     //==================================================
     func configTheme()  {
-        fonUI.image = ThemeManager.shared.findImage(name: "profileFon", themeApp: currentTheme)
+        fonUI.image = ThemeManager.shared.findImage(name: "profileFon", themeApp: ThemeManager.shared.currentTheme())
         nameUI.textColor = ThemeManager.shared.mainColor()
     }
     
@@ -108,27 +108,28 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileMail", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileMail", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Сообщения"
             cell.countUI.setTitle("2", for: .normal)
             cell.countUI.isHidden = false
+            cell.reloadData()
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileSetting", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileSetting", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Настройки"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
-            return cell
+             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileExit", themeApp: currentTheme)
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileExit", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Выход"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
-            return cell
+             return cell
             
             
         default:
