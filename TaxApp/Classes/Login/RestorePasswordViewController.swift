@@ -13,6 +13,7 @@ class RestorePasswordViewController: BaseViewController {
     @IBOutlet weak var eMailFieldUI: UITextField!
     @IBOutlet weak var restoreButtonUI: UIButton!
     
+    @IBOutlet weak var fonUI: UIImageView!
     
     //==================================================
     // MARK: - General
@@ -23,6 +24,8 @@ class RestorePasswordViewController: BaseViewController {
         eMailFieldUI.delegate = self
         
         configButton(button: restoreButtonUI)
+        
+        configTheme()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +40,13 @@ class RestorePasswordViewController: BaseViewController {
         navigationItem.title = NSLocalizedString("Восстановление", comment: "RestorePasswordViewController - navigationItem.title")
     }
     
+    //==================================================
+    // MARK: - func
+    //==================================================
+    func configTheme()  {
+        fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
+    }
+
     //==================================================
     // MARK: - action
     //==================================================

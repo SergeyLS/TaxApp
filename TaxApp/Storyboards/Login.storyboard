@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-1T-122">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-1T-122">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -172,6 +172,7 @@
                         <outlet property="eMailFieldUI" destination="xN3-5q-CSe" id="r2f-bf-qoL"/>
                         <outlet property="enterButtonUI" destination="tar-Nw-7yW" id="5Tn-gH-GIX"/>
                         <outlet property="facebookButtonUI" destination="eG0-Qx-QtJ" id="B8s-xz-38f"/>
+                        <outlet property="fonUI" destination="NJ2-1T-122" id="zqh-jP-UHc"/>
                         <outlet property="googleButtonUI" destination="1JO-xc-gJ7" id="h9Q-6Y-BOt"/>
                         <outlet property="nextButtonUI" destination="Zeg-Jb-qsP" id="gqv-xE-A9Y"/>
                         <outlet property="passwordFieldUI" destination="NrP-iO-Ikr" id="4LU-MA-LpQ"/>
@@ -240,7 +241,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-8F-LZ1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nfk-8F-LZ1">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zrK-R1-Pk2">
@@ -312,6 +313,7 @@
                     <navigationItem key="navigationItem" title="Регистрация" id="gaF-v6-xyX"/>
                     <connections>
                         <outlet property="eMailFieldUI" destination="zrK-R1-Pk2" id="rAZ-Hl-kNa"/>
+                        <outlet property="fonUI" destination="nfk-8F-LZ1" id="m2J-d1-Tun"/>
                         <outlet property="loginFieldUI" destination="fhz-YO-a8m" id="zA2-SX-Iwo"/>
                         <outlet property="password2FieldUI" destination="Lc5-GZ-glI" id="QNl-UE-3LC"/>
                         <outlet property="passwordFieldUI" destination="CIW-M5-Qsg" id="3PK-at-twn"/>
@@ -335,7 +337,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backNight" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-ei-4K5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-ei-4K5">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-HV-Aew">
@@ -377,6 +379,7 @@
                     <navigationItem key="navigationItem" title="Восстановление" id="pfx-iq-KJ3"/>
                     <connections>
                         <outlet property="eMailFieldUI" destination="Bpf-HV-Aew" id="r1K-2l-7cj"/>
+                        <outlet property="fonUI" destination="IrS-ei-4K5" id="qSh-6g-SH1"/>
                         <outlet property="restoreButtonUI" destination="g1J-xB-XI1" id="AMB-eS-vH6"/>
                     </connections>
                 </viewController>
@@ -386,12 +389,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backNight" width="375" height="667"/>
         <image name="icoFacebook" width="42" height="88"/>
         <image name="icoGoogle+" width="100" height="64"/>
         <image name="icoTwitter" width="86" height="70"/>
+        <image name="startLogo" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C79-4y-5Vu"/>
+        <segue reference="2wI-mx-nSE"/>
     </inferredMetricsTieBreakers>
 </document>

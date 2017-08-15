@@ -285,4 +285,104 @@ class ArticleManager {
 
     
     
+    
+    //getArticleFromAPI
+    static func getArticleSearchFromAPI(search: String, completion: @escaping (_ error: String?) -> Void)  {
+        
+        let headers: HTTPHeaders = [
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        
+        let pathString = ConfigAPI.serverAPI.appending(ConfigAPI.getArticleSearchString).appending(search)
+        
+//        let pathStringData = pathString.data(using: String.Encoding.nonLossyASCII)
+//        let utf8 = String(data: pathStringData!, encoding: String.Encoding.utf8)
+        
+        let utf8 = pathString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+        
+        let url = URL(string: utf8!)
+        if url == nil  {
+            completion("Error URL \(String(describing: utf8))")
+            return
+        }
+        
+        let req = request(url!, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseJSON { response in
+            if response.result.isFailure  {
+                //print(response.result.error!)
+                completion(response.result.error! as? String)
+                return
+            }
+            
+            guard let array = response.result.value as? [Any] else {
+                completion("Invalid tag information received from service")
+                return
+            }
+            
+            var isErrors = false
+            
+            let moc = CoreDataManager.shared.newBackgroundContext
+            moc.performAndWait{
+                for element in array {
+                    if let tempElement = element as? [String: Any] {
+                        guard
+                            let id = tempElement["id"] as? String
+                            else {
+                                print("error - no id")
+                                isErrors = true
+                                continue
+                        }
+                        
+
+                        guard  let menuId = tempElement["section_id"] as? Int
+                            else {
+                                print("Error: no menuId")
+                                isErrors = true
+                                continue
+                        }
+                        let menu = MenuManager.getMenuByID(id: menuId, context: moc)
+                        if menu == nil {
+                            print("Error: menu == nil")
+                            isErrors = true
+                            continue
+                        }
+                        
+                        
+                        
+                        if let article = getArticleByID(id: id )  {
+                            //update
+                            article.forSearch = search
+                        } else {
+                            // New
+                            if AppDataManager.shared.currentUser == nil {
+                                continue
+                            }
+                            
+                            guard let article = Article(dictionary: tempElement as NSDictionary, menu: menu!, context: moc)   else {
+                                print("Error: Could not create a new Article from API.")
+                                isErrors = true
+                                continue
+                            }
+                            
+                            article.forSearch = search
+                          } //else
+                    }
+                }
+                CoreDataManager.shared.save(context: moc)
+            }
+            
+            
+            if isErrors == false {
+                completion(nil)
+                return
+            }
+            
+            completion("Invalid func getArticleFromAPI")
+            
+        }
+    }
+
+    
 }

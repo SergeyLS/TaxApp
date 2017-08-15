@@ -49,6 +49,7 @@
 		F78D97211F3F24FA00AB00E0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D97201F3F24FA00AB00E0 /* ColorManager.swift */; };
 		F78D97241F3F25B600AB00E0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D97231F3F25B600AB00E0 /* UIColor+Extensions.swift */; };
 		F78D97261F3F287000AB00E0 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D97251F3F287000AB00E0 /* ThemeManager.swift */; };
+		F7A397B91F433A8D00C411B0 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A397B81F433A8D00C411B0 /* DetailNewsViewController.swift */; };
 		F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A8EAE21F31CBCA00FA584E /* Main.storyboard */; };
 		F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */; };
 		F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */; };
@@ -101,6 +102,7 @@
 		F78D97201F3F24FA00AB00E0 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorManager.swift; path = TaxApp/Managers/ColorManager.swift; sourceTree = "<group>"; };
 		F78D97231F3F25B600AB00E0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "TaxApp/Extensions/UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		F78D97251F3F287000AB00E0 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeManager.swift; path = TaxApp/Managers/ThemeManager.swift; sourceTree = "<group>"; };
+		F7A397B81F433A8D00C411B0 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailNewsViewController.swift; path = TaxApp/Classes/News/DetailNewsViewController.swift; sourceTree = "<group>"; };
 		F7A8EAE21F31CBCA00FA584E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = TaxApp/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNewsViewController.swift; path = TaxApp/Classes/News/ListNewsViewController.swift; sourceTree = "<group>"; };
 		F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = TaxApp/Classes/Menu/LeftMenuViewController.swift; sourceTree = "<group>"; };
@@ -163,11 +165,11 @@
 		F77EF5CE1F3F52AD00C85957 /* Profile&Setting */ = {
 			isa = PBXGroup;
 			children = (
-				F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */,
 				F77EF5D11F3F543800C85957 /* ProfileViewController.swift */,
 				F77EF5DB1F3F9F0C00C85957 /* MessageViewController.swift */,
 				F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */,
 				F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */,
+				F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */,
 				F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */,
 			);
 			name = "Profile&Setting";
@@ -227,6 +229,7 @@
 			children = (
 				F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */,
 				F78B41B01F379466004B2959 /* ListNewsTableViewCell.swift */,
+				F7A397B81F433A8D00C411B0 /* DetailNewsViewController.swift */,
 				F78B41BC1F37B192004B2959 /* WebViewViewController.swift */,
 			);
 			name = News;
@@ -426,6 +429,7 @@
 				F78D971F1F3F247500AB00E0 /* BaseNavigationViewController.swift in Sources */,
 				F74F775E1F30B62C0006FCD7 /* AppDelegate.swift in Sources */,
 				F78B41B91F37988C004B2959 /* Article+CoreDataProperties.swift in Sources */,
+				F7A397B91F433A8D00C411B0 /* DetailNewsViewController.swift in Sources */,
 				F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */,
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
 				F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */,

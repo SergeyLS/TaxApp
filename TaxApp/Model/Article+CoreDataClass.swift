@@ -42,7 +42,8 @@ public class Article: NSManagedObject {
             let tempLink = dictionary["source_link"] as? String,
             let tempId = dictionary["id"] as? String,
             let tempDescr = dictionary["short_description"] as? String,
-            let tempPhotoLink = dictionary["imageLink"] as? String
+            let tempPhotoLink = dictionary["imageLink"] as? String,
+            let tempLinkText = dictionary["apiLink"] as? String
             
             else {
                 return nil
@@ -56,6 +57,7 @@ public class Article: NSManagedObject {
         shortDescr = tempDescr
         linkPhoto = tempPhotoLink
         isLike = false
+        linkText = tempLinkText
         
         if let tempDaties = dictionary["time"] as? [String: Any] {
             if let tempDate = tempDaties["createdAtFormatted"] as? String {

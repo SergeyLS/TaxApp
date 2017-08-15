@@ -28,6 +28,8 @@ extension Article {
     @NSManaged public var dateUpdate: Date?
     @NSManaged public var linkPhoto: String?
     @NSManaged public var isLike: Bool
+    @NSManaged public var forSearch: String
+    @NSManaged public var linkText: String?
     
     @NSManaged public var user: User?
     @NSManaged public var menu: Menu?

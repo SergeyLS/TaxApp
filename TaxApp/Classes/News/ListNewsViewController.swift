@@ -14,6 +14,12 @@ class ListNewsViewController: BaseFetchTableViewController {
     
     var menu: Menu?
     
+    lazy var searchBar:UISearchBar = UISearchBar()
+    lazy var barButtonItemSearch:UIBarButtonItem =  UIBarButtonItem()
+    
+    var isSearch: Bool = false
+    var searchString: String = ""
+    
     //==================================================
     // MARK: - General
     //==================================================
@@ -23,8 +29,23 @@ class ListNewsViewController: BaseFetchTableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        configSideMenu()
+        searchBar.frame = CGRect(x: 0, y: 0, width: view.layer.bounds.width - 80, height: 20)
+        searchBar.placeholder = "Поиск..."
+        searchBar.showsCancelButton = true
+        searchBar.delegate = self
+        searchBar.tintColor = ThemeManager.shared.mainColor()
+        for subview in searchBar.subviews[0].subviews {
+            if let cancelButton = subview as? UIButton{
+                cancelButton.setTitleColor(UIColor.white, for: .normal)
+            }
+        }
+        barButtonItemSearch = UIBarButtonItem(customView:searchBar)
         
+        
+        
+        configSideMenu()
+        changeRightBarButton()
+        // configFetchController()
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,13 +55,16 @@ class ListNewsViewController: BaseFetchTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if menu == nil {
-            navigationItem.title = NSLocalizedString("Все новости", comment: "ListNewsViewController - navigationItem.title")
-            AppDataManager.shared.currentMenu = ""
-        } else {
-            navigationItem.title = menu?.title
+        if isSearch {
+            isSearch = false
+            searchString = ""
+            fetchController = nil
+            performFetch()
+            reloadData()
         }
+        
+        changeTitleNavigation()
+        changeRightBarButton()
     }
     
     
@@ -61,6 +85,10 @@ class ListNewsViewController: BaseFetchTableViewController {
                 if menu != nil {
                     arrayPredicate.append(NSPredicate(format: "menu = %@", menu!))
                 }
+                if searchString != "" {
+                    arrayPredicate.append(NSPredicate(format: "forSearch CONTAINS[cd] %@", searchString))
+                }
+                
                 if AppDataManager.shared.currentUser != nil {
                     arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
                 }
@@ -80,6 +108,7 @@ class ListNewsViewController: BaseFetchTableViewController {
     }
     
     internal override func requestData() {
+        print("[ListNewsViewController] - requestData")
         
         MenuManager.getMenuFromAPI() { (errorMenu) in
             if let error = errorMenu  {
@@ -106,9 +135,42 @@ class ListNewsViewController: BaseFetchTableViewController {
         SideMenuManager.menuWidth = view.layer.bounds.width * 0.8 //80%
     }
     
+    func changeRightBarButton()  {
+        
+        if isSearch {
+            self.navigationItem.rightBarButtonItem = self.barButtonItemSearch
+            self.navigationItem.title = ""
+        } else {
+            
+            let buttonIcon = UIImage(named: "buttonSearch")
+            let barButtonItemImage = UIBarButtonItem(title: "",
+                                                     style: UIBarButtonItemStyle.done,
+                                                     target: self,
+                                                     action: #selector(ListNewsViewController.myRightSideBarButtonItemTapped(gesture:)))
+            barButtonItemImage.image = buttonIcon
+            self.navigationItem.rightBarButtonItem = barButtonItemImage
+            self.changeTitleNavigation()
+        }
+    }
+    
+    func changeTitleNavigation()  {
+        if menu == nil {
+            navigationItem.title = NSLocalizedString("Все новости", comment: "ListNewsViewController - navigationItem.title")
+            AppDataManager.shared.currentMenu = ""
+        } else {
+            navigationItem.title = menu?.title
+        }
+    }
+    
     //==================================================
     // MARK: - action
     //==================================================
+    func myRightSideBarButtonItemTapped(gesture: UIGestureRecognizer) {
+        isSearch = true
+        changeRightBarButton()
+        searchBar.becomeFirstResponder()
+    }
+    
     
     
     //==================================================
@@ -119,7 +181,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         if (segue.identifier == "openWeb") {
             let destinationController = segue.destination as! WebViewViewController
             if  let article = sender as? Article {
-                destinationController.link = article.link
+                destinationController.link = article.linkText
             }
         }
         
@@ -193,3 +255,53 @@ extension ListNewsViewController {
     //    }
 }
 
+
+//==================================================
+// MARK: - UISearchResultsUpdating
+//==================================================
+extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearch = false
+        menu = nil
+        changeRightBarButton()
+        searchString = ""
+        fetchController = nil
+        performFetch()
+        reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            searchString = searchText
+        }
+        
+        if searchString.characters.count < 4 {
+            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 4-х букв!", theme: .warning, view: self.view)
+        }
+        
+        searchBar.endEditing(true)
+        fetchController = nil
+        performFetch()
+        reloadData()
+        
+        ArticleManager.getArticleSearchFromAPI(search: searchString) { (errorArticle) in
+            if let error = errorArticle  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                return
+            }
+            
+        }
+    }
+    
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // do your thing..
+        
+    }
+}

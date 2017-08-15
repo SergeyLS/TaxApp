@@ -13,6 +13,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     
     @IBOutlet weak var photoUI: UIImageView!
     @IBOutlet weak var nameUI: UILabel!
+    @IBOutlet weak var fonUI: UIImageView!
     
     //==================================================
     // MARK: - General
@@ -31,6 +32,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
         photoUI.isUserInteractionEnabled = true
 
         loadUserInfo()
+        configTheme()
       }
     
     override func didReceiveMemoryWarning() {
@@ -41,6 +43,10 @@ class LeftMenuViewController: BaseFetchTableViewController {
     //==================================================
     // MARK: - func
     //==================================================
+    func configTheme()  {
+        fonUI.image = ThemeManager.shared.findImage(name: "menuFon", themeApp: ThemeManager.shared.currentTheme())
+    }
+
     func loadUserInfo() {
         if let user = AppDataManager.shared.currentUser  {
             photoUI.image = user.photoImage
@@ -58,6 +64,9 @@ class LeftMenuViewController: BaseFetchTableViewController {
             
         }
     }
+    
+    
+
     
     
     //==================================================
@@ -147,6 +156,7 @@ extension LeftMenuViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LeftMenuTableViewCell
         let menu = fetchController.object(at: indexPath) as! Menu
         
+        cell.nextImageUI.image = ThemeManager.shared.findImage(name: "tableNext", themeApp: ThemeManager.shared.currentTheme())
         if menu.title == AppDataManager.shared.currentMenu {
             cell.nextImageUI.isHidden = false
         } else {

@@ -25,6 +25,7 @@ class ConfigAPI {
     static var getArticleString = "/article/section/"
     static var getNewsString = "/news"
     static var getArticleLikeString = "/article/like/"
+    static var getArticleSearchString = "/article/search/"
     
     //login
     static func loginURL() -> URL {

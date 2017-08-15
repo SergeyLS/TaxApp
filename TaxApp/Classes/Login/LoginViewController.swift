@@ -24,6 +24,9 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var eMailFieldUI: UITextField!
     @IBOutlet weak var passwordFieldUI: UITextField!
     
+    @IBOutlet weak var fonUI: UIImageView!
+    
+    
     
     //==================================================
     // MARK: - General
@@ -40,6 +43,8 @@ class LoginViewController: BaseViewController {
         configButton(button: enterButtonUI)
         configButton(button: nextButtonUI)
         configButton(button: signUpButtonUI)
+        
+        configTheme()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +58,13 @@ class LoginViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    
+    //==================================================
+    // MARK: - func
+    //==================================================
+    func configTheme()  {
+        fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
+    }
+
     //==================================================
     // MARK: - action
     //==================================================

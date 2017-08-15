@@ -17,6 +17,7 @@ class SignUpViewController: BaseViewController {
     
     @IBOutlet weak var passwordFieldUI: UITextField!
     @IBOutlet weak var password2FieldUI: UITextField!
+    @IBOutlet weak var fonUI: UIImageView!
     
     
     //==================================================
@@ -31,6 +32,8 @@ class SignUpViewController: BaseViewController {
         password2FieldUI.delegate = self
         
         configButton(button: signUpButtonUI)
+        
+        configTheme()
         
     }
     
@@ -47,7 +50,13 @@ class SignUpViewController: BaseViewController {
         navigationItem.title = NSLocalizedString("Регистрация", comment: "SignUpViewController - navigationItem.title")
     }
 
-    
+    //==================================================
+    // MARK: - func
+    //==================================================
+    func configTheme()  {
+        fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
+    }
+
     
     //==================================================
     // MARK: - action
