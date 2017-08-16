@@ -178,11 +178,9 @@ class ListNewsViewController: BaseFetchTableViewController {
     //==================================================
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == "openWeb") {
-            let destinationController = segue.destination as! WebViewViewController
-            if  let article = sender as? Article {
-                destinationController.link = article.linkText
-            }
+        if (segue.identifier == "fullText") {
+            let destinationController = segue.destination as! DetailNewsViewController
+             destinationController.article = sender as! Article
         }
         
     }
@@ -242,7 +240,7 @@ extension ListNewsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = fetchController.object(at: indexPath) as! Article
-        self.performSegue(withIdentifier: "openWeb", sender: article)
+        self.performSegue(withIdentifier: "fullText", sender: article)
     }
     
     

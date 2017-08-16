@@ -123,6 +123,8 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         switch row {
+        case 0:
+            self.performSegue(withIdentifier: "editProfile", sender: nil)
         case 1:
             self.performSegue(withIdentifier: "theme", sender: nil)
         default:

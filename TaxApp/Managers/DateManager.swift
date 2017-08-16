@@ -25,7 +25,12 @@ class DateManager {
     
     static func dateAndTimeToString(date: Date) -> String {
         
-        return DateFormatter.localizedString(from: date, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.short)
+        //return DateFormatter.localizedString(from: date, dateStyle: DateFormatter.Style.short, timeStyle: DateFormatter.Style.short)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy, HH:mm"
+        
+        return formatter.string(from: date)
+
     }
     
     

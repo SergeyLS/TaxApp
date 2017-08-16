@@ -20,7 +20,12 @@ class ListNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var nameMenuUI: UILabel!
     @IBOutlet weak var dateUI: UILabel!
     @IBOutlet weak var indicatorUI: UIActivityIndicatorView!
+  
     @IBOutlet weak var likeButtonUI: UIButton!
+    @IBOutlet weak var shareButtonUI: UIButton!
+    @IBOutlet weak var mailButtonUI: UIButton!
+    @IBOutlet weak var payButtonUI: UIButton!
+    
     
     var article: Article!
     var mainView: UIView!
@@ -47,6 +52,9 @@ class ListNewsTableViewCell: UITableViewCell {
         nameMenuUI.text = nil
         dateUI.text = nil
         likeButtonUI.setTitle(nil, for: .normal)
+        shareButtonUI.setTitle(nil, for: .normal)
+        mailButtonUI.setTitle(nil, for: .normal)
+        payButtonUI.setTitle(nil, for: .normal)
       }
 
     

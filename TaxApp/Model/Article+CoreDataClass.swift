@@ -66,8 +66,10 @@ public class Article: NSManagedObject {
             if let tempDate = tempDaties["updatedAtFormatted"] as? String {
                 dateUpdate =  DateManager.datefromString(string: tempDate)
             }
-
         }
+        
+        dateCreated = dateCreated ?? Date()
+        dateUpdate = dateUpdate ?? Date()
  
         self.menu = MenuManager.getMenuByID(id: Int(menu.id), context: context)
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)

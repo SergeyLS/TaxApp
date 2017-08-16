@@ -156,7 +156,7 @@ extension LeftMenuViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LeftMenuTableViewCell
         let menu = fetchController.object(at: indexPath) as! Menu
         
-        cell.nextImageUI.image = ThemeManager.shared.findImage(name: "tableNext", themeApp: ThemeManager.shared.currentTheme())
+        cell.nextImageUI.image = ThemeManager.shared.findImage(name: "menuTableNext", themeApp: ThemeManager.shared.currentTheme())
         if menu.title == AppDataManager.shared.currentMenu {
             cell.nextImageUI.isHidden = false
         } else {

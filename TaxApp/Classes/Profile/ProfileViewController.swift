@@ -22,8 +22,9 @@ class ProfileViewController: BaseImageViewController {
         super.viewDidLoad()
         
         photoUI.layer.cornerRadius = photoUI.bounds.size.height / 2
+        
         //image tap
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageProfileTapped(gesture:)))
         photoUI.addGestureRecognizer(tapGesture)
         photoUI.isUserInteractionEnabled = true
         
@@ -75,6 +76,18 @@ class ProfileViewController: BaseImageViewController {
         }
     }
     
+    //==================================================
+    // MARK: - action
+    //==================================================
+    func imageProfileTapped(gesture: UIGestureRecognizer) {
+        if AppDataManager.shared.userLogin == User.noLoginUserKey  {
+            UserManager.messageNoLogin(view: view)
+            return
+        }
+        self.performSegue(withIdentifier: "editProfile", sender: nil)
+
+     }
+
     
     //==================================================
     // MARK: - Navigation
@@ -136,8 +149,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = UITableViewCell()
             return cell
         }
-        
-    }
+     }
     
     //MARK: UITableViewDelegate
     
@@ -145,8 +157,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let row = indexPath.row
         switch row {
         case 0:
+            if AppDataManager.shared.userLogin == User.noLoginUserKey  {
+                UserManager.messageNoLogin(view: view)
+                return
+            }
             self.performSegue(withIdentifier: "message", sender: nil)
         case 1:
+            if AppDataManager.shared.userLogin == User.noLoginUserKey  {
+                UserManager.messageNoLogin(view: view)
+                return
+            }
             self.performSegue(withIdentifier: "setting", sender: nil)
         case 2:
             AppDataManager.shared.userLogin = ""

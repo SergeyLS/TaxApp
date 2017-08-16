@@ -40,6 +40,7 @@
 		F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC51F310D820057EBA5 /* AppDataManager.swift */; };
 		F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */; };
 		F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC71F310D820057EBA5 /* CoreDataManager.swift */; };
+		F784AD581F44E7FF00986E1F /* BaseFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */; };
 		F78B41B11F379466004B2959 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B41B01F379466004B2959 /* ListNewsTableViewCell.swift */; };
 		F78B41B81F37988C004B2959 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B41B61F37988C004B2959 /* Article+CoreDataClass.swift */; };
 		F78B41B91F37988C004B2959 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B41B71F37988C004B2959 /* Article+CoreDataProperties.swift */; };
@@ -53,6 +54,7 @@
 		F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A8EAE21F31CBCA00FA584E /* Main.storyboard */; };
 		F7A8EAE71F31D64200FA584E /* ListNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */; };
 		F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */; };
+		F7B495C71F44832600A40D74 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B495C61F44832600A40D74 /* EditProfileViewController.swift */; };
 		F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C34C4B1F3B197000B330DE /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,7 @@
 		F7829BC51F310D820057EBA5 /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDataManager.swift; path = TaxApp/Managers/AppDataManager.swift; sourceTree = "<group>"; };
 		F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationManager.swift; path = TaxApp/Managers/AuthorizationManager.swift; sourceTree = "<group>"; };
 		F7829BC71F310D820057EBA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = TaxApp/Managers/CoreDataManager.swift; sourceTree = "<group>"; };
+		F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFieldTableViewCell.swift; path = TaxApp/Classes/Base/BaseFieldTableViewCell.swift; sourceTree = "<group>"; };
 		F78B41B01F379466004B2959 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNewsTableViewCell.swift; path = TaxApp/Classes/News/ListNewsTableViewCell.swift; sourceTree = "<group>"; };
 		F78B41B61F37988C004B2959 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Article+CoreDataClass.swift"; path = "TaxApp/Model/Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F78B41B71F37988C004B2959 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Article+CoreDataProperties.swift"; path = "TaxApp/Model/Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		F7A8EAE61F31D64200FA584E /* ListNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNewsViewController.swift; path = TaxApp/Classes/News/ListNewsViewController.swift; sourceTree = "<group>"; };
 		F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = TaxApp/Classes/Menu/LeftMenuViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B495C61F44832600A40D74 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = TaxApp/Classes/Profile/EditProfileViewController.swift; sourceTree = "<group>"; };
 		F7C34C4B1F3B197000B330DE /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = TaxApp/Managers/DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,7 @@
 				F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */,
 				F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */,
 				F78D971E1F3F247500AB00E0 /* BaseNavigationViewController.swift */,
+				F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */,
 			);
 			name = BaseViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */,
 				F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */,
 				F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */,
+				F7B495C61F44832600A40D74 /* EditProfileViewController.swift */,
 			);
 			name = "Profile&Setting";
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				F7A397B91F433A8D00C411B0 /* DetailNewsViewController.swift in Sources */,
 				F7829BBB1F3100970057EBA5 /* TaxApp.xcdatamodeld in Sources */,
 				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
+				F784AD581F44E7FF00986E1F /* BaseFieldTableViewCell.swift in Sources */,
 				F7829BC21F310BA70057EBA5 /* User+CoreDataClass.swift in Sources */,
 				F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */,
 				F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */,
@@ -442,6 +449,7 @@
 				F78B41BB1F37A17D004B2959 /* ArticleManager.swift in Sources */,
 				F7829BC31F310BA70057EBA5 /* User+CoreDataProperties.swift in Sources */,
 				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
+				F7B495C71F44832600A40D74 /* EditProfileViewController.swift in Sources */,
 				F78B41B11F379466004B2959 /* ListNewsTableViewCell.swift in Sources */,
 				F78B41BD1F37B192004B2959 /* WebViewViewController.swift in Sources */,
 				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,
