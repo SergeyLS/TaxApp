@@ -28,6 +28,10 @@ class DetailNewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let menu = article.menu {
+            navigationItem.title = menu.title
+        }
+        
         photoUI.image = article.photoImage
         titleUI.text = article.title
         dateUI.text = DateManager.dateAndTimeToString(date: article.dateCreated!)
@@ -52,13 +56,25 @@ class DetailNewsViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configTheme()
+    }
+    
+    
     deinit {
         stopObservingHeight()
     }
     
+    //==================================================
+    // MARK: - func
+    //==================================================
+    func configTheme()  {
+        navigationController?.navigationBar.barTintColor = ThemeManager.shared.mainColor()
+    }
     
     //==================================================
-    // MARK: - observ
+    // MARK: - observing
     //==================================================
     
     func startObservingHeight() {

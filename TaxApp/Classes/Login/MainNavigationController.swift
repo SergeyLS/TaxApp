@@ -47,7 +47,7 @@ class MainNavigationController: UINavigationController {
         setViewControllers([splashViewController], animated:false)
         
         navBarUI.barTintColor = ThemeManager.shared.mainColor()
-          
+        
         addObservers()
     }
     

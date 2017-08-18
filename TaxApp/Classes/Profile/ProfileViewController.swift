@@ -44,17 +44,19 @@ class ProfileViewController: BaseImageViewController {
         super.viewWillAppear(animated)
         
         navigationItem.title = NSLocalizedString("Мой профиль", comment: "ProfileViewController - navigationItem.title")
-         configTheme()
-        tableView.reloadData()
-    }
+        configTheme()
+        loadUserInfo()
+     }
     
     
     //==================================================
     // MARK: - func
     //==================================================
     func configTheme()  {
+        navigationController?.navigationBar.barTintColor = ThemeManager.shared.mainColor()
         fonUI.image = ThemeManager.shared.findImage(name: "profileFon", themeApp: ThemeManager.shared.currentTheme())
         nameUI.textColor = ThemeManager.shared.mainColor()
+        tableView.reloadData()
     }
     
     

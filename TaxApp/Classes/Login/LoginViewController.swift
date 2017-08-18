@@ -64,7 +64,7 @@ class LoginViewController: BaseViewController {
     func configTheme()  {
         fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
     }
-
+    
     //==================================================
     // MARK: - action
     //==================================================
@@ -106,25 +106,33 @@ class LoginViewController: BaseViewController {
                 return
             }
             
-            UserManager.getUserFromAPI(token: AppDataManager.shared.userToken) { (errorUser) in
-                if let error = errorUser  {
+            CategoryManager.getCategoryFromAPI() { (error) in
+                if let error = error  {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                     return
                 }
                 
-                if AppDataManager.shared.currentUser != nil {
-                    UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
-                        if errorAvatar != nil {
-                            print(errorAvatar!)
-                            return
+                
+                UserManager.getUserFromAPI(token: AppDataManager.shared.userToken) { (errorUser) in
+                    if let error = errorUser  {
+                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                        return
+                    }
+                    
+                    if AppDataManager.shared.currentUser != nil {
+                        UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
+                            if errorAvatar != nil {
+                                print(errorAvatar!)
+                                return
+                            }
                         }
                     }
-                }
-                
-                MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
-                self.performSegue(withIdentifier: "openNews", sender: nil)
-            }
-        }
+                    
+                    MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                    self.performSegue(withIdentifier: "openNews", sender: nil)
+                } //getUserFromAPI
+            } //getCategoryFromAPI
+        }//login
         
     }
     
@@ -139,19 +147,19 @@ class LoginViewController: BaseViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success( _, _, let accessToken):
-//                print("Logged into Facebook")
-//                print(grantedPermissions)
-//                print(declinedPermissions)
-//                // Save Facebook info in cookies
-//                let defaults = UserDefaults.standard
-//                defaults.set(accessToken.authenticationToken, forKey: "facebookAuthenticationToken")
-//                defaults.set(accessToken.userId, forKey: "facebookUserID")
+                //                print("Logged into Facebook")
+                //                print(grantedPermissions)
+                //                print(declinedPermissions)
+                //                // Save Facebook info in cookies
+                //                let defaults = UserDefaults.standard
+                //                defaults.set(accessToken.authenticationToken, forKey: "facebookAuthenticationToken")
+                //                defaults.set(accessToken.userId, forKey: "facebookUserID")
                 AuthorizationManager.login(socialNetwork: .facebook, userId: accessToken.userId!) { (error) in
                     if let error = error  {
                         MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                         return
                     }
-
+                    
                     
                 }
             }

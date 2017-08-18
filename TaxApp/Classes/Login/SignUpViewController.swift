@@ -49,19 +49,19 @@ class SignUpViewController: BaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = NSLocalizedString("Регистрация", comment: "SignUpViewController - navigationItem.title")
     }
-
+    
     //==================================================
     // MARK: - func
     //==================================================
     func configTheme()  {
         fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
     }
-
+    
     
     //==================================================
     // MARK: - action
     //==================================================
-   
+    
     @IBAction func signUpAction(_ sender: UIButton) {
         
         let password = passwordFieldUI.text!
@@ -85,7 +85,7 @@ class SignUpViewController: BaseViewController {
             MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
             return
         }
- 
+        
         
         AuthorizationManager.registration(eMail: eMail, login: login, password: password) { (error) in
             if let error = error  {
@@ -93,19 +93,25 @@ class SignUpViewController: BaseViewController {
                 return
             }
             
-            AppDataManager.shared.userLogin = login
-            
-            if let user = User(userName: login) {
-                user.eMail = eMail
-                user.lastLogin = Date()
-                CoreDataManager.shared.saveContext()
+            CategoryManager.getCategoryFromAPI() { (error) in
+                if let error = error  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
                 
-                MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
-                self.performSegue(withIdentifier: "openNews", sender: nil)
-            }
-
-            
-         }
+                
+                AppDataManager.shared.userLogin = login
+                
+                if let user = User(userName: login) {
+                    user.eMail = eMail
+                    user.lastLogin = Date()
+                    CoreDataManager.shared.saveContext()
+                    
+                    MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                    self.performSegue(withIdentifier: "openNews", sender: nil)
+                }
+             } //getCategoryFromAPI
+        } //registration
         
     }
     
@@ -116,6 +122,6 @@ class SignUpViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openNews" {
         }
-     }
-   
+    }
+    
 }

@@ -55,15 +55,15 @@ extension BaseImageViewController: UIImagePickerControllerDelegate, UINavigation
         imagePicker.delegate = self
         
         
-        let alert:UIAlertController=UIAlertController(title: NSLocalizedString("Where to take a photo?", comment: "Select photo"), message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alert:UIAlertController=UIAlertController(title: NSLocalizedString("Где взять фото?", comment: "Select photo"), message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.view.tintColor = ThemeManager.shared.mainColor()
         
-        let cameraAction = UIAlertAction(title: NSLocalizedString("Camera", comment: "From camera"), style: UIAlertActionStyle.default)
+        let cameraAction = UIAlertAction(title: NSLocalizedString("Камера", comment: "From camera"), style: UIAlertActionStyle.default)
         {
             UIAlertAction in
             self.openCamera(imagePicker)
         }
-        let gallaryAction = UIAlertAction(title: NSLocalizedString("Gallery", comment: "From gallery"), style: UIAlertActionStyle.default)
+        let gallaryAction = UIAlertAction(title: NSLocalizedString("Галерея", comment: "From gallery"), style: UIAlertActionStyle.default)
         {
             UIAlertAction in
             self.openGallary(imagePicker)

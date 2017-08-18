@@ -46,7 +46,7 @@ class AuthorizationManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion("Response result failure")
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -124,7 +124,7 @@ class AuthorizationManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion("Response result failure")
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -195,7 +195,7 @@ class AuthorizationManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion("Response result failure")
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -259,7 +259,7 @@ class AuthorizationManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion(response.result.error! as? String)
+                completion(response.result.error?.localizedDescription)
             }
             
             guard let responseJSON = response.result.value as? [String: Any] else {

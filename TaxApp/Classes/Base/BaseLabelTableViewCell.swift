@@ -1,17 +1,19 @@
 //
-//  BaseFieldTableViewCell.swift
+//  BaseLabelTableViewCell.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/16/17.
+//  Created by Sergey Leskov on 8/17/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
 import UIKit
 
-class BaseFieldTableViewCell: UITableViewCell {
+class BaseLabelTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var nameUI: UILabel!
-    @IBOutlet weak var fieldUI: UITextField!
+    @IBOutlet weak var selectUI: UILabel!
+    @IBOutlet weak var nextUI: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +25,13 @@ class BaseFieldTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
     
     override func prepareForReuse() {
         nameUI.text = nil
-        fieldUI.text = nil
-    }
+        selectUI.text = nil
+     }
 
+
+    
 }

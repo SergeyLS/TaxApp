@@ -19,6 +19,7 @@ class ConfigAPI {
     
     static var getUserString = "/user"
     static var getUserAvatarString = "/user/avatar"
+    static var getCategoryString = "/user/categories"
     
     static var getMenuString = "/menu"
     
@@ -48,6 +49,9 @@ class ConfigAPI {
     }
     static func getUserAvatarURL() -> URL {
         return URL(string: serverAPI.appending(getUserAvatarString))!
+    }
+    static func getCategoryURL() -> URL {
+        return URL(string: serverAPI.appending(getCategoryString))!
     }
     
     //menu

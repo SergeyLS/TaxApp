@@ -50,6 +50,14 @@ public class Article: NSManagedObject {
         }
         
         
+        let priceString = dictionary["price"] as? String ?? ""
+        
+        if let priceTemp = Double(priceString) {
+            price = priceTemp
+        }
+        
+        likes = dictionary["likes"] as? Int64 ?? 0
+        
         id = tempId
         title = tempTitle
         isCanOpen = tempCanOpen
@@ -76,5 +84,36 @@ public class Article: NSManagedObject {
         
         print("add \(Article.type): " + title!)
     }
+    
+    
+    func update(article: Article, menu: Menu, dictionary: NSDictionary, context: NSManagedObjectContext = CoreDataManager.shared.viewContext){
+        
+        title = dictionary["title"] as? String ?? ""
+        isCanOpen = dictionary["canOpen"] as? Bool ?? true
+        link = dictionary["source_link"] as? String ?? ""
+        shortDescr = dictionary["short_description"] as? String ?? ""
+        linkPhoto = dictionary["imageLink"] as? String ?? ""
+        linkText = dictionary["apiLink"] as? String ?? ""
+        price = dictionary["price"] as? Double ?? 0
+        likes = dictionary["likes"] as? Int64 ?? 0
+        
+        if let tempDaties = dictionary["time"] as? [String: Any] {
+            if let tempDate = tempDaties["createdAtFormatted"] as? String {
+                dateCreated =  DateManager.datefromString(string: tempDate)
+            }
+            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
+                dateUpdate =  DateManager.datefromString(string: tempDate)
+            }
+        }
+        
+        dateCreated = dateCreated ?? Date()
+        dateUpdate = dateUpdate ?? Date()
+        
+        self.menu = MenuManager.getMenuByID(id: Int(menu.id), context: context)
+        self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)
+        
+        print("update \(Article.type): " + title!)
+    }
+
 
 }

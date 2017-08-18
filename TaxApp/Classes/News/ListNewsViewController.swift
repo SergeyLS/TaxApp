@@ -65,6 +65,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         
         changeTitleNavigation()
         changeRightBarButton()
+        configTheme()
     }
     
     
@@ -129,6 +130,11 @@ class ListNewsViewController: BaseFetchTableViewController {
     //==================================================
     // MARK: - func
     //==================================================
+    func configTheme()  {
+        navigationController?.navigationBar.barTintColor = ThemeManager.shared.mainColor()
+    }
+    
+    
     func configSideMenu()  {
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuFadeStatusBar = false
@@ -180,7 +186,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         
         if (segue.identifier == "fullText") {
             let destinationController = segue.destination as! DetailNewsViewController
-             destinationController.article = sender as! Article
+            destinationController.article = sender as! Article
         }
         
     }
@@ -216,15 +222,14 @@ extension ListNewsViewController {
         } else {
             cell.likeButtonUI.setImage(UIImage(named: "buttonLike"), for: .normal)
         }
+        cell.likeButtonUI.setTitle(" " + String(article.likes), for: .normal)
         
-        //        cell.indicatorUI.startAnimating()
-        //
-        //        DispatchQueue.main.async {
-        //            ArticleManager.getImage(article: article, completion: { (image) in
-        //                cell.photoUI.image = image
-        //                cell.indicatorUI.stopAnimating()
-        //              })
-        //        }
+        if article.price > 0 {
+            cell.payButtonUI.setTitle(" " + String(article.price), for: .normal)
+        } else {
+            cell.payButtonUI.setTitle(" free", for: .normal)
+        }
+        
         
         if article.photoImage == nil {
             cell.indicatorUI.startAnimating()
@@ -240,10 +245,16 @@ extension ListNewsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = fetchController.object(at: indexPath) as! Article
-        self.performSegue(withIdentifier: "fullText", sender: article)
+        
+        if article.isCanOpen {
+            self.performSegue(withIdentifier: "fullText", sender: article)
+        } else {
+            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error, view: self.view)
+        }
+        
     }
     
-    
+   
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
     //    }

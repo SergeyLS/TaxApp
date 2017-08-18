@@ -24,6 +24,8 @@ extension User {
     @NSManaged public var lastLogin: Date?
     @NSManaged public var photo: Data?
     
+    @NSManaged public var category: Category?
+    
     @NSManaged public var menuMany: NSSet?
     @NSManaged public var articlies: NSSet?
 

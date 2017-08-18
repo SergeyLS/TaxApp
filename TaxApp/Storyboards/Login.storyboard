@@ -21,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-1T-122">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJ2-1T-122">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-iO-Ikr">
                                 <rect key="frame" x="20" y="124" width="335" height="44"/>
@@ -150,14 +149,18 @@
                             <constraint firstItem="xN3-5q-CSe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="KBR-MD-Ilr"/>
                             <constraint firstAttribute="trailing" secondItem="NrP-iO-Ikr" secondAttribute="trailing" constant="20" id="Qmv-M1-4PK"/>
                             <constraint firstItem="NrP-iO-Ikr" firstAttribute="top" secondItem="xN3-5q-CSe" secondAttribute="bottom" constant="20" id="SA8-ED-drU"/>
+                            <constraint firstItem="NJ2-1T-122" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SRb-GK-xJY"/>
                             <constraint firstItem="biE-4a-5rg" firstAttribute="leading" secondItem="xN3-5q-CSe" secondAttribute="leading" id="TJW-Wz-fR6"/>
                             <constraint firstItem="sXv-NL-ek1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="TPo-Ro-LOR"/>
+                            <constraint firstItem="NJ2-1T-122" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VO6-y0-5xS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zeg-Jb-qsP" secondAttribute="bottom" constant="25" id="Ybm-6K-tnc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NJ2-1T-122" secondAttribute="bottom" id="ZtM-As-IrC"/>
                             <constraint firstItem="Zeg-Jb-qsP" firstAttribute="height" secondItem="xN3-5q-CSe" secondAttribute="height" id="bI6-sd-V3j"/>
                             <constraint firstItem="tar-Nw-7yW" firstAttribute="top" secondItem="sXv-NL-ek1" secondAttribute="bottom" id="dYT-zE-4g1"/>
                             <constraint firstItem="tar-Nw-7yW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="dv3-ay-qVA"/>
                             <constraint firstItem="oBM-25-eAu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="biE-4a-5rg" secondAttribute="trailing" constant="10" id="ebz-Kl-CQ4"/>
                             <constraint firstItem="NrP-iO-Ikr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="gsa-pn-BwP"/>
+                            <constraint firstAttribute="trailing" secondItem="NJ2-1T-122" secondAttribute="trailing" id="jvQ-Au-HJc"/>
                             <constraint firstItem="Zeg-Jb-qsP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p2x-oq-N4G"/>
                             <constraint firstAttribute="trailing" secondItem="sXv-NL-ek1" secondAttribute="trailing" constant="20" id="q0b-kO-yvZ"/>
                             <constraint firstItem="oBM-25-eAu" firstAttribute="height" secondItem="xN3-5q-CSe" secondAttribute="height" id="qIC-tV-B53"/>

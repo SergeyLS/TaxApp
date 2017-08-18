@@ -50,7 +50,7 @@ class ArticleManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion(response.result.error! as? String)
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -130,7 +130,7 @@ class ArticleManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion(response.result.error! as? String)
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -152,15 +152,14 @@ class ArticleManager {
                                 continue
                         }
                         
+                        //menu
                         guard  let menuId = tempElement["section_id"] as? Int
                             else {
                                 print("Error: no menuId")
                                 isErrors = true
                                 continue
                         }
-
                         let menu = MenuManager.getMenuByID(id: menuId, context: moc)
-                        
                         if menu == nil {
                             print("Error: menu == nil")
                             isErrors = true
@@ -168,22 +167,33 @@ class ArticleManager {
                         }
                         
                         //dateUpdate
-                        //                        if let tempDaties = tempElement["time"] as? [String: Any] {
-                        //                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
-                        //                                print(DateManager.datefromString(string: tempDate))
-                        //                            }
-                        //                        }
+                        var dateUpdate = DateManager.dateNil
+                        if let tempDaties = tempElement["time"] as? [String: Any] {
+                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
+                                dateUpdate = DateManager.datefromString(string: tempDate)
+                            }
+                        }
+                        
+                        //likes
+                        let likes = tempElement["likes"] as? Int64 ?? 0
                         
                         
-                        if let _ = getArticleByID(id: id )  {
+                        //go
+                        if let article = getArticleByID(id: id )  {
                             //update
+                            if dateUpdate > article.dateUpdate! {
+                                article.update(article: article, menu: menu!, dictionary: tempElement as NSDictionary, context: moc)
+                            } else {
+                                if article.likes != likes {
+                                    article.likes = likes
+                                }
+                            }
                             
                         } else {
                             // New
                             if AppDataManager.shared.currentUser == nil {
                                 continue
                             }
-                            
                             
                             guard let _ = Article(dictionary: tempElement as NSDictionary, menu: menu!, context: moc)   else {
                                 print("Error: Could not create a new Article from API.")
@@ -207,7 +217,7 @@ class ArticleManager {
             
         }
     }
-
+    
     
     
     static func getImage(article: Article, completion: @escaping (_ image: UIImage) -> Void)  {
@@ -249,7 +259,7 @@ class ArticleManager {
     
     //getArticleLike
     static func getArticleLike(article: Article, completion: @escaping (_ error: String?) -> Void)  {
-
+        
         let headers: HTTPHeaders = [
             "content-type": "application/json",
             "cache-control": "no-cache"
@@ -262,7 +272,7 @@ class ArticleManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion(response.result.error! as? String)
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -271,8 +281,12 @@ class ArticleManager {
                 return
             }
             
-            if (array["likes"] as? Int) != nil {
-                //print(countLikes)
+            if let countLikes = (array["likes"] as? Int)  {
+                
+                article.isLike = true
+                article.likes = Int64(countLikes)
+                CoreDataManager.shared.saveContext()
+                
                 completion(nil)
                 return
             }
@@ -282,7 +296,7 @@ class ArticleManager {
             
         }
     }
-
+    
     
     
     
@@ -296,8 +310,8 @@ class ArticleManager {
         
         let pathString = ConfigAPI.serverAPI.appending(ConfigAPI.getArticleSearchString).appending(search)
         
-//        let pathStringData = pathString.data(using: String.Encoding.nonLossyASCII)
-//        let utf8 = String(data: pathStringData!, encoding: String.Encoding.utf8)
+        //        let pathStringData = pathString.data(using: String.Encoding.nonLossyASCII)
+        //        let utf8 = String(data: pathStringData!, encoding: String.Encoding.utf8)
         
         let utf8 = pathString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
         
@@ -312,7 +326,7 @@ class ArticleManager {
         req.responseJSON { response in
             if response.result.isFailure  {
                 //print(response.result.error!)
-                completion(response.result.error! as? String)
+                completion(response.result.error?.localizedDescription)
                 return
             }
             
@@ -335,7 +349,7 @@ class ArticleManager {
                                 continue
                         }
                         
-
+                        
                         guard  let menuId = tempElement["section_id"] as? Int
                             else {
                                 print("Error: no menuId")
@@ -367,7 +381,7 @@ class ArticleManager {
                             }
                             
                             article.forSearch = search
-                          } //else
+                        } //else
                     }
                 }
                 CoreDataManager.shared.save(context: moc)
@@ -383,6 +397,6 @@ class ArticleManager {
             
         }
     }
-
+    
     
 }

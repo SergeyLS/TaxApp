@@ -28,6 +28,8 @@ public class User: NSManagedObject {
         return "\(self.firstName == nil ? "" : self.firstName!) \(self.lastName == nil ? "" : self.lastName!)"
     }
     
+
+    
     //==================================================
     // MARK: - Initializers
     //==================================================

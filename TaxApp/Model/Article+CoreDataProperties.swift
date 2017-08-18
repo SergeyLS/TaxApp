@@ -30,6 +30,7 @@ extension Article {
     @NSManaged public var isLike: Bool
     @NSManaged public var forSearch: String
     @NSManaged public var linkText: String?
+    @NSManaged public var likes: Int64
     
     @NSManaged public var user: User?
     @NSManaged public var menu: Menu?

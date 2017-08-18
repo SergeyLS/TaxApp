@@ -1,17 +1,16 @@
 //
-//  BaseFieldTableViewCell.swift
+//  SelectCategoryTableViewCell.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/16/17.
+//  Created by Sergey Leskov on 8/17/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
 import UIKit
 
-class BaseFieldTableViewCell: UITableViewCell {
+class SelectCategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameUI: UILabel!
-    @IBOutlet weak var fieldUI: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +26,6 @@ class BaseFieldTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         nameUI.text = nil
-        fieldUI.text = nil
-    }
+     }
 
 }
