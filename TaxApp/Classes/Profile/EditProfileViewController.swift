@@ -32,8 +32,8 @@ class EditProfileViewController: BaseImageViewController {
         user = AppDataManager.shared.currentUser
         photoUI.layer.cornerRadius = photoUI.bounds.size.height / 2
         photoUI.image = user.photoImage
-        firstName = user.firstName!
-        lastName = user.lastName!
+        firstName = user.firstName ?? ""
+        lastName = user.lastName ?? ""
         category = user.category
         
         //image tap
