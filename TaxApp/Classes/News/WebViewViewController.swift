@@ -6,14 +6,16 @@
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Alamofire
 
 class WebViewViewController: BaseViewController {
-
+    
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var link: String!
+    var article: Article!
     
     //==================================================
     // MARK: - General
@@ -21,24 +23,41 @@ class WebViewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //navigationController?.navigationBar.topItem?.title = "Back"
-        
-        
-        //color
-        //view.backgroundColor = AppDataManager.backgroundColor
-        //webView.backgroundColor = AppDataManager.backgroundColor
-        
         webView.delegate = self
-        if let url = URL(string: link) {
-            let request = URLRequest(url: url)
+        
+        let articleIdString = article?.id!
+        let urlString = ConfigAPI.getArticlePayString
+        
+        guard var urlComponents = URLComponents(string: urlString) else {
+            return
+        }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "key", value: AppDataManager.shared.userToken),
+            URLQueryItem(name: "article", value: articleIdString!),
+            URLQueryItem(name: "type", value: "article")
+        ]
+        
+        //print(urlComponents.url)
+        
+        if let url = urlComponents.url {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
             webView.loadRequest(request)
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = NSLocalizedString("Оплата", comment: "WebViewViewController - navigationItem.title")
+    }
+    
     
 }
 
