@@ -15,6 +15,8 @@ target 'TaxApp' do
 
   pod 'FacebookLogin'
   
-   pod 'DatePickerDialog'
+  pod 'DatePickerDialog'
+   
+  pod 'Google/SignIn'
 
 end
