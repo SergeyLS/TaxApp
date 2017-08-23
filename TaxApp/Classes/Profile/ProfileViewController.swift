@@ -114,7 +114,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,6 +145,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
              return cell
+            
             
             
         default:

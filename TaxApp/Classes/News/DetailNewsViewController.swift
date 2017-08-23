@@ -21,6 +21,9 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var likeButtonUI: UIButton!
+    
+    
     var article: Article!
     
     var observing = false
@@ -44,6 +47,8 @@ class DetailNewsViewController: BaseViewController {
             }
             
         }
+        
+        chengeLike()
         
         scrollViewUI.layer.cornerRadius = 5
         webView.scrollView.isScrollEnabled = false
@@ -71,6 +76,37 @@ class DetailNewsViewController: BaseViewController {
     //==================================================
     func configTheme()  {
         navigationController?.navigationBar.barTintColor = ThemeManager.shared.mainColor()
+    }
+    
+    func chengeLike()  {
+        if article.isLike {
+            likeButtonUI.setImage(UIImage(named: "buttonLikeOn"), for: .normal)
+        } else {
+            likeButtonUI.setImage(UIImage(named: "buttonLike"), for: .normal)
+        }
+        
+        likeButtonUI.setTitle(String(article.likes), for: .normal)
+    }
+    
+    //==================================================
+    // MARK: - action
+    //==================================================
+    
+    @IBAction func likeButtonAction(_ sender: UIButton) {
+        
+        if article.isLike {
+            return
+        }
+        
+        ArticleManager.getArticleLike(article: article) { (errorArticle) in
+            if let error = errorArticle  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                return
+            }
+            
+            self.chengeLike()
+        }
+        
     }
     
     //==================================================

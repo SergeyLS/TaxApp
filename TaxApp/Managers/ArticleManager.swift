@@ -182,7 +182,7 @@ class ArticleManager {
                         if let article = getArticleByID(id: id )  {
                             //update
                             if dateUpdate > article.dateUpdate! {
-                                article.update(article: article, menu: menu!, dictionary: tempElement as NSDictionary, context: moc)
+                                article.update(article: article, menu: menu!, dictionary: tempElement as NSDictionary)
                             } else {
                                 if article.likes != likes {
                                     article.likes = likes
@@ -247,8 +247,10 @@ class ArticleManager {
                 return
             }
             
+            let photoData = response.result.value
+            //ImageManager.
             
-            article.photo = response.result.value
+            article.photo = photoData
             CoreDataManager.shared.saveContext()
             completion(article.photoImage!)
             return

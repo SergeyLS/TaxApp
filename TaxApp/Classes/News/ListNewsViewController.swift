@@ -189,6 +189,11 @@ class ListNewsViewController: BaseFetchTableViewController {
             destinationController.article = sender as! Article
         }
         
+        if (segue.identifier == "openWeb") {
+            let destinationController = segue.destination as! WebViewViewController
+            destinationController.article = sender as! Article
+        }
+
     }
     
 }
@@ -205,10 +210,10 @@ extension ListNewsViewController {
         
         cell.article = article
         cell.mainView = view
+        cell.topController = self
         
         cell.titleUI.text = article.title
         cell.descriptUI.text = article.shortDescr
-        cell.photoUI.image = article.photoImage
         cell.nameMenuUI.text = article.menu?.title
         if let date  = article.dateCreated {
             cell.dateUI.text = DateManager.dateToString(date: date)
@@ -230,16 +235,15 @@ extension ListNewsViewController {
             cell.payButtonUI.setTitle(" free", for: .normal)
         }
         
-        
-        if article.photoImage == nil {
-            cell.indicatorUI.startAnimating()
-            ArticleManager.getImage(article: article) {_ in }
-        } else {
-            cell.photoUI.image = article.photoImage
-            cell.indicatorUI.stopAnimating()
+        cell.photoUI.image = UIImage()
+        cell.indicatorUI.startAnimating()
+        DispatchQueue.main.async {
+            ArticleManager.getImage(article: article) { (image) in
+                cell.photoUI.image = image
+                cell.indicatorUI.stopAnimating()
+            }
         }
-        
-        
+
         return cell
     }
     

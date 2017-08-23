@@ -28,6 +28,8 @@ class ConfigAPI {
     static var getArticleLikeString = "/article/like/"
     static var getArticleSearchString = "/article/search/"
     
+    static var getArticlePayString = "http://185.79.244.158/taxapp/payments/authorize"
+    
     //login
     static func loginURL() -> URL {
         return URL(string: serverAPI.appending(loginString))!

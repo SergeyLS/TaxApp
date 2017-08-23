@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class ListNewsTableViewCell: UITableViewCell {
 
@@ -28,6 +27,7 @@ class ListNewsTableViewCell: UITableViewCell {
     
     var article: Article!
     var mainView: UIView!
+    var topController: ListNewsViewController?
 
     
     override func awakeFromNib() {
@@ -52,8 +52,13 @@ class ListNewsTableViewCell: UITableViewCell {
         dateUI.text = nil
         
         likeButtonUI.setTitle(nil, for: .normal)
+        //likeButtonUI.setImage(nil, for: .normal)
+        
         mailButtonUI.setTitle(nil, for: .normal)
+        //mailButtonUI.setImage(nil, for: .normal)
+        
         payButtonUI.setTitle(nil, for: .normal)
+        //payButtonUI.setImage(nil, for: .normal)
       }
 
     
@@ -82,6 +87,21 @@ class ListNewsTableViewCell: UITableViewCell {
             
          }
      }
+    
+    
+    @IBAction func payButtonAction(_ sender: UIButton) {
+        if article.isCanOpen {
+            topController?.performSegue(withIdentifier: "fullText", sender: article)
+            return
+        }
+
+        if AppDataManager.shared.userLogin == User.noLoginUserKey {
+            UserManager.messageNoLogin(view: mainView)
+            return
+        }
+        
+        topController?.performSegue(withIdentifier: "openWeb", sender: article)
+      }
     
 
 }

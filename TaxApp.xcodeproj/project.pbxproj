@@ -31,6 +31,7 @@
 		F77EF5DE1F3FA3BA00C85957 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */; };
 		F77EF5E01F3FAF6C00C85957 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */; };
 		F77EF5E21F3FB02E00C85957 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */; };
+		F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */; };
 		F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */; };
 		F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC41F310D820057EBA5 /* MessagerManager.swift */; };
 		F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC51F310D820057EBA5 /* AppDataManager.swift */; };
@@ -95,6 +96,7 @@
 		F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = TaxApp/Classes/Profile/SettingViewController.swift; sourceTree = "<group>"; };
 		F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeViewController.swift; path = TaxApp/Classes/Profile/ThemeViewController.swift; sourceTree = "<group>"; };
 		F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeTableViewCell.swift; path = TaxApp/Classes/Profile/ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigAPI.swift; path = TaxApp/Managers/ConfigAPI.swift; sourceTree = "<group>"; };
 		F7829BC41F310D820057EBA5 /* MessagerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagerManager.swift; path = TaxApp/Managers/MessagerManager.swift; sourceTree = "<group>"; };
 		F7829BC51F310D820057EBA5 /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDataManager.swift; path = TaxApp/Managers/AppDataManager.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 		F7B42BAD1F2F63D6007632BC = {
 			isa = PBXGroup;
 			children = (
+				F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */,
 				F70DC4481F38B5A10006773E /* TaxApp.entitlements */,
 				F78D97221F3F253E00AB00E0 /* Extensions */,
 				F7829BBF1F310B660057EBA5 /* Model */,
@@ -408,6 +411,7 @@
 				F74F77581F30B6160006FCD7 /* Login.storyboard in Resources */,
 				F74F77541F30B60A0006FCD7 /* Info.plist in Resources */,
 				F74F77571F30B6160006FCD7 /* LaunchScreen.storyboard in Resources */,
+				F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

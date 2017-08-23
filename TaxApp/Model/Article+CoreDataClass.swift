@@ -86,7 +86,7 @@ public class Article: NSManagedObject {
     }
     
     
-    func update(article: Article, menu: Menu, dictionary: NSDictionary, context: NSManagedObjectContext = CoreDataManager.shared.viewContext){
+    func update(article: Article, menu: Menu, dictionary: NSDictionary){
         
         title = dictionary["title"] as? String ?? ""
         isCanOpen = dictionary["canOpen"] as? Bool ?? true
@@ -109,6 +109,7 @@ public class Article: NSManagedObject {
         dateCreated = dateCreated ?? Date()
         dateUpdate = dateUpdate ?? Date()
         
+        let context = managedObjectContext!
         self.menu = MenuManager.getMenuByID(id: Int(menu.id), context: context)
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)
         
