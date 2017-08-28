@@ -10,8 +10,10 @@ import Foundation
 
 class ConfigAPI {
     
-    static var serverAPI = "http://185.79.244.158/taxapp/api"
-   
+    static var server = "http://185.79.244.158"
+    static var serverAPI = server + "/taxapp/api"
+    
+    
     static var loginString = "/login"
     static var loginSocialString = "/login/by-key"
     static var signUpString = "/login/signup"
@@ -27,8 +29,10 @@ class ConfigAPI {
     static var getNewsString = "/news"
     static var getArticleLikeString = "/article/like/"
     static var getArticleSearchString = "/article/search/"
+    static var getArticlePayString = server + "/taxapp/payments/authorize"
     
-    static var getArticlePayString = "http://185.79.244.158/taxapp/payments/authorize"
+    static var getMessageSentString = "/message/sent"
+    static var getMessageInboxString = "/message/inbox"
     
     //login
     static func loginURL() -> URL {
@@ -43,8 +47,8 @@ class ConfigAPI {
     static func resetURL() -> URL {
         return URL(string: serverAPI.appending(resetString))!
     }
-
-
+    
+    
     //user
     static func getUserURL() -> URL {
         return URL(string: serverAPI.appending(getUserString))!
@@ -60,12 +64,21 @@ class ConfigAPI {
     static func getMenuURL() -> URL {
         return URL(string: serverAPI.appending(getMenuString))!
     }
-
+    
     //news
     static func getNewsURL() -> URL {
         return URL(string: serverAPI.appending(getNewsString))!
     }
-
-
- }
+    
+    
+    //Message
+    static func getMessageSentURL() -> URL {
+        return URL(string: serverAPI.appending(getMessageSentString))!
+    }
+    
+    static func getMessageInboxURL() -> URL {
+        return URL(string: serverAPI.appending(getMessageInboxString))!
+    }
+    
+}
 

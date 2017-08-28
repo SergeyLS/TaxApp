@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-@objc(Notification)
 public class Notification: NSManagedObject {
     //==================================================
     // MARK: - Stored Properties
@@ -21,18 +20,20 @@ public class Notification: NSManagedObject {
     // MARK: - Initializers
     //==================================================
     
-    convenience init?(notificationKind: NotificationKind) {
+    convenience init?(notificationKind: NotificationKind,
+                      context: NSManagedObjectContext = CoreDataManager.shared.viewContext) {
         
-        guard let tempEntity = NSEntityDescription.entity(forEntityName: Notification.type, in: CoreDataManager.shared.viewContext) else {
+        guard let tempEntity = NSEntityDescription.entity(forEntityName: Notification.type, in: context) else {
             fatalError("Could not initialize \(Notification.type)")
             return nil
         }
-        self.init(entity: tempEntity, insertInto: CoreDataManager.shared.viewContext)
+        self.init(entity: tempEntity, insertInto: context)
         
-        kind  = String(describing: notificationKind)
+        kind  = notificationKind.rawValue
         count = 0
         
-        user = AppDataManager.shared.currentUser
+        user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context)
+        print("add \(Notification.type): " + kind!)
     }
 
 }

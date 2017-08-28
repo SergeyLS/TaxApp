@@ -46,6 +46,8 @@ class ProfileViewController: BaseImageViewController {
         navigationItem.title = NSLocalizedString("Мой профиль", comment: "ProfileViewController - navigationItem.title")
         configTheme()
         loadUserInfo()
+        
+        requestData()
      }
     
     
@@ -77,6 +79,12 @@ class ProfileViewController: BaseImageViewController {
             
         }
     }
+    
+    
+    func requestData() {
+        SyncManager.syncMessages(view: view)
+    }
+
     
     //==================================================
     // MARK: - action

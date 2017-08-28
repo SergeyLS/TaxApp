@@ -109,22 +109,7 @@ class ListNewsViewController: BaseFetchTableViewController {
     }
     
     internal override func requestData() {
-        print("[ListNewsViewController] - requestData")
-        
-        MenuManager.getMenuFromAPI() { (errorMenu) in
-            if let error = errorMenu  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-                return
-            }
-            
-            ArticleManager.getArticleFromAPI() { (errorArticle) in
-                if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-                    return
-                }
-                
-            }
-        }
+        SyncManager.syncArticles(view: view)
     }
     
     //==================================================

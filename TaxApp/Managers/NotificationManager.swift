@@ -17,19 +17,23 @@ class NotificationManager {
     //==================================================
     
     //func getNotification
-    static func getNotification(notificationKind: NotificationKind) -> Notification {
+    static func getNotification(notificationKind: NotificationKind,
+                                context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> Notification {
         let request = NSFetchRequest<Notification>(entityName: Notification.type)
-        let predicate = NSPredicate(format: "kind == %@", String(describing: notificationKind))
+       
+        var arrayPredicate:[NSPredicate] = []
+        arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+        arrayPredicate.append(NSPredicate(format: "kind == %@", notificationKind.rawValue))
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
         request.predicate = predicate
+        
         request.fetchLimit = 1
-        let resultsArray = try? CoreDataManager.shared.viewContext.fetch(request)
+        let resultsArray = try? context.fetch(request)
         
         if resultsArray?.count == 0 {
-            let notification = Notification(notificationKind: notificationKind)
-//            CoreDataManager.shared.save()
+            let notification = Notification(notificationKind: notificationKind, context: context)
             return notification!
         } else {
-            
             return resultsArray!.first!
         }
     }
@@ -43,6 +47,11 @@ class NotificationManager {
     //func allCount
     static func allCount() -> Int64 {
         let request = NSFetchRequest<Notification>(entityName: Notification.type)
+        var arrayPredicate:[NSPredicate] = []
+        arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
+        request.predicate = predicate
+
         let resultsArray = try? CoreDataManager.shared.viewContext.fetch(request)
         
         if resultsArray?.count == 0 {
@@ -56,17 +65,11 @@ class NotificationManager {
         }
     }
     
-    // func updateNotification
-    static func updateNotification()  {
-        CoreDataManager.shared.saveContext()
-    }
-    
-    
     //func clearNotification
     static func clearNotification(notificationKind: NotificationKind)  {
         let notification = getNotification(notificationKind: notificationKind)
         notification.count = 0
-        updateNotification()
+        CoreDataManager.shared.saveContext()
     }
     
     

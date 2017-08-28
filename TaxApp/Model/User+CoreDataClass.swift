@@ -42,6 +42,7 @@ public class User: NSManagedObject {
         self.init(entity: tempEntity, insertInto: CoreDataManager.shared.viewContext)
         self.userName = userName
         
+
         print("add new \(User.type): \(userName)")
     }
 

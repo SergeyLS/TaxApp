@@ -33,11 +33,18 @@ class BaseViewController: UIViewController {
     //==================================================
     // MARK: - config
     //==================================================
-    func configButton(button: UIButton)  {
+    func configButton(button: UIButton, isMakeCircle: Bool = false)  {
+        
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)
-        button.layer.cornerRadius = 5
-    }
+        let widthButton = button.layer.bounds.width
+        button.imageEdgeInsets = UIEdgeInsetsMake(widthButton/4, widthButton/4, widthButton/4, widthButton/4)
+        
+        if isMakeCircle {
+            button.layer.cornerRadius = widthButton/2
+        } else {
+            button.layer.cornerRadius = 5
+        }
+     }
     
     //==================================================
     // MARK: - Placeholder

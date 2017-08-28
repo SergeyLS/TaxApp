@@ -182,7 +182,7 @@ class ArticleManager {
                         if let article = getArticleByID(id: id )  {
                             //update
                             if dateUpdate > article.dateUpdate! {
-                                article.update(article: article, menu: menu!, dictionary: tempElement as NSDictionary)
+                                article.update(menu: menu!, dictionary: tempElement as NSDictionary)
                             } else {
                                 if article.likes != likes {
                                     article.likes = likes

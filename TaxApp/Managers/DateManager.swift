@@ -33,6 +33,25 @@ class DateManager {
 
     }
     
+    static func dateAndTimeInTwoString(date: Date) -> String {
+        var rezult = ""
+        
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "dd.MM.yy"
+        rezult = rezult + formatter1.string(from: date)
+        
+        rezult = rezult + "\n"
+        
+        let formatter2 = DateFormatter()
+        formatter2.dateFormat = "HH:mm"
+        rezult = rezult + formatter2.string(from: date)
+
+        
+        return rezult
+        
+    }
+
+    
     
     //datefromString
     static func datefromString(string: String) -> Date {

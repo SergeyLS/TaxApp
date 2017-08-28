@@ -49,7 +49,20 @@ class MessageViewController: BaseImageViewController {
         fonUI.image = ThemeManager.shared.findImage(name: "messageFon", themeApp: ThemeManager.shared.currentTheme())
     }
 
+
     
+    //==================================================
+    // MARK: - Navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "message") {
+            let destinationController = segue.destination as! ListMessagesViewController
+            destinationController.messageKind = sender as! MessageKind
+        }
+        
+    }
+
 
 }
 
@@ -118,13 +131,15 @@ extension MessageViewController: UITableViewDataSource, UITableViewDelegate {
     //MARK: UITableViewDelegate
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let row = indexPath.row
-//        switch row {
-//        case 2:
-//            AppDataManager.shared.userLogin = ""
-//            self.performSegue(withIdentifier: "exitUser", sender: nil)
-//        default:
-//            return
-//        }
+        let row = indexPath.row
+        switch row {
+        case 0:
+            self.performSegue(withIdentifier: "message", sender: MessageKind.inbox)
+        case 1:
+            self.performSegue(withIdentifier: "message", sender: MessageKind.sent)
+        case 2:
+            self.performSegue(withIdentifier: "message", sender: MessageKind.delete)
+        default: break
+         }
     }
 }

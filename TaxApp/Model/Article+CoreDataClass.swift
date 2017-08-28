@@ -86,7 +86,7 @@ public class Article: NSManagedObject {
     }
     
     
-    func update(article: Article, menu: Menu, dictionary: NSDictionary){
+    func update(menu: Menu, dictionary: NSDictionary){
         
         title = dictionary["title"] as? String ?? ""
         isCanOpen = dictionary["canOpen"] as? Bool ?? true
