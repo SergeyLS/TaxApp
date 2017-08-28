@@ -30,6 +30,23 @@
         <relationship name="articlies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="menu" inverseEntity="Article" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="menuMany" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Message" representedClassName=".Message" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDelete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isReadAdmin" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isReadUser" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="kind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="replyID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messages" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Notification" representedClassName=".Notification" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="kind" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="notifications" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="eMail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,11 +58,15 @@
         <relationship name="articlies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="user" inverseEntity="Article" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="users" inverseEntity="Category" syncable="YES"/>
         <relationship name="menuMany" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Menu" inverseName="user" inverseEntity="Menu" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="user" inverseEntity="Message" syncable="YES"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="user" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
         <element name="Article" positionX="-36" positionY="120" width="128" height="285"/>
         <element name="Category" positionX="-135" positionY="0" width="128" height="90"/>
         <element name="Menu" positionX="16" positionY="-153" width="128" height="120"/>
-        <element name="User" positionX="-288" positionY="-126" width="128" height="195"/>
+        <element name="User" positionX="-288" positionY="-126" width="128" height="225"/>
+        <element name="Notification" positionX="-135" positionY="0" width="128" height="90"/>
+        <element name="Message" positionX="-126" positionY="9" width="128" height="195"/>
     </elements>
 </model>

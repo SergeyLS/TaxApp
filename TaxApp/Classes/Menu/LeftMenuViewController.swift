@@ -76,11 +76,6 @@ class LeftMenuViewController: BaseFetchTableViewController {
         self.performSegue(withIdentifier: "openNews", sender: nil)
     }
 
-    @IBAction func exitButton(_ sender: UIButton) {
-        AppDataManager.shared.userLogin = ""
-        self.performSegue(withIdentifier: "exitUser", sender: nil)
-    }
-    
     
     
     func imageTapped(gesture: UIGestureRecognizer) {

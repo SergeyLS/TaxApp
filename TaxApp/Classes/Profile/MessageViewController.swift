@@ -79,8 +79,15 @@ extension MessageViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "messageInbox", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Входящие"
-            cell.countUI.setTitle("100", for: .normal)
-            cell.countUI.isHidden = false
+            
+            if NotificationManager.allCount() == 0 {
+                cell.countUI.setTitle("", for: .normal)
+                cell.countUI.isHidden = true
+            } else {
+                cell.countUI.setTitle(String(NotificationManager.allCount()), for: .normal)
+                cell.countUI.isHidden = false
+            }
+
             cell.reloadData()
             return cell
             

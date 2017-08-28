@@ -8,35 +8,56 @@
 
 /* Begin PBXBuildFile section */
 		7E905BBC3131641B573B3B22 /* Pods_TaxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */; };
-		F71AA1381F35ECC900399589 /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */; };
-		F71AA13A1F35F1A500399589 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1391F35F1A500399589 /* MainNavigationController.swift */; };
-		F71AA1401F36078200399589 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA13F1F36078200399589 /* UserManager.swift */; };
-		F71AA1421F36538B00399589 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AA1411F36538B00399589 /* MenuManager.swift */; };
-		F734E3E61F46E0F600BD030D /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F734E3E51F46E0F600BD030D /* ImageManager.swift */; };
-		F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */; };
-		F74F77521F30B5FE0006FCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74F77511F30B5FE0006FCD7 /* Assets.xcassets */; };
-		F74F77541F30B60A0006FCD7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F74F77531F30B60A0006FCD7 /* Info.plist */; };
-		F74F77571F30B6160006FCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */; };
-		F74F77581F30B6160006FCD7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74F77561F30B6160006FCD7 /* Login.storyboard */; };
-		F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F77591F30B61F0006FCD7 /* LoginViewController.swift */; };
-		F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F775B1F30B6260006FCD7 /* BaseViewController.swift */; };
-		F74F775E1F30B62C0006FCD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */; };
-		F74FF8881F33683C00A1780A /* BaseFetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */; };
-		F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */; };
-		F74FF88C1F3369CB00A1780A /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */; };
-		F77EF5D21F3F543800C85957 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5D11F3F543800C85957 /* ProfileViewController.swift */; };
-		F77EF5D61F3F5F1700C85957 /* BaseImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5D51F3F5F1700C85957 /* BaseImageViewController.swift */; };
-		F77EF5DA1F3F7C1300C85957 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */; };
-		F77EF5DC1F3F9F0C00C85957 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5DB1F3F9F0C00C85957 /* MessageViewController.swift */; };
-		F77EF5DE1F3FA3BA00C85957 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */; };
-		F77EF5E01F3FAF6C00C85957 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */; };
-		F77EF5E21F3FB02E00C85957 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */; };
+		F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */; };
+		F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */; };
+		F77D29BD1F5402290032227F /* NotificationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29BC1F5402290032227F /* NotificationKind.swift */; };
+		F77D29CD1F5402C20032227F /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C01F5402C20032227F /* ArticleManager.swift */; };
+		F77D29CE1F5402C20032227F /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C11F5402C20032227F /* ConfigAPI.swift */; };
+		F77D29CF1F5402C20032227F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C21F5402C20032227F /* UserManager.swift */; };
+		F77D29D01F5402C20032227F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C31F5402C20032227F /* ImageManager.swift */; };
+		F77D29D11F5402C20032227F /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C41F5402C20032227F /* AuthorizationManager.swift */; };
+		F77D29D21F5402C20032227F /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C51F5402C20032227F /* CategoryManager.swift */; };
+		F77D29D31F5402C20032227F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C61F5402C20032227F /* MenuManager.swift */; };
+		F77D29D41F5402C20032227F /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C71F5402C20032227F /* DateManager.swift */; };
+		F77D29D51F5402C20032227F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C81F5402C20032227F /* ThemeManager.swift */; };
+		F77D29D61F5402C20032227F /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29C91F5402C20032227F /* ColorManager.swift */; };
+		F77D29D71F5402C20032227F /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29CA1F5402C20032227F /* AppDataManager.swift */; };
+		F77D29D81F5402C20032227F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29CB1F5402C20032227F /* CoreDataManager.swift */; };
+		F77D29D91F5402C20032227F /* MessagerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29CC1F5402C20032227F /* MessagerManager.swift */; };
+		F77D29DB1F5402F40032227F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29DA1F5402F40032227F /* NotificationManager.swift */; };
+		F77D29DD1F54030D0032227F /* AppDataManager+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29DC1F54030D0032227F /* AppDataManager+Theme.swift */; };
+		F77D29DF1F5403580032227F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29DE1F5403580032227F /* AppDelegate.swift */; };
+		F77D29E71F54036A0032227F /* BaseImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E01F54036A0032227F /* BaseImageViewController.swift */; };
+		F77D29E81F54036A0032227F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E11F54036A0032227F /* BaseViewController.swift */; };
+		F77D29E91F54036A0032227F /* BaseLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E21F54036A0032227F /* BaseLabelTableViewCell.swift */; };
+		F77D29EA1F54036A0032227F /* BaseFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E31F54036A0032227F /* BaseFieldTableViewCell.swift */; };
+		F77D29EB1F54036A0032227F /* BaseFetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E41F54036A0032227F /* BaseFetchViewController.swift */; };
+		F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E51F54036A0032227F /* BaseNavigationViewController.swift */; };
+		F77D29ED1F54036A0032227F /* BaseFetchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29E61F54036A0032227F /* BaseFetchTableViewController.swift */; };
+		F77D29F01F54037B0032227F /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29EE1F54037B0032227F /* LeftMenuViewController.swift */; };
+		F77D29F11F54037B0032227F /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29EF1F54037B0032227F /* LeftMenuTableViewCell.swift */; };
+		F77D29F61F54039B0032227F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29F21F54039B0032227F /* SignUpViewController.swift */; };
+		F77D29F71F54039B0032227F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29F31F54039B0032227F /* MainNavigationController.swift */; };
+		F77D29F81F54039B0032227F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29F41F54039B0032227F /* LoginViewController.swift */; };
+		F77D29F91F54039B0032227F /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29F51F54039B0032227F /* RestorePasswordViewController.swift */; };
+		F77D2A031F5403AB0032227F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FA1F5403AB0032227F /* ProfileViewController.swift */; };
+		F77D2A041F5403AB0032227F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FB1F5403AB0032227F /* EditProfileViewController.swift */; };
+		F77D2A051F5403AB0032227F /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FC1F5403AB0032227F /* SelectCategoryViewController.swift */; };
+		F77D2A061F5403AB0032227F /* SelectCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FD1F5403AB0032227F /* SelectCategoryTableViewCell.swift */; };
+		F77D2A071F5403AB0032227F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FE1F5403AB0032227F /* SettingViewController.swift */; };
+		F77D2A081F5403AB0032227F /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29FF1F5403AB0032227F /* ThemeViewController.swift */; };
+		F77D2A091F5403AB0032227F /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A001F5403AB0032227F /* MessageViewController.swift */; };
+		F77D2A0A1F5403AB0032227F /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A011F5403AB0032227F /* ThemeTableViewCell.swift */; };
+		F77D2A0B1F5403AB0032227F /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A021F5403AB0032227F /* SettingTableViewCell.swift */; };
+		F77D2A0F1F5403BB0032227F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A0C1F5403BB0032227F /* LaunchScreen.storyboard */; };
+		F77D2A101F5403BB0032227F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A0D1F5403BB0032227F /* Main.storyboard */; };
+		F77D2A111F5403BB0032227F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A0E1F5403BB0032227F /* Login.storyboard */; };
+		F77D2A171F5403E00032227F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A121F5403E00032227F /* Info.plist */; };
+		F77D2A191F5403E00032227F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A151F5403E00032227F /* Assets.xcassets */; };
+		F77D2A1A1F5403E00032227F /* Login.strings in Resources */ = {isa = PBXBuildFile; fileRef = F77D2A161F5403E00032227F /* Login.strings */; };
+		F77D2A1E1F5411D40032227F /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A1C1F5411D40032227F /* Message+CoreDataClass.swift */; };
+		F77D2A1F1F5411D40032227F /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A1D1F5411D40032227F /* Message+CoreDataProperties.swift */; };
 		F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */; };
-		F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */; };
-		F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC41F310D820057EBA5 /* MessagerManager.swift */; };
-		F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC51F310D820057EBA5 /* AppDataManager.swift */; };
-		F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */; };
-		F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7829BC71F310D820057EBA5 /* CoreDataManager.swift */; };
 		F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */; };
 		F783F52E1F486AD5009FC9F3 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5261F486AD5009FC9F3 /* Article+CoreDataProperties.swift */; };
 		F783F52F1F486AD5009FC9F3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5271F486AD5009FC9F3 /* User+CoreDataProperties.swift */; };
@@ -52,56 +73,63 @@
 		F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53D1F486E24009FC9F3 /* ListNewsTableViewCell.swift */; };
 		F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */; };
 		F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */; };
-		F784AD581F44E7FF00986E1F /* BaseFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */; };
-		F78B41BB1F37A17D004B2959 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B41BA1F37A17D004B2959 /* ArticleManager.swift */; };
-		F78D971F1F3F247500AB00E0 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D971E1F3F247500AB00E0 /* BaseNavigationViewController.swift */; };
-		F78D97211F3F24FA00AB00E0 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D97201F3F24FA00AB00E0 /* ColorManager.swift */; };
-		F78D97261F3F287000AB00E0 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D97251F3F287000AB00E0 /* ThemeManager.swift */; };
-		F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A8EAE21F31CBCA00FA584E /* Main.storyboard */; };
-		F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */; };
-		F7B495C71F44832600A40D74 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B495C61F44832600A40D74 /* EditProfileViewController.swift */; };
-		F7BDB5511F458D2000F05CE6 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDB5501F458D2000F05CE6 /* CategoryManager.swift */; };
-		F7BDB5531F45A84000F05CE6 /* AppDataManager+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDB5521F45A84000F05CE6 /* AppDataManager+Theme.swift */; };
-		F7BDB5551F45B51B00F05CE6 /* BaseLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDB5541F45B51B00F05CE6 /* BaseLabelTableViewCell.swift */; };
-		F7BDB5591F45CCD700F05CE6 /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDB5581F45CCD700F05CE6 /* SelectCategoryViewController.swift */; };
-		F7BDB55B1F45DF0700F05CE6 /* SelectCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BDB55A1F45DF0700F05CE6 /* SelectCategoryTableViewCell.swift */; };
-		F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C34C4B1F3B197000B330DE /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
-		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = TaxApp/TaxApp.entitlements; sourceTree = "<group>"; };
-		F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestorePasswordViewController.swift; path = TaxApp/Classes/Login/RestorePasswordViewController.swift; sourceTree = "<group>"; };
-		F71AA1391F35F1A500399589 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationController.swift; path = TaxApp/Classes/Login/MainNavigationController.swift; sourceTree = "<group>"; };
-		F71AA13F1F36078200399589 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = TaxApp/Managers/UserManager.swift; sourceTree = "<group>"; };
-		F71AA1411F36538B00399589 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = TaxApp/Managers/MenuManager.swift; sourceTree = "<group>"; };
-		F734E3E51F46E0F600BD030D /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = TaxApp/Managers/ImageManager.swift; sourceTree = "<group>"; };
-		F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = TaxApp/Classes/Login/SignUpViewController.swift; sourceTree = "<group>"; };
-		F74F77511F30B5FE0006FCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TaxApp/Resurses/Assets.xcassets; sourceTree = "<group>"; };
-		F74F77531F30B60A0006FCD7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TaxApp/Resurses/Info.plist; sourceTree = "<group>"; };
-		F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TaxApp/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F74F77561F30B6160006FCD7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = TaxApp/Storyboards/Login.storyboard; sourceTree = "<group>"; };
-		F74F77591F30B61F0006FCD7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = TaxApp/Classes/Login/LoginViewController.swift; sourceTree = "<group>"; };
-		F74F775B1F30B6260006FCD7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = TaxApp/Classes/Base/BaseViewController.swift; sourceTree = "<group>"; };
-		F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TaxApp/Classes/AppDelegate.swift; sourceTree = "<group>"; };
-		F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFetchViewController.swift; path = TaxApp/Classes/Base/BaseFetchViewController.swift; sourceTree = "<group>"; };
-		F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFetchTableViewController.swift; path = TaxApp/Classes/Base/BaseFetchTableViewController.swift; sourceTree = "<group>"; };
-		F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuTableViewCell.swift; path = TaxApp/Classes/Menu/LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
-		F77EF5D11F3F543800C85957 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = TaxApp/Classes/Profile/ProfileViewController.swift; sourceTree = "<group>"; };
-		F77EF5D51F3F5F1700C85957 /* BaseImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseImageViewController.swift; path = TaxApp/Classes/Base/BaseImageViewController.swift; sourceTree = "<group>"; };
-		F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewCell.swift; path = TaxApp/Classes/Profile/SettingTableViewCell.swift; sourceTree = "<group>"; };
-		F77EF5DB1F3F9F0C00C85957 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageViewController.swift; path = TaxApp/Classes/Profile/MessageViewController.swift; sourceTree = "<group>"; };
-		F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = TaxApp/Classes/Profile/SettingViewController.swift; sourceTree = "<group>"; };
-		F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeViewController.swift; path = TaxApp/Classes/Profile/ThemeViewController.swift; sourceTree = "<group>"; };
-		F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeTableViewCell.swift; path = TaxApp/Classes/Profile/ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = ../TaxApp.entitlements; sourceTree = "<group>"; };
+		F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F77D29BC1F5402290032227F /* NotificationKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKind.swift; sourceTree = "<group>"; };
+		F77D29C01F5402C20032227F /* ArticleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
+		F77D29C11F5402C20032227F /* ConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigAPI.swift; sourceTree = "<group>"; };
+		F77D29C21F5402C20032227F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		F77D29C31F5402C20032227F /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		F77D29C41F5402C20032227F /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
+		F77D29C51F5402C20032227F /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		F77D29C61F5402C20032227F /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		F77D29C71F5402C20032227F /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		F77D29C81F5402C20032227F /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		F77D29C91F5402C20032227F /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F77D29CA1F5402C20032227F /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataManager.swift; sourceTree = "<group>"; };
+		F77D29CB1F5402C20032227F /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F77D29CC1F5402C20032227F /* MessagerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagerManager.swift; sourceTree = "<group>"; };
+		F77D29DA1F5402F40032227F /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F77D29DC1F54030D0032227F /* AppDataManager+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDataManager+Theme.swift"; sourceTree = "<group>"; };
+		F77D29DE1F5403580032227F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F77D29E01F54036A0032227F /* BaseImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageViewController.swift; sourceTree = "<group>"; };
+		F77D29E11F54036A0032227F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F77D29E21F54036A0032227F /* BaseLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLabelTableViewCell.swift; sourceTree = "<group>"; };
+		F77D29E31F54036A0032227F /* BaseFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFieldTableViewCell.swift; sourceTree = "<group>"; };
+		F77D29E41F54036A0032227F /* BaseFetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFetchViewController.swift; sourceTree = "<group>"; };
+		F77D29E51F54036A0032227F /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		F77D29E61F54036A0032227F /* BaseFetchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFetchTableViewController.swift; sourceTree = "<group>"; };
+		F77D29EE1F54037B0032227F /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		F77D29EF1F54037B0032227F /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
+		F77D29F21F54039B0032227F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F77D29F31F54039B0032227F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		F77D29F41F54039B0032227F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F77D29F51F54039B0032227F /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestorePasswordViewController.swift; sourceTree = "<group>"; };
+		F77D29FA1F5403AB0032227F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F77D29FB1F5403AB0032227F /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		F77D29FC1F5403AB0032227F /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
+		F77D29FD1F5403AB0032227F /* SelectCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F77D29FE1F5403AB0032227F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F77D29FF1F5403AB0032227F /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		F77D2A001F5403AB0032227F /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		F77D2A011F5403AB0032227F /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		F77D2A021F5403AB0032227F /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		F77D2A0C1F5403BB0032227F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F77D2A0D1F5403BB0032227F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F77D2A0E1F5403BB0032227F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		F77D2A121F5403E00032227F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F77D2A151F5403E00032227F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F77D2A161F5403E00032227F /* Login.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Login.strings; sourceTree = "<group>"; };
+		F77D2A1C1F5411D40032227F /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F77D2A1D1F5411D40032227F /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigAPI.swift; path = TaxApp/Managers/ConfigAPI.swift; sourceTree = "<group>"; };
-		F7829BC41F310D820057EBA5 /* MessagerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagerManager.swift; path = TaxApp/Managers/MessagerManager.swift; sourceTree = "<group>"; };
-		F7829BC51F310D820057EBA5 /* AppDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDataManager.swift; path = TaxApp/Managers/AppDataManager.swift; sourceTree = "<group>"; };
-		F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationManager.swift; path = TaxApp/Managers/AuthorizationManager.swift; sourceTree = "<group>"; };
-		F7829BC71F310D820057EBA5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = TaxApp/Managers/CoreDataManager.swift; sourceTree = "<group>"; };
 		F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F783F5261F486AD5009FC9F3 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F783F5271F486AD5009FC9F3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -117,21 +145,7 @@
 		F783F53D1F486E24009FC9F3 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
 		F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
-		F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFieldTableViewCell.swift; path = TaxApp/Classes/Base/BaseFieldTableViewCell.swift; sourceTree = "<group>"; };
-		F78B41BA1F37A17D004B2959 /* ArticleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleManager.swift; path = TaxApp/Managers/ArticleManager.swift; sourceTree = "<group>"; };
-		F78D971E1F3F247500AB00E0 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNavigationViewController.swift; path = TaxApp/Classes/Base/BaseNavigationViewController.swift; sourceTree = "<group>"; };
-		F78D97201F3F24FA00AB00E0 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorManager.swift; path = TaxApp/Managers/ColorManager.swift; sourceTree = "<group>"; };
-		F78D97251F3F287000AB00E0 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeManager.swift; path = TaxApp/Managers/ThemeManager.swift; sourceTree = "<group>"; };
-		F7A8EAE21F31CBCA00FA584E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = TaxApp/Storyboards/Main.storyboard; sourceTree = "<group>"; };
-		F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftMenuViewController.swift; path = TaxApp/Classes/Menu/LeftMenuViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7B495C61F44832600A40D74 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = TaxApp/Classes/Profile/EditProfileViewController.swift; sourceTree = "<group>"; };
-		F7BDB5501F458D2000F05CE6 /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryManager.swift; path = TaxApp/Managers/CategoryManager.swift; sourceTree = "<group>"; };
-		F7BDB5521F45A84000F05CE6 /* AppDataManager+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AppDataManager+Theme.swift"; path = "TaxApp/Classes/AppDataManager+/AppDataManager+Theme.swift"; sourceTree = "<group>"; };
-		F7BDB5541F45B51B00F05CE6 /* BaseLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseLabelTableViewCell.swift; path = TaxApp/Classes/Base/BaseLabelTableViewCell.swift; sourceTree = "<group>"; };
-		F7BDB5581F45CCD700F05CE6 /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectCategoryViewController.swift; path = TaxApp/Classes/Profile/SelectCategoryViewController.swift; sourceTree = "<group>"; };
-		F7BDB55A1F45DF0700F05CE6 /* SelectCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectCategoryTableViewCell.swift; path = TaxApp/Classes/Profile/SelectCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		F7C34C4B1F3B197000B330DE /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = TaxApp/Managers/DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,67 +180,75 @@
 		F74F774B1F30A2470006FCD7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				F71AA1391F35F1A500399589 /* MainNavigationController.swift */,
-				F74F77591F30B61F0006FCD7 /* LoginViewController.swift */,
-				F740F90D1F348D08005DDBC6 /* SignUpViewController.swift */,
-				F71AA1371F35ECC900399589 /* RestorePasswordViewController.swift */,
+				F77D29F21F54039B0032227F /* SignUpViewController.swift */,
+				F77D29F31F54039B0032227F /* MainNavigationController.swift */,
+				F77D29F41F54039B0032227F /* LoginViewController.swift */,
+				F77D29F51F54039B0032227F /* RestorePasswordViewController.swift */,
 			);
-			name = Login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		F74F774E1F30B4B30006FCD7 /* BaseViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F74F775B1F30B6260006FCD7 /* BaseViewController.swift */,
-				F77EF5D51F3F5F1700C85957 /* BaseImageViewController.swift */,
-				F74FF8871F33683C00A1780A /* BaseFetchViewController.swift */,
-				F74FF8891F33687C00A1780A /* BaseFetchTableViewController.swift */,
-				F78D971E1F3F247500AB00E0 /* BaseNavigationViewController.swift */,
-				F784AD571F44E7FF00986E1F /* BaseFieldTableViewCell.swift */,
-				F7BDB5541F45B51B00F05CE6 /* BaseLabelTableViewCell.swift */,
+				F77D29E01F54036A0032227F /* BaseImageViewController.swift */,
+				F77D29E11F54036A0032227F /* BaseViewController.swift */,
+				F77D29E21F54036A0032227F /* BaseLabelTableViewCell.swift */,
+				F77D29E31F54036A0032227F /* BaseFieldTableViewCell.swift */,
+				F77D29E41F54036A0032227F /* BaseFetchViewController.swift */,
+				F77D29E51F54036A0032227F /* BaseNavigationViewController.swift */,
+				F77D29E61F54036A0032227F /* BaseFetchTableViewController.swift */,
 			);
 			name = BaseViewControllers;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		F77EF5CE1F3F52AD00C85957 /* Profile&Setting */ = {
 			isa = PBXGroup;
 			children = (
-				F77EF5D11F3F543800C85957 /* ProfileViewController.swift */,
-				F77EF5DB1F3F9F0C00C85957 /* MessageViewController.swift */,
-				F77EF5DD1F3FA3BA00C85957 /* SettingViewController.swift */,
-				F77EF5DF1F3FAF6C00C85957 /* ThemeViewController.swift */,
-				F77EF5D91F3F7C1300C85957 /* SettingTableViewCell.swift */,
-				F77EF5E11F3FB02E00C85957 /* ThemeTableViewCell.swift */,
-				F7B495C61F44832600A40D74 /* EditProfileViewController.swift */,
-				F7BDB5581F45CCD700F05CE6 /* SelectCategoryViewController.swift */,
-				F7BDB55A1F45DF0700F05CE6 /* SelectCategoryTableViewCell.swift */,
+				F77D29FA1F5403AB0032227F /* ProfileViewController.swift */,
+				F77D29FB1F5403AB0032227F /* EditProfileViewController.swift */,
+				F77D29FC1F5403AB0032227F /* SelectCategoryViewController.swift */,
+				F77D29FD1F5403AB0032227F /* SelectCategoryTableViewCell.swift */,
+				F77D29FE1F5403AB0032227F /* SettingViewController.swift */,
+				F77D29FF1F5403AB0032227F /* ThemeViewController.swift */,
+				F77D2A001F5403AB0032227F /* MessageViewController.swift */,
+				F77D2A011F5403AB0032227F /* ThemeTableViewCell.swift */,
+				F77D2A021F5403AB0032227F /* SettingTableViewCell.swift */,
 			);
 			name = "Profile&Setting";
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		F7829BBC1F3104250057EBA5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F77D29DA1F5402F40032227F /* NotificationManager.swift */,
+				F77D29C01F5402C20032227F /* ArticleManager.swift */,
+				F77D29C11F5402C20032227F /* ConfigAPI.swift */,
+				F77D29C21F5402C20032227F /* UserManager.swift */,
+				F77D29C31F5402C20032227F /* ImageManager.swift */,
+				F77D29C41F5402C20032227F /* AuthorizationManager.swift */,
+				F77D29C51F5402C20032227F /* CategoryManager.swift */,
+				F77D29C61F5402C20032227F /* MenuManager.swift */,
+				F77D29C71F5402C20032227F /* DateManager.swift */,
+				F77D29C81F5402C20032227F /* ThemeManager.swift */,
+				F77D29C91F5402C20032227F /* ColorManager.swift */,
+				F77D29CB1F5402C20032227F /* CoreDataManager.swift */,
+				F77D29CC1F5402C20032227F /* MessagerManager.swift */,
 				F7BDB5491F45840200F05CE6 /* AppDataMenager */,
-				F7829BC71F310D820057EBA5 /* CoreDataManager.swift */,
-				F7829BBD1F3104B00057EBA5 /* ConfigAPI.swift */,
-				F7C34C4B1F3B197000B330DE /* DateManager.swift */,
-				F7829BC41F310D820057EBA5 /* MessagerManager.swift */,
-				F7829BC61F310D820057EBA5 /* AuthorizationManager.swift */,
-				F71AA13F1F36078200399589 /* UserManager.swift */,
-				F734E3E51F46E0F600BD030D /* ImageManager.swift */,
-				F71AA1411F36538B00399589 /* MenuManager.swift */,
-				F7BDB5501F458D2000F05CE6 /* CategoryManager.swift */,
-				F78B41BA1F37A17D004B2959 /* ArticleManager.swift */,
-				F78D97201F3F24FA00AB00E0 /* ColorManager.swift */,
-				F78D97251F3F287000AB00E0 /* ThemeManager.swift */,
 			);
 			name = Managers;
+			path = TaxApp/Managers;
 			sourceTree = "<group>";
 		};
 		F7829BBF1F310B660057EBA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F77D2A1C1F5411D40032227F /* Message+CoreDataClass.swift */,
+				F77D2A1D1F5411D40032227F /* Message+CoreDataProperties.swift */,
+				F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */,
+				F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */,
 				F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */,
 				F783F5261F486AD5009FC9F3 /* Article+CoreDataProperties.swift */,
 				F783F5281F486AD5009FC9F3 /* User+CoreDataClass.swift */,
@@ -236,6 +258,7 @@
 				F783F52C1F486AD5009FC9F3 /* Menu+CoreDataClass.swift */,
 				F783F52B1F486AD5009FC9F3 /* Menu+CoreDataProperties.swift */,
 				F783F5351F486AFD009FC9F3 /* TaxApp.xcdatamodeld */,
+				F77D29BC1F5402290032227F /* NotificationKind.swift */,
 			);
 			name = Model;
 			path = TaxApp/Model;
@@ -254,10 +277,10 @@
 		F7A8EAE41F31CCA800FA584E /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				F7A8EAE81F31FBC700FA584E /* LeftMenuViewController.swift */,
-				F74FF88B1F3369CB00A1780A /* LeftMenuTableViewCell.swift */,
+				F77D29EE1F54037B0032227F /* LeftMenuViewController.swift */,
+				F77D29EF1F54037B0032227F /* LeftMenuTableViewCell.swift */,
 			);
-			name = Menu;
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		F7A8EAE51F31D5FD00FA584E /* News */ = {
@@ -268,15 +291,13 @@
 				F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */,
 				F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */,
 			);
-			name = News;
-			path = TaxApp/Classes/News;
+			path = News;
 			sourceTree = "<group>";
 		};
 		F7B42BAD1F2F63D6007632BC = {
 			isa = PBXGroup;
 			children = (
 				F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */,
-				F70DC4481F38B5A10006773E /* TaxApp.entitlements */,
 				F78D97221F3F253E00AB00E0 /* Extensions */,
 				F7829BBF1F310B660057EBA5 /* Model */,
 				F7829BBC1F3104250057EBA5 /* Managers */,
@@ -300,26 +321,30 @@
 		F7B42BCB1F2F696A007632BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F74F77511F30B5FE0006FCD7 /* Assets.xcassets */,
-				F74F77531F30B60A0006FCD7 /* Info.plist */,
+				F77D2A121F5403E00032227F /* Info.plist */,
+				F77D2A151F5403E00032227F /* Assets.xcassets */,
+				F77D2A161F5403E00032227F /* Login.strings */,
+				F70DC4481F38B5A10006773E /* TaxApp.entitlements */,
 			);
 			name = Resources;
+			path = TaxApp/Resurses;
 			sourceTree = "<group>";
 		};
 		F7B42BCC1F2F6A0A007632BC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F74F77561F30B6160006FCD7 /* Login.storyboard */,
-				F7A8EAE21F31CBCA00FA584E /* Main.storyboard */,
-				F74F77551F30B6160006FCD7 /* LaunchScreen.storyboard */,
+				F77D2A0C1F5403BB0032227F /* LaunchScreen.storyboard */,
+				F77D2A0D1F5403BB0032227F /* Main.storyboard */,
+				F77D2A0E1F5403BB0032227F /* Login.storyboard */,
 			);
 			name = Storyboards;
+			path = TaxApp/Storyboards;
 			sourceTree = "<group>";
 		};
 		F7B42BCD1F2F6A42007632BC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F74F775D1F30B62C0006FCD7 /* AppDelegate.swift */,
+				F77D29DE1F5403580032227F /* AppDelegate.swift */,
 				F74F774E1F30B4B30006FCD7 /* BaseViewControllers */,
 				F7A8EAE41F31CCA800FA584E /* Menu */,
 				F7A8EAE51F31D5FD00FA584E /* News */,
@@ -327,13 +352,14 @@
 				F77EF5CE1F3F52AD00C85957 /* Profile&Setting */,
 			);
 			name = Classes;
+			path = TaxApp/Classes;
 			sourceTree = "<group>";
 		};
 		F7BDB5491F45840200F05CE6 /* AppDataMenager */ = {
 			isa = PBXGroup;
 			children = (
-				F7829BC51F310D820057EBA5 /* AppDataManager.swift */,
-				F7BDB5521F45A84000F05CE6 /* AppDataManager+Theme.swift */,
+				F77D29CA1F5402C20032227F /* AppDataManager.swift */,
+				F77D29DC1F54030D0032227F /* AppDataManager+Theme.swift */,
 			);
 			name = AppDataMenager;
 			sourceTree = "<group>";
@@ -376,7 +402,13 @@
 						DevelopmentTeam = EG6AMXNLL4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -406,12 +438,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F74F77521F30B5FE0006FCD7 /* Assets.xcassets in Resources */,
-				F7A8EAE31F31CBCA00FA584E /* Main.storyboard in Resources */,
-				F74F77581F30B6160006FCD7 /* Login.storyboard in Resources */,
-				F74F77541F30B60A0006FCD7 /* Info.plist in Resources */,
-				F74F77571F30B6160006FCD7 /* LaunchScreen.storyboard in Resources */,
+				F77D2A101F5403BB0032227F /* Main.storyboard in Resources */,
+				F77D2A0F1F5403BB0032227F /* LaunchScreen.storyboard in Resources */,
+				F77D2A1A1F5403E00032227F /* Login.strings in Resources */,
 				F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */,
+				F77D2A111F5403BB0032227F /* Login.storyboard in Resources */,
+				F77D2A191F5403E00032227F /* Assets.xcassets in Resources */,
+				F77D2A171F5403E00032227F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,58 +503,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77D2A041F5403AB0032227F /* EditProfileViewController.swift in Sources */,
+				F77D2A071F5403AB0032227F /* SettingViewController.swift in Sources */,
 				F783F5341F486AD5009FC9F3 /* Menu+CoreDataClass.swift in Sources */,
-				F77EF5D61F3F5F1700C85957 /* BaseImageViewController.swift in Sources */,
 				F783F52E1F486AD5009FC9F3 /* Article+CoreDataProperties.swift in Sources */,
-				F78D971F1F3F247500AB00E0 /* BaseNavigationViewController.swift in Sources */,
+				F77D29E71F54036A0032227F /* BaseImageViewController.swift in Sources */,
 				F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */,
 				F783F5301F486AD5009FC9F3 /* User+CoreDataClass.swift in Sources */,
-				F7BDB5551F45B51B00F05CE6 /* BaseLabelTableViewCell.swift in Sources */,
-				F74F775E1F30B62C0006FCD7 /* AppDelegate.swift in Sources */,
-				F7829BC81F310D820057EBA5 /* MessagerManager.swift in Sources */,
-				F784AD581F44E7FF00986E1F /* BaseFieldTableViewCell.swift in Sources */,
-				F7C34C4C1F3B197000B330DE /* DateManager.swift in Sources */,
-				F7BDB5531F45A84000F05CE6 /* AppDataManager+Theme.swift in Sources */,
-				F7BDB5511F458D2000F05CE6 /* CategoryManager.swift in Sources */,
+				F77D29CE1F5402C20032227F /* ConfigAPI.swift in Sources */,
+				F77D29D11F5402C20032227F /* AuthorizationManager.swift in Sources */,
+				F77D2A1E1F5411D40032227F /* Message+CoreDataClass.swift in Sources */,
+				F77D29D61F5402C20032227F /* ColorManager.swift in Sources */,
+				F77D29F71F54039B0032227F /* MainNavigationController.swift in Sources */,
+				F77D2A031F5403AB0032227F /* ProfileViewController.swift in Sources */,
+				F77D29CF1F5402C20032227F /* UserManager.swift in Sources */,
 				F783F52F1F486AD5009FC9F3 /* User+CoreDataProperties.swift in Sources */,
 				F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */,
-				F74FF88A1F33687C00A1780A /* BaseFetchTableViewController.swift in Sources */,
-				F734E3E61F46E0F600BD030D /* ImageManager.swift in Sources */,
 				F783F5371F486AFD009FC9F3 /* TaxApp.xcdatamodeld in Sources */,
-				F740F90E1F348D08005DDBC6 /* SignUpViewController.swift in Sources */,
+				F77D29D31F5402C20032227F /* MenuManager.swift in Sources */,
+				F77D29BD1F5402290032227F /* NotificationKind.swift in Sources */,
 				F783F5401F486E24009FC9F3 /* ListNewsViewController.swift in Sources */,
-				F78D97211F3F24FA00AB00E0 /* ColorManager.swift in Sources */,
-				F77EF5E01F3FAF6C00C85957 /* ThemeViewController.swift in Sources */,
-				F78B41BB1F37A17D004B2959 /* ArticleManager.swift in Sources */,
-				F7829BBE1F3104B00057EBA5 /* ConfigAPI.swift in Sources */,
-				F7B495C71F44832600A40D74 /* EditProfileViewController.swift in Sources */,
+				F77D29DF1F5403580032227F /* AppDelegate.swift in Sources */,
+				F77D29F01F54037B0032227F /* LeftMenuViewController.swift in Sources */,
+				F77D2A0B1F5403AB0032227F /* SettingTableViewCell.swift in Sources */,
 				F783F53B1F486B19009FC9F3 /* UIColor+Extensions.swift in Sources */,
-				F74F775A1F30B61F0006FCD7 /* LoginViewController.swift in Sources */,
+				F77D29D71F5402C20032227F /* AppDataManager.swift in Sources */,
+				F77D29F81F54039B0032227F /* LoginViewController.swift in Sources */,
+				F77D29D51F5402C20032227F /* ThemeManager.swift in Sources */,
+				F77D29ED1F54036A0032227F /* BaseFetchTableViewController.swift in Sources */,
 				F783F53A1F486B19009FC9F3 /* String+Extensions.swift in Sources */,
-				F71AA1421F36538B00399589 /* MenuManager.swift in Sources */,
-				F71AA13A1F35F1A500399589 /* MainNavigationController.swift in Sources */,
-				F7BDB55B1F45DF0700F05CE6 /* SelectCategoryTableViewCell.swift in Sources */,
-				F71AA1381F35ECC900399589 /* RestorePasswordViewController.swift in Sources */,
-				F77EF5DC1F3F9F0C00C85957 /* MessageViewController.swift in Sources */,
-				F74FF88C1F3369CB00A1780A /* LeftMenuTableViewCell.swift in Sources */,
-				F7829BCA1F310D820057EBA5 /* AuthorizationManager.swift in Sources */,
-				F74F775C1F30B6260006FCD7 /* BaseViewController.swift in Sources */,
-				F7A8EAE91F31FBC700FA584E /* LeftMenuViewController.swift in Sources */,
+				F77D29F11F54037B0032227F /* LeftMenuTableViewCell.swift in Sources */,
+				F77D29D81F5402C20032227F /* CoreDataManager.swift in Sources */,
+				F77D29EB1F54036A0032227F /* BaseFetchViewController.swift in Sources */,
+				F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */,
+				F77D29D41F5402C20032227F /* DateManager.swift in Sources */,
+				F77D29DD1F54030D0032227F /* AppDataManager+Theme.swift in Sources */,
+				F77D29E91F54036A0032227F /* BaseLabelTableViewCell.swift in Sources */,
+				F77D29D91F5402C20032227F /* MessagerManager.swift in Sources */,
+				F77D29F91F54039B0032227F /* RestorePasswordViewController.swift in Sources */,
+				F77D2A081F5403AB0032227F /* ThemeViewController.swift in Sources */,
+				F77D2A0A1F5403AB0032227F /* ThemeTableViewCell.swift in Sources */,
 				F783F5311F486AD5009FC9F3 /* Category+CoreDataClass.swift in Sources */,
-				F7829BC91F310D820057EBA5 /* AppDataManager.swift in Sources */,
-				F77EF5DA1F3F7C1300C85957 /* SettingTableViewCell.swift in Sources */,
 				F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */,
+				F77D2A1F1F5411D40032227F /* Message+CoreDataProperties.swift in Sources */,
 				F783F5331F486AD5009FC9F3 /* Menu+CoreDataProperties.swift in Sources */,
-				F77EF5E21F3FB02E00C85957 /* ThemeTableViewCell.swift in Sources */,
-				F7BDB5591F45CCD700F05CE6 /* SelectCategoryViewController.swift in Sources */,
+				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
+				F77D29F61F54039B0032227F /* SignUpViewController.swift in Sources */,
+				F77D29DB1F5402F40032227F /* NotificationManager.swift in Sources */,
+				F77D29EA1F54036A0032227F /* BaseFieldTableViewCell.swift in Sources */,
 				F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */,
-				F74FF8881F33683C00A1780A /* BaseFetchViewController.swift in Sources */,
-				F71AA1401F36078200399589 /* UserManager.swift in Sources */,
+				F77D29D21F5402C20032227F /* CategoryManager.swift in Sources */,
+				F77D2A061F5403AB0032227F /* SelectCategoryTableViewCell.swift in Sources */,
+				F77D2A051F5403AB0032227F /* SelectCategoryViewController.swift in Sources */,
+				F77D2A091F5403AB0032227F /* MessageViewController.swift in Sources */,
+				F77D29D01F5402C20032227F /* ImageManager.swift in Sources */,
+				F77D29CD1F5402C20032227F /* ArticleManager.swift in Sources */,
 				F783F5321F486AD5009FC9F3 /* Category+CoreDataProperties.swift in Sources */,
-				F77EF5D21F3F543800C85957 /* ProfileViewController.swift in Sources */,
-				F77EF5DE1F3FA3BA00C85957 /* SettingViewController.swift in Sources */,
-				F7829BCB1F310D820057EBA5 /* CoreDataManager.swift in Sources */,
-				F78D97261F3F287000AB00E0 /* ThemeManager.swift in Sources */,
+				F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */,
+				F77D29E81F54036A0032227F /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

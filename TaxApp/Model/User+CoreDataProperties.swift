@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/19/17.
+//  Created by Sergey Leskov on 8/28/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
@@ -23,10 +23,11 @@ extension User {
     @NSManaged public var middleName: String?
     @NSManaged public var photo: Data?
     @NSManaged public var userName: String?
-    @NSManaged public var category: Category?
-
     @NSManaged public var articlies: NSSet?
+    @NSManaged public var category: Category?
     @NSManaged public var menuMany: NSSet?
+    @NSManaged public var notifications: NSSet?
+    @NSManaged public var messages: NSSet?
 
 }
 
@@ -61,5 +62,39 @@ extension User {
 
     @objc(removeMenuMany:)
     @NSManaged public func removeFromMenuMany(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for notifications
+extension User {
+
+    @objc(addNotificationsObject:)
+    @NSManaged public func addToNotifications(_ value: Notification)
+
+    @objc(removeNotificationsObject:)
+    @NSManaged public func removeFromNotifications(_ value: Notification)
+
+    @objc(addNotifications:)
+    @NSManaged public func addToNotifications(_ values: NSSet)
+
+    @objc(removeNotifications:)
+    @NSManaged public func removeFromNotifications(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for messages
+extension User {
+
+    @objc(addMessagesObject:)
+    @NSManaged public func addToMessages(_ value: Message)
+
+    @objc(removeMessagesObject:)
+    @NSManaged public func removeFromMessages(_ value: Message)
+
+    @objc(addMessages:)
+    @NSManaged public func addToMessages(_ values: NSSet)
+
+    @objc(removeMessages:)
+    @NSManaged public func removeFromMessages(_ values: NSSet)
 
 }

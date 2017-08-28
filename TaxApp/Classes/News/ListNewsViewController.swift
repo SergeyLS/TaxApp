@@ -136,10 +136,23 @@ class ListNewsViewController: BaseFetchTableViewController {
     
     
     func configSideMenu()  {
+        
+        // Define the menus
+        SideMenuManager.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+        
+        // Enable gestures. The left and/or right menus must be set up above for these to work.
+        // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
+        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        // Set up a cool background image for demo purposes
+        //SideMenuManager.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "background")!)
+
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuFadeStatusBar = false
         SideMenuManager.menuWidth = view.layer.bounds.width * 0.8 //80%
-    }
+        SideMenuManager.menuEnableSwipeGestures = true
+     }
     
     func changeRightBarButton()  {
         
