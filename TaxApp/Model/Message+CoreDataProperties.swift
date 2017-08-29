@@ -19,12 +19,13 @@ extension Message {
     @NSManaged public var kind: String?
     @NSManaged public var id: Int64
     @NSManaged public var text: String?
-    @NSManaged public var replyID: String?
+    @NSManaged public var replyID: Int64
     @NSManaged public var isReadUser: Bool
     @NSManaged public var isReadAdmin: Bool
     @NSManaged public var dateCreated: Date?
     @NSManaged public var dateUpdate: Date?
     @NSManaged public var isDelete: Bool
     @NSManaged public var user: User?
+    @NSManaged public var isNew: Bool
 
 }

@@ -33,6 +33,7 @@ class ConfigAPI {
     
     static var getMessageSentString = "/message/sent"
     static var getMessageInboxString = "/message/inbox"
+    static var getMessageString = "/message"
     
     //login
     static func loginURL() -> URL {
@@ -79,6 +80,10 @@ class ConfigAPI {
     static func getMessageInboxURL() -> URL {
         return URL(string: serverAPI.appending(getMessageInboxString))!
     }
+    static func getMessageURL() -> URL {
+        return URL(string: serverAPI.appending(getMessageString))!
+    }
+
     
 }
 

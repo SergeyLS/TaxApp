@@ -11,7 +11,7 @@ import CoreData
 
 
 public class Message: NSManagedObject {
-
+    
     //==================================================
     // MARK: - Stored Properties
     //==================================================
@@ -35,18 +35,20 @@ public class Message: NSManagedObject {
         guard
             let tempText = dictionary["body"] as? String,
             let tempId = dictionary["id"] as? Int64
-              else {
+            else {
                 return nil
         }
         
         id = tempId
         text = tempText
         
-        let notification = NotificationManager.getNotification(notificationKind: .inbox, context: context)
-        notification.count = notification.count + 1
-        
+        if messageKind == .inbox {
+            isNew = true
+            let notification = NotificationManager.getNotification(notificationKind: .inbox, context: context)
+            notification.count = notification.count + 1
+        }
     }
-
+    
     
     func update(dictionary: NSDictionary,
                 messageKind: MessageKind)  {
@@ -61,7 +63,7 @@ public class Message: NSManagedObject {
                 dateUpdateTemp =  DateManager.datefromString(string: tempDate)
             }
         }
-       
+        
         if let dateUpdateOld = dateUpdate {
             if dateUpdateTemp == dateUpdateOld {
                 return
@@ -69,7 +71,9 @@ public class Message: NSManagedObject {
         }
         dateCreated = dateCreatedTemp
         dateUpdate = dateUpdateTemp
-
+        
+        replyID = dictionary["reply_id"] as? Int64 ?? 0
+        
         text = dictionary["body"] as? String ?? ""
         
         let isDelete = dictionary["deleted"] as? Bool ?? false
@@ -79,15 +83,11 @@ public class Message: NSManagedObject {
             kind = messageKind.rawValue
         }
         
-        let replyID = dictionary["reply_id"] as? String ?? ""
-        if !replyID.isEmpty {
-            //search
-        }
         
         let context = managedObjectContext
         self.user = UserManager.getUserByLogin(login: AppDataManager.shared.userLogin, context: context!)
         
         print("add/change \(Message.type): " + text!)
-
+        
     }
 }

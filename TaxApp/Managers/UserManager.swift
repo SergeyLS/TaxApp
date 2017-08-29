@@ -227,7 +227,7 @@ class UserManager {
     
     
     
-    //patchUserAPI
+    //postUserPhotoAPI
     static func postUserPhotoAPI(userName: String,
                                  photoImage: UIImage,
                                  completion: @escaping (_ error: String?) -> Void)  {

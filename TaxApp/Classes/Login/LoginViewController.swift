@@ -100,15 +100,18 @@ class LoginViewController: BaseViewController {
             return
         }
         
+        loadingPlaceholderViewHidden = false
         AuthorizationManager.login(eMailOrLogin: eMail, password: password) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                self.loadingPlaceholderViewHidden = true
                 return
             }
             
             CategoryManager.getCategoryFromAPI() { (error) in
                 if let error = error  {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    self.loadingPlaceholderViewHidden = true
                     return
                 }
                 
@@ -116,6 +119,7 @@ class LoginViewController: BaseViewController {
                 UserManager.getUserFromAPI(token: AppDataManager.shared.userToken) { (errorUser) in
                     if let error = errorUser  {
                         MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                        self.loadingPlaceholderViewHidden = true
                         return
                     }
                     
@@ -123,14 +127,15 @@ class LoginViewController: BaseViewController {
                         UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
                             if errorAvatar != nil {
                                 print(errorAvatar!)
+                                self.loadingPlaceholderViewHidden = true
                                 return
                             }
                         }
                     }
-                    
+                    self.loadingPlaceholderViewHidden = true
                     MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
                     self.performSegue(withIdentifier: "openNews", sender: nil)
-                } //getUserFromAPI
+                  } //getUserFromAPI
             } //getCategoryFromAPI
         }//login
         

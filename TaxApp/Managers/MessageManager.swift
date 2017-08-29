@@ -34,7 +34,7 @@ class MessageManager {
         
         return resultsArray?.first ?? nil
     }
-
+    
     
     //getArticleFromAPI
     static func getMessageFromAPI(messageKind: MessageKind, completion: @escaping (_ error: String?) -> Void)  {
@@ -44,13 +44,13 @@ class MessageManager {
             "content-type": "application/json",
             "cache-control": "no-cache"
         ]
- 
+        
         var url: URL!
         switch messageKind {
         case .inbox:
             url = ConfigAPI.getMessageInboxURL()
         case .sent:
-             url = ConfigAPI.getMessageSentURL()
+            url = ConfigAPI.getMessageSentURL()
         default:
             return
         }
@@ -90,7 +90,7 @@ class MessageManager {
                         
                         if let message = getMessageByID(id: id )  {
                             message.update(dictionary: tempElement as NSDictionary, messageKind: messageKind)
-                          } else {
+                        } else {
                             // New
                             if AppDataManager.shared.currentUser == nil {
                                 continue
@@ -112,10 +112,72 @@ class MessageManager {
                 completion(nil)
                 return
             }
- 
+            
             completion("Invalid func getMessageFromAPI")
             
         }
     }
-
+    
+    
+    
+    //sendMail
+    static func sendMessage(adminMessage: Message?, text: String, completion: @escaping (_ error: String?) -> Void)  {
+        let token = AppDataManager.shared.userToken
+        
+        var parameters = [String : Any]()
+        parameters.updateValue(text, forKey: "body")
+        
+        if let message = adminMessage  {
+            parameters.updateValue(message.id, forKey: "reply_id")
+        }
+        
+        
+        let headers: HTTPHeaders = [
+            "authorization": "Bearer " + token,
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        let req = request(ConfigAPI.getMessageURL(), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseJSON { response in
+            if response.result.isFailure  {
+                //print(response.result.error!)
+                completion(response.result.error?.localizedDescription)
+                return
+            }
+            
+            guard let responseJSON = response.result.value as? [String: Any] else {
+                completion("Invalid tag information received from service")
+                return
+            }
+            
+            
+            if (Array(responseJSON.keys).contains("message")) == true {
+                if let errors = responseJSON["message"] as? String {
+                    completion(errors)
+                    return
+                }
+            }
+            
+            if (Array(responseJSON.keys).contains("user_read_at")) == true {
+                
+                guard let message = Message(dictionary: responseJSON as NSDictionary, messageKind: .sent)   else {
+                    completion("Error: Could not create a new Message from API.")
+                    return
+                }
+                message.update(dictionary: responseJSON as NSDictionary, messageKind: .sent)
+                
+                
+                completion(nil)
+                return
+            }
+            
+            
+            
+            completion("Error Send Message")
+            
+        }
+    }
+    
+    
 }

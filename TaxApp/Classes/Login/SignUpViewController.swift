@@ -86,16 +86,18 @@ class SignUpViewController: BaseViewController {
             return
         }
         
-        
+        loadingPlaceholderViewHidden = false
         AuthorizationManager.registration(eMail: eMail, login: login, password: password) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                self.loadingPlaceholderViewHidden = true
                 return
             }
             
             CategoryManager.getCategoryFromAPI() { (error) in
                 if let error = error  {
                     MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    self.loadingPlaceholderViewHidden = true
                     return
                 }
                 
@@ -107,6 +109,7 @@ class SignUpViewController: BaseViewController {
                     user.lastLogin = Date()
                     CoreDataManager.shared.saveContext()
                     
+                    self.loadingPlaceholderViewHidden = true
                     MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
                     self.performSegue(withIdentifier: "openNews", sender: nil)
                 }

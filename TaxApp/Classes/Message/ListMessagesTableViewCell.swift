@@ -12,6 +12,7 @@ class ListMessagesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateUI: UILabel!
     @IBOutlet weak var textUI: UILabel!
+    @IBOutlet weak var replyUI: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

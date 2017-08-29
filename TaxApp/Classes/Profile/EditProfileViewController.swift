@@ -44,6 +44,10 @@ class EditProfileViewController: BaseImageViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        if photoUI.image == nil {
+            photoUI.image = UIImage(named: "userNoPhoto")
+        }
+        
         configTheme()
         
         

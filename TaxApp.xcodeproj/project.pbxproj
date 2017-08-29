@@ -62,6 +62,8 @@
 		F77D2A271F542D530032227F /* ListMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */; };
 		F77D2A291F5434850032227F /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A281F5434850032227F /* MessageManager.swift */; };
 		F77D2A2B1F5440B70032227F /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2A1F5440B70032227F /* SyncManager.swift */; };
+		F77D2A2D1F5563F40032227F /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */; };
+		F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2E1F55A7270032227F /* UITextView+Extension.swift */; };
 		F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */; };
 		F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */; };
 		F783F52E1F486AD5009FC9F3 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5261F486AD5009FC9F3 /* Article+CoreDataProperties.swift */; };
@@ -139,6 +141,8 @@
 		F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesTableViewCell.swift; sourceTree = "<group>"; };
 		F77D2A281F5434850032227F /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		F77D2A2A1F5440B70032227F /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		F77D2A2E1F55A7270032227F /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F783F5261F486AD5009FC9F3 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 			children = (
 				F77D2A241F54232B0032227F /* ListMessagesViewController.swift */,
 				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
+				F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 			children = (
 				F783F5381F486B19009FC9F3 /* String+Extensions.swift */,
 				F783F5391F486B19009FC9F3 /* UIColor+Extensions.swift */,
+				F77D2A2E1F55A7270032227F /* UITextView+Extension.swift */,
 			);
 			name = Extensions;
 			path = TaxApp/Extensions;
@@ -573,6 +579,7 @@
 				F77D29D41F5402C20032227F /* DateManager.swift in Sources */,
 				F77D29DD1F54030D0032227F /* AppDataManager+Theme.swift in Sources */,
 				F77D2A291F5434850032227F /* MessageManager.swift in Sources */,
+				F77D2A2D1F5563F40032227F /* NewMessageViewController.swift in Sources */,
 				F77D29E91F54036A0032227F /* BaseLabelTableViewCell.swift in Sources */,
 				F77D29D91F5402C20032227F /* MessagerManager.swift in Sources */,
 				F77D29F91F54039B0032227F /* RestorePasswordViewController.swift in Sources */,
@@ -581,6 +588,7 @@
 				F783F5311F486AD5009FC9F3 /* Category+CoreDataClass.swift in Sources */,
 				F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */,
 				F77D2A1F1F5411D40032227F /* Message+CoreDataProperties.swift in Sources */,
+				F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */,
 				F783F5331F486AD5009FC9F3 /* Menu+CoreDataProperties.swift in Sources */,
 				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
 				F77D29F61F54039B0032227F /* SignUpViewController.swift in Sources */,

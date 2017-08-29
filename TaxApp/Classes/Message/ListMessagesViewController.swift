@@ -25,15 +25,14 @@ class ListMessagesViewController: BaseFetchTableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        configButton(button: mainButtonUI, isMakeCircle: true)
-        mainButtonUI.layer.shadowColor = UIColor.darkGray.cgColor
-        mainButtonUI.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        mainButtonUI.layer.shadowRadius = 3.0
-        mainButtonUI.layer.shadowOpacity = 0.4
-        mainButtonUI.layer.masksToBounds = false
+        configButton(button: mainButtonUI, isMakeCircle: true, isShadow: true)
         
         if messageKind == MessageKind.delete {
             mainButtonUI.isHidden = true
+        }
+        
+        if messageKind == MessageKind.inbox {
+            NotificationManager.clearNotification(notificationKind: .inbox)
         }
         
     }
@@ -48,8 +47,7 @@ class ListMessagesViewController: BaseFetchTableViewController {
         
         navigationItem.title = messageKind.localized()
         configTheme()
-        requestData()
-    }
+     }
     
     
     
@@ -98,7 +96,26 @@ class ListMessagesViewController: BaseFetchTableViewController {
         mainButtonUI.backgroundColor = ThemeManager.shared.mainColor()
     }
     
+    //==================================================
+    // MARK: - action
+    //==================================================
+    @IBAction func newMessageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "write", sender: nil)
+    }
     
+    
+    //==================================================
+    // MARK: - Navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "write") {
+            let destinationController = segue.destination as! NewMessageViewController
+            destinationController.messageMain = sender as? Message
+        }
+        
+    }
+
 }
 
 
@@ -116,17 +133,24 @@ extension ListMessagesViewController {
         cell.dateUI.text = DateManager.dateAndTimeInTwoString(date: message.dateUpdate!)
         cell.textUI.text = message.text
         
+        if message.isNew {
+            cell.textUI.font = UIFont.boldSystemFont(ofSize: 13)
+        } else {
+            cell.textUI.font = UIFont.systemFont(ofSize: 13)
+        }
+        
+        if message.replyID == 0 {
+            cell.replyUI.isHidden = true
+        } else {
+            cell.replyUI.isHidden = false
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let message = fetchController.object(at: indexPath) as! Message
         
-        //        if article.isCanOpen {
-        //            self.performSegue(withIdentifier: "fullText", sender: article)
-        //        } else {
-        //            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error, view: self.view)
-        //        }
-        
+        performSegue(withIdentifier: "write", sender: message)
     }
 }

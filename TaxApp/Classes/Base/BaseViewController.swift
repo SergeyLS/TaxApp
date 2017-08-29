@@ -33,7 +33,7 @@ class BaseViewController: UIViewController {
     //==================================================
     // MARK: - config
     //==================================================
-    func configButton(button: UIButton, isMakeCircle: Bool = false)  {
+    func configButton(button: UIButton, isMakeCircle: Bool = false, isShadow: Bool = false)  {
         
         button.imageView?.contentMode = .scaleAspectFit
         let widthButton = button.layer.bounds.width
@@ -44,6 +44,14 @@ class BaseViewController: UIViewController {
         } else {
             button.layer.cornerRadius = 5
         }
+        
+        if isShadow {
+            button.layer.shadowColor = UIColor.darkGray.cgColor
+            button.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+            button.layer.shadowRadius = 3.0
+            button.layer.shadowOpacity = 0.4
+            button.layer.masksToBounds = false
+       }
      }
     
     //==================================================
