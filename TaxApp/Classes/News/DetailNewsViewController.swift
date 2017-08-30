@@ -22,6 +22,7 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var likeButtonUI: UIButton!
+    @IBOutlet weak var spinerImage: UIActivityIndicatorView!
     
     
     var article: Article!
@@ -31,21 +32,25 @@ class DetailNewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let menu = article.menu {
-            navigationItem.title = menu.title
+        
+        DispatchQueue.main.async {
+            ArticleManager.getImage(article: self.article,
+                                    width: Int(self.photoUI.layer.bounds.width),
+                                    height: Int(self.photoUI.layer.bounds.height)) { (image) in
+                                        self.photoUI.image = self.article.photoImage
+                                        self.spinerImage.stopAnimating()
+            }
         }
         
-        photoUI.image = article.photoImage
         titleUI.text = article.title
         dateUI.text = DateManager.dateAndTimeToString(date: article.dateCreated!)
         
-        if let link = article.linkText {
-            webView.delegate = self
-            if let url = URL(string: link) {
-                let request = URLRequest(url: url)
-                webView.loadRequest(request)
-            }
-            
+        
+        webView.delegate = self
+        
+        if let url = FileManagerTax.getFileURL(article: article) {
+            let request = URLRequest(url: url)
+            webView.loadRequest(request)
         }
         
         chengeLike()
@@ -63,6 +68,9 @@ class DetailNewsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let menu = article.menu {
+            navigationItem.title = menu.title
+        }
         configTheme()
     }
     
@@ -106,8 +114,28 @@ class DetailNewsViewController: BaseViewController {
             
             self.chengeLike()
         }
-        
     }
+    
+    @IBAction func messageAction(_ sender: UIButton) {
+        if AppDataManager.shared.userLogin == User.noLoginUserKey {
+            UserManager.messageNoLogin(view: view)
+            return
+        }
+
+        performSegue(withIdentifier: "newMessage", sender: article)
+    }
+    
+    
+    //==================================================
+    // MARK: - Navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "newMessage") {
+            let destinationController = segue.destination as! NewMessageViewController
+            destinationController.article = sender as? Article
+        }
+    }
+    
     
     //==================================================
     // MARK: - observing

@@ -186,6 +186,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             self.performSegue(withIdentifier: "setting", sender: nil)
         case 2:
             AppDataManager.shared.userLogin = ""
+            AppDataManager.shared.userToken = ""
             self.performSegue(withIdentifier: "exitUser", sender: nil)
         default:
             return

@@ -13,7 +13,8 @@ import Alamofire
 class ArticleManager {
     
     //getArticleByID
-    static func getArticleByID(id: String) -> Article? {
+    static func getArticleByID(id: String,
+                               context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> Article? {
         
         if  id == "" { return nil }
         
@@ -29,91 +30,91 @@ class ArticleManager {
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
         request.predicate = predicate
         
-        let resultsArray = (try? CoreDataManager.shared.viewContext.fetch(request))
+        let resultsArray = (try? context.fetch(request))
         
         return resultsArray?.first ?? nil
     }
     
     
-    //getArticleFromAPI
-    static func getArticleFromAPI(menu: Menu, completion: @escaping (_ error: String?) -> Void)  {
-        
-        let headers: HTTPHeaders = [
-            "content-type": "application/json",
-            "cache-control": "no-cache"
-        ]
-        let menuIdString = String(describing: menu.id)
-        let url = URL(string: ConfigAPI.serverAPI.appending(ConfigAPI.getArticleString).appending(menuIdString))!
-        
-        let req = request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
-        
-        req.responseJSON { response in
-            if response.result.isFailure  {
-                //print(response.result.error!)
-                completion(response.result.error?.localizedDescription)
-                return
-            }
-            
-            guard let array = response.result.value as? [Any] else {
-                completion("Invalid tag information received from service")
-                return
-            }
-            
-            var isErrors = false
-            
-            let moc = CoreDataManager.shared.newBackgroundContext
-            moc.performAndWait{
-                for element in array {
-                    if let tempElement = element as? [String: Any] {
-                        guard
-                            let id = tempElement["id"] as? String
-                            else {
-                                print("error - no id")
-                                isErrors = true
-                                continue
-                        }
-                        
-                        //dateUpdate
-                        //                        if let tempDaties = tempElement["time"] as? [String: Any] {
-                        //                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
-                        //                                print(DateManager.datefromString(string: tempDate))
-                        //                            }
-                        //                        }
-                        
-                        
-                        
-                        if let _ = getArticleByID(id: id )  {
-                            //update
-                            
-                        } else {
-                            // New
-                            if AppDataManager.shared.currentUser == nil {
-                                continue
-                            }
-                            
-                            
-                            guard let _ = Article(dictionary: tempElement as NSDictionary, menu: menu, context: moc)   else {
-                                print("Error: Could not create a new Article from API.")
-                                isErrors = true
-                                continue
-                            }
-                            
-                        } //else
-                    }
-                }
-                CoreDataManager.shared.save(context: moc)
-            }
-            
-            
-            if isErrors == false {
-                completion(nil)
-                return
-            }
-            
-            completion("Invalid func getArticleFromAPI")
-            
-        }
-    }
+//    //getArticleFromAPI
+//    static func getArticleFromAPI(menu: Menu, completion: @escaping (_ error: String?) -> Void)  {
+//        
+//        let headers: HTTPHeaders = [
+//            "content-type": "application/json",
+//            "cache-control": "no-cache"
+//        ]
+//        let menuIdString = String(describing: menu.id)
+//        let url = URL(string: ConfigAPI.serverAPI.appending(ConfigAPI.getArticleString).appending(menuIdString))!
+//        
+//        let req = request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+//        
+//        req.responseJSON { response in
+//            if response.result.isFailure  {
+//                //print(response.result.error!)
+//                completion(response.result.error?.localizedDescription)
+//                return
+//            }
+//            
+//            guard let array = response.result.value as? [Any] else {
+//                completion("Invalid tag information received from service")
+//                return
+//            }
+//            
+//            var isErrors = false
+//            
+//            let moc = CoreDataManager.shared.newBackgroundContext
+//            moc.performAndWait{
+//                for element in array {
+//                    if let tempElement = element as? [String: Any] {
+//                        guard
+//                            let id = tempElement["id"] as? String
+//                            else {
+//                                print("error - no id")
+//                                isErrors = true
+//                                continue
+//                        }
+//                        
+//                        //dateUpdate
+//                        //                        if let tempDaties = tempElement["time"] as? [String: Any] {
+//                        //                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
+//                        //                                print(DateManager.datefromString(string: tempDate))
+//                        //                            }
+//                        //                        }
+//                        
+//                        
+//                        
+//                        if let _ = getArticleByID(id: id )  {
+//                            //update
+//                            
+//                        } else {
+//                            // New
+//                            if AppDataManager.shared.currentUser == nil {
+//                                continue
+//                            }
+//                            
+//                            
+//                            guard let _ = Article(dictionary: tempElement as NSDictionary, menu: menu, context: moc)   else {
+//                                print("Error: Could not create a new Article from API.")
+//                                isErrors = true
+//                                continue
+//                            }
+//                            
+//                        } //else
+//                    }
+//                }
+//                CoreDataManager.shared.save(context: moc)
+//            }
+//            
+//            
+//            if isErrors == false {
+//                completion(nil)
+//                return
+//            }
+//            
+//            completion("Invalid func getArticleFromAPI")
+//            
+//        }
+//    }
     
     
     
@@ -166,40 +167,30 @@ class ArticleManager {
                             continue
                         }
                         
-                        //dateUpdate
-                        var dateUpdate = DateManager.dateNil
-                        if let tempDaties = tempElement["time"] as? [String: Any] {
-                            if let tempDate = tempDaties["updatedAtFormatted"] as? String {
-                                dateUpdate = DateManager.datefromString(string: tempDate)
-                            }
-                        }
-                        
                         //likes
                         let likes = tempElement["likes"] as? Int64 ?? 0
                         
                         
                         //go
-                        if let article = getArticleByID(id: id )  {
+                        if let article = getArticleByID(id: id, context:  moc)  {
+                            article.update(menu: menu!, dictionary: tempElement as NSDictionary)
                             //update
-                            if dateUpdate > article.dateUpdate! {
-                                article.update(menu: menu!, dictionary: tempElement as NSDictionary)
-                            } else {
-                                if article.likes != likes {
-                                    article.likes = likes
-                                }
+                            if article.likes != likes {
+                                article.likes = likes
                             }
-                            
+                        
                         } else {
                             // New
                             if AppDataManager.shared.currentUser == nil {
                                 continue
                             }
                             
-                            guard let _ = Article(dictionary: tempElement as NSDictionary, menu: menu!, context: moc)   else {
+                            guard let article = Article(id: id, context: moc)   else {
                                 print("Error: Could not create a new Article from API.")
                                 isErrors = true
                                 continue
                             }
+                            article.update(menu: menu!, dictionary: tempElement as NSDictionary)
                             
                         } //else
                     }
@@ -220,7 +211,7 @@ class ArticleManager {
     
     
     
-    static func getImage(article: Article, completion: @escaping (_ image: UIImage) -> Void)  {
+    static func getImage(article: Article, width: Int, height: Int, completion: @escaping (_ image: UIImage) -> Void)  {
         
         let empfyPhoto = UIImage()
         
@@ -229,7 +220,7 @@ class ArticleManager {
             return
         }
         
-        guard let linkPhoto = article.linkPhoto else {
+        guard var linkPhoto = article.linkPhoto else {
             completion(empfyPhoto)
             return
         }
@@ -239,7 +230,17 @@ class ArticleManager {
             "cache-control": "no-cache"
         ]
         
-        let req = request(linkPhoto, method: .get, encoding: JSONEncoding.default, headers: headers)
+        let indexChar = linkPhoto.findLastChar(charOfSerch: ".")
+        if indexChar > 0 {
+           let stringBefore = linkPhoto.substring(to: indexChar-1)
+           let stringAfter = linkPhoto.substring(from: indexChar-1)
+            
+           linkPhoto = stringBefore + "_\(width)x\(height)" + stringAfter
+        }
+        
+        
+
+       let req = request(linkPhoto, method: .get, encoding: JSONEncoding.default, headers: headers)
         
         req.responseData { response in
             if response.result.isFailure  {
@@ -366,9 +367,8 @@ class ArticleManager {
                         }
                         
                         
-                        
-                        if let article = getArticleByID(id: id )  {
-                            //update
+                        if let article = getArticleByID(id: id, context: moc)  {
+                            article.update(menu: menu!, dictionary: tempElement as NSDictionary)
                             article.forSearch = search
                         } else {
                             // New
@@ -376,11 +376,12 @@ class ArticleManager {
                                 continue
                             }
                             
-                            guard let article = Article(dictionary: tempElement as NSDictionary, menu: menu!, context: moc)   else {
+                            guard let article = Article(id: id, context: moc)   else {
                                 print("Error: Could not create a new Article from API.")
                                 isErrors = true
                                 continue
                             }
+                            article.update(menu: menu!, dictionary: tempElement as NSDictionary)
                             
                             article.forSearch = search
                         } //else

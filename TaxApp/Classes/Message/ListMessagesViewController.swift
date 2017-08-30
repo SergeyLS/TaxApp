@@ -114,6 +114,12 @@ class ListMessagesViewController: BaseFetchTableViewController {
             destinationController.messageMain = sender as? Message
         }
         
+        if (segue.identifier == "message") {
+            let destinationController = segue.destination as! ViewMessageViewController
+            //destinationController.messageMain = sender as? Message
+        }
+
+        
     }
 
 }
@@ -151,6 +157,7 @@ extension ListMessagesViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let message = fetchController.object(at: indexPath) as! Message
         
-        performSegue(withIdentifier: "write", sender: message)
+        //performSegue(withIdentifier: "write", sender: message)
+        performSegue(withIdentifier: "message", sender: message)
     }
 }

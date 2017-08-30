@@ -17,6 +17,6 @@ target 'TaxApp' do
   
   pod 'DatePickerDialog'
    
-  pod 'Google/SignIn'
+   # pod 'Google/SignIn'
 
 end

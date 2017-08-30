@@ -20,6 +20,7 @@ class NewMessageViewController: BaseViewController {
     var messageMain: Message?
     var date = Date()
     var textMessage = ""
+    var article: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class NewMessageViewController: BaseViewController {
         }
         
         textUI.addDoneButtonToKeyboard(myAction:  #selector(textUI.resignFirstResponder))
+        textUI.layer.cornerRadius = 5
         
         if let message = messageMain  {
             
@@ -49,7 +51,12 @@ class NewMessageViewController: BaseViewController {
                CoreDataManager.shared.saveContext()
             }
         }
-    }
+        
+        textUI.text = ""
+        if article != nil {
+            textUI.text = "Сообщение к статье: \(String(describing: (article?.title!)! )) \n"
+        }
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,14 +72,13 @@ class NewMessageViewController: BaseViewController {
         } else {
             navigationItem.title = "Ваш ответ"
         }
-        textUI.text = ""
-        textUI.layer.cornerRadius = 5
+        
         configTheme()
         reloadData()
         
-        if messageMain == nil {
-            textUI.becomeFirstResponder()
-        }
+//        if messageMain == nil {
+//            textUI.becomeFirstResponder()
+//        }
     }
     
     

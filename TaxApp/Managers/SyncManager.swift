@@ -32,8 +32,12 @@ class SyncManager{
     
     
     static func syncMessages(view: UIView)  {
-        print("[ProfileViewController] - requestData")
         
+        if AppDataManager.shared.userLogin == User.noLoginUserKey {
+            return
+        }
+
+        print("[ProfileViewController] - requestData")
         MessageManager.getMessageFromAPI(messageKind: MessageKind.inbox) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)

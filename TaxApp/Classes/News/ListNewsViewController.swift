@@ -192,6 +192,13 @@ class ListNewsViewController: BaseFetchTableViewController {
             destinationController.article = sender as! Article
         }
 
+        if (segue.identifier == "newMessage") {
+            let destinationController = segue.destination as! NewMessageViewController
+            destinationController.article = sender as? Article
+        }
+
+        
+        
     }
     
 }
@@ -236,7 +243,7 @@ extension ListNewsViewController {
         cell.photoUI.image = UIImage()
         cell.indicatorUI.startAnimating()
         DispatchQueue.main.async {
-            ArticleManager.getImage(article: article) { (image) in
+            ArticleManager.getImage(article: article, width: Int(cell.photoUI.layer.bounds.width), height: Int(cell.photoUI.layer.bounds.height)) { (image) in
                 cell.photoUI.image = image
                 cell.indicatorUI.stopAnimating()
             }

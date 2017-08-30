@@ -80,6 +80,8 @@
 		F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53D1F486E24009FC9F3 /* ListNewsTableViewCell.swift */; };
 		F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */; };
 		F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */; };
+		F7F623221F56CEAE00BD52DE /* FileManagerTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */; };
+		F7F623261F56F26700BD52DE /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,8 @@
 		F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTax.swift; sourceTree = "<group>"; };
+		F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,7 @@
 				F77D2A241F54232B0032227F /* ListMessagesViewController.swift */,
 				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
 				F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */,
+				F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				F77D29CC1F5402C20032227F /* MessagerManager.swift */,
 				F77D2A281F5434850032227F /* MessageManager.swift */,
 				F77D2A2A1F5440B70032227F /* SyncManager.swift */,
+				F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */,
 			);
 			name = Managers;
 			path = TaxApp/Managers;
@@ -548,6 +554,7 @@
 				F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */,
 				F783F5301F486AD5009FC9F3 /* User+CoreDataClass.swift in Sources */,
 				F77D29CE1F5402C20032227F /* ConfigAPI.swift in Sources */,
+				F7F623261F56F26700BD52DE /* ViewMessageViewController.swift in Sources */,
 				F77D29D11F5402C20032227F /* AuthorizationManager.swift in Sources */,
 				F77D2A2B1F5440B70032227F /* SyncManager.swift in Sources */,
 				F77D2A1E1F5411D40032227F /* Message+CoreDataClass.swift in Sources */,
@@ -591,6 +598,7 @@
 				F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */,
 				F783F5331F486AD5009FC9F3 /* Menu+CoreDataProperties.swift in Sources */,
 				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
+				F7F623221F56CEAE00BD52DE /* FileManagerTax.swift in Sources */,
 				F77D29F61F54039B0032227F /* SignUpViewController.swift in Sources */,
 				F77D29DB1F5402F40032227F /* NotificationManager.swift in Sources */,
 				F77D29EA1F54036A0032227F /* BaseFieldTableViewCell.swift in Sources */,

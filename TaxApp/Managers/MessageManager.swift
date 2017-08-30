@@ -88,7 +88,7 @@ class MessageManager {
                                 continue
                         }
                         
-                        if let message = getMessageByID(id: id )  {
+                        if let message = getMessageByID(id: id)  {
                             message.update(dictionary: tempElement as NSDictionary, messageKind: messageKind)
                         } else {
                             // New
@@ -126,8 +126,7 @@ class MessageManager {
         
         var parameters = [String : Any]()
         parameters.updateValue(text, forKey: "body")
-        
-        if let message = adminMessage  {
+         if let message = adminMessage  {
             parameters.updateValue(message.id, forKey: "reply_id")
         }
         

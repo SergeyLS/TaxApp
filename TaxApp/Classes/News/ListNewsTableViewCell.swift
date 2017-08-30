@@ -103,5 +103,15 @@ class ListNewsTableViewCell: UITableViewCell {
         topController?.performSegue(withIdentifier: "openWeb", sender: article)
       }
     
+    
+    @IBAction func messageAction(_ sender: UIButton) {
+        if AppDataManager.shared.userLogin == User.noLoginUserKey {
+            UserManager.messageNoLogin(view: mainView)
+            return
+        }
+
+        topController?.performSegue(withIdentifier: "newMessage", sender: article)
+    }
+    
 
 }
