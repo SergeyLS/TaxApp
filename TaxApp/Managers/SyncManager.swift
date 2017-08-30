@@ -37,7 +37,7 @@ class SyncManager{
             return
         }
 
-        print("[ProfileViewController] - requestData")
+        print("[syncMessages] - requestData")
         MessageManager.getMessageFromAPI(messageKind: MessageKind.inbox) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)

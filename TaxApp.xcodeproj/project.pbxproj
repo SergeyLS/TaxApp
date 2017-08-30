@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E905BBC3131641B573B3B22 /* Pods_TaxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */; };
+		F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */; };
 		F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */; };
 		F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */; };
 		F77D29BD1F5402290032227F /* NotificationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29BC1F5402290032227F /* NotificationKind.swift */; };
@@ -89,6 +90,7 @@
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
 		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = ../TaxApp.entitlements; sourceTree = "<group>"; };
+		F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageTableViewCell.swift; sourceTree = "<group>"; };
 		F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F77D29BC1F5402290032227F /* NotificationKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKind.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
 				F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */,
 				F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */,
+				F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				F77D29BD1F5402290032227F /* NotificationKind.swift in Sources */,
 				F783F5401F486E24009FC9F3 /* ListNewsViewController.swift in Sources */,
 				F77D29DF1F5403580032227F /* AppDelegate.swift in Sources */,
+				F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */,
 				F77D29F01F54037B0032227F /* LeftMenuViewController.swift in Sources */,
 				F77D2A0B1F5403AB0032227F /* SettingTableViewCell.swift in Sources */,
 				F77D2A251F54232B0032227F /* ListMessagesViewController.swift in Sources */,

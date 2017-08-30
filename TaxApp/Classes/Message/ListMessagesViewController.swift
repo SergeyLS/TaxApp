@@ -116,7 +116,7 @@ class ListMessagesViewController: BaseFetchTableViewController {
         
         if (segue.identifier == "message") {
             let destinationController = segue.destination as! ViewMessageViewController
-            //destinationController.messageMain = sender as? Message
+            destinationController.messageMain = sender as? Message
         }
 
         

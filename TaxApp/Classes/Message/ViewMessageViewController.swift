@@ -27,6 +27,11 @@ class ViewMessageViewController: BaseFetchTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+        
         configButton(button: mainButtonUI, isMakeCircle: true, isShadow: true)
         textUI.layer.cornerRadius = 5
         
@@ -76,7 +81,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            let window = self.view.window?.frame {
+            let _ = self.view.window?.frame {
             
             isActivKeyboard = true
             
@@ -125,6 +130,11 @@ class ViewMessageViewController: BaseFetchTableViewController {
                 if AppDataManager.shared.currentUser != nil {
                     arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
                 }
+                
+                if let message = messageMain {
+                    arrayPredicate.append(NSPredicate(format: "id = %i", message.id))
+                }
+                
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
                 
                 fetchRequest.predicate = predicate
@@ -219,33 +229,23 @@ class ViewMessageViewController: BaseFetchTableViewController {
 extension ViewMessageViewController {
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        //        let message = fetchController.object(at: indexPath) as! Message
-        //
-        //
-        //        cell.dateUI.text = DateManager.dateAndTimeInTwoString(date: message.dateUpdate!)
-        //        cell.textUI.text = message.text
-        //
-        //        if message.isNew {
-        //            cell.textUI.font = UIFont.boldSystemFont(ofSize: 13)
-        //        } else {
-        //            cell.textUI.font = UIFont.systemFont(ofSize: 13)
-        //        }
-        //
-        //        if message.replyID == 0 {
-        //            cell.replyUI.isHidden = true
-        //        } else {
-        //            cell.replyUI.isHidden = false
-        //        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellAdmin", for: indexPath) as! ViewMessageTableViewCell
+        let message = fetchController.object(at: indexPath) as! Message
+        
+        cell.dateUI.text = DateManager.dateAndTimeToString(date: message.dateUpdate!)
+        cell.messageUI.text = message.text
+        
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let message = fetchController.object(at: indexPath) as! Message
-        
-        //performSegue(withIdentifier: "write", sender: message)
-        performSegue(withIdentifier: "message", sender: message)
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+
 }
 
