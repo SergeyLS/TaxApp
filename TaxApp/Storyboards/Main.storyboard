@@ -1102,6 +1102,9 @@
                                                             <constraint firstAttribute="width" constant="25" id="gwg-Ts-9gm"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="buttonLink"/>
+                                                        <connections>
+                                                            <action selector="shareAction:" destination="sT1-sF-K6Z" eventType="touchUpInside" id="w0r-uZ-jcv"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lc-FC-K5I">
                                                         <rect key="frame" x="213" y="12" width="25" height="25"/>
@@ -1154,6 +1157,9 @@
                                                             <constraint firstAttribute="height" constant="25" id="Iwq-bc-OHN"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="buttonArhiv"/>
+                                                        <connections>
+                                                            <action selector="saveToDiskAction:" destination="sT1-sF-K6Z" eventType="touchUpInside" id="Wen-GK-HdF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

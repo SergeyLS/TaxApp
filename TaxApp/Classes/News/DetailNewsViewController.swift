@@ -125,6 +125,27 @@ class DetailNewsViewController: BaseViewController {
         performSegue(withIdentifier: "newMessage", sender: article)
     }
     
+    @IBAction func shareAction(_ sender: UIButton) {
+        let defaultText = article.title ?? ""
+        
+        var activityItems = [Any]()
+        activityItems.append(defaultText)
+        if let image = article.photoImage {
+            activityItems.append(image)
+        }
+        if let url = URL(string: article.linkText!) {
+            activityItems.append(url)
+        }
+        
+        let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        self.present(activityController, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func saveToDiskAction(_ sender: UIButton) {
+        MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success, view: self.view)
+    }
+    
     
     //==================================================
     // MARK: - Navigation
