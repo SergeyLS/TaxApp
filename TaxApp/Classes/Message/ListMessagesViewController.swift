@@ -100,7 +100,7 @@ class ListMessagesViewController: BaseFetchTableViewController {
     // MARK: - action
     //==================================================
     @IBAction func newMessageButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "write", sender: nil)
+        performSegue(withIdentifier: "message", sender: nil)
     }
     
     
@@ -108,11 +108,6 @@ class ListMessagesViewController: BaseFetchTableViewController {
     // MARK: - Navigation
     //==================================================
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "write") {
-            let destinationController = segue.destination as! NewMessageViewController
-            destinationController.messageMain = sender as? Message
-        }
         
         if (segue.identifier == "message") {
             let destinationController = segue.destination as! ViewMessageViewController

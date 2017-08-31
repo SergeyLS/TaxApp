@@ -14,13 +14,14 @@ class BaseFetchTableViewController: BaseFetchViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @objc internal override func reloadData() {
-        //        print("[BaseFetchTableVC] reloadData")
+        super.reloadData()
+        
         CATransaction.begin()
         CATransaction.setAnimationDuration(0)
         tableView.reloadData()
         CATransaction.commit()
         
-        super.reloadData()
+        
     }
 }
 

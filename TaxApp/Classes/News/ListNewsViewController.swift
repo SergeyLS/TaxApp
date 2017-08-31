@@ -193,7 +193,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         }
 
         if (segue.identifier == "newMessage") {
-            let destinationController = segue.destination as! NewMessageViewController
+            let destinationController = segue.destination as! ViewMessageViewController
             destinationController.article = sender as? Article
         }
 

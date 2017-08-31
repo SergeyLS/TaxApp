@@ -27,5 +27,6 @@ extension Message {
     @NSManaged public var isDelete: Bool
     @NSManaged public var user: User?
     @NSManaged public var isNew: Bool
+    @NSManaged public var mainID: Int64
 
 }

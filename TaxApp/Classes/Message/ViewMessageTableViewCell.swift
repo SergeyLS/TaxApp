@@ -28,5 +28,14 @@ class ViewMessageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    override func prepareForReuse() {
+        photoUI.image = nil
+        messageUI.text = nil
+        dateUI.text = nil
+    }
+
+    
 
 }

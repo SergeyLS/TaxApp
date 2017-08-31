@@ -39,6 +39,7 @@ class MessageViewController: BaseImageViewController {
         navigationItem.title = NSLocalizedString("Сообщения", comment: "MessageViewController - navigationItem.title")
         configTheme()
         tableView.reloadData()
+        requestData()
     }
 
     
@@ -47,6 +48,10 @@ class MessageViewController: BaseImageViewController {
     //==================================================
     func configTheme()  {
         fonUI.image = ThemeManager.shared.findImage(name: "messageFon", themeApp: ThemeManager.shared.currentTheme())
+    }
+
+    func requestData() {
+        SyncManager.syncMessages(view: view)
     }
 
 

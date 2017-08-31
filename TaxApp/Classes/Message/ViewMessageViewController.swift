@@ -27,6 +27,9 @@ class ViewMessageViewController: BaseFetchTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -35,17 +38,22 @@ class ViewMessageViewController: BaseFetchTableViewController {
         configButton(button: mainButtonUI, isMakeCircle: true, isShadow: true)
         textUI.layer.cornerRadius = 5
         
-        if messageMain == nil {
-            deleteUI.isEnabled = false
-        }
+        deleteUI.isEnabled = false
+        
         
         textUI.text = ""
         if article != nil {
-            textUI.text = "Сообщение к статье: \(String(describing: (article?.title!)! )) \n"
+            textUI.text = "Сообщение к статье: '\(String(describing: (article?.title!)! ))' \n"
+            //textUI.becomeFirstResponder()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        if let message = messageMain  {
+            
+            if message.isNew {
+                message.isNew = false
+                CoreDataManager.shared.saveContext()
+            }
+        }
         
     }
     
@@ -57,11 +65,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if messageMain == nil {
-            navigationItem.title = "Письмо администратору"
-        } else {
-            navigationItem.title = "Ваш ответ"
-        }
+        navigationItem.title = "Диалог"
         
         configTheme()
         
@@ -72,6 +76,8 @@ class ViewMessageViewController: BaseFetchTableViewController {
         
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        scrollToLastRow()
     }
     
     
@@ -89,6 +95,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
                                      y: self.view.frame.origin.y,
                                      width: self.view.frame.width,
                                      height:  view.frame.height - keyboardSize.height)
+            //scrollToLastRow()
         } else {
             debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
         }
@@ -123,7 +130,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
             if _fetchController == nil {
                 let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Message.fetchRequest()
                 
-                let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: false)
+                let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: true)
                 fetchRequest.sortDescriptors = [sortDescriptor]
                 
                 var arrayPredicate:[NSPredicate] = []
@@ -132,7 +139,9 @@ class ViewMessageViewController: BaseFetchTableViewController {
                 }
                 
                 if let message = messageMain {
-                    arrayPredicate.append(NSPredicate(format: "id = %i", message.id))
+                    arrayPredicate.append(NSPredicate(format: "mainID = %i", message.mainID))
+                } else {
+                    arrayPredicate.append(NSPredicate(format: "mainID = %i", -1))
                 }
                 
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
@@ -169,27 +178,41 @@ class ViewMessageViewController: BaseFetchTableViewController {
     //==================================================
     @IBAction func sendMessage(_ sender: UIButton) {
         
-        //        if  textUI.text == "" {
-        //            let title = NSLocalizedString("Ошибка!", comment: "LoginViewController")
-        //            let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "LoginViewController")
-        //
-        //            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
-        //            return
-        //        }
-        //
-        //        loadingPlaceholderViewHidden = false
-        //
-        //        MessageManager.sendMessage(adminMessage: messageMain, text: textUI.text) { (error) in
-        //            if let error = error  {
-        //                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-        //                self.loadingPlaceholderViewHidden = true
-        //                return
-        //            }
-        //
-        //            self.loadingPlaceholderViewHidden = true
-        //            MessagerManager.showMessage(title: "Сообщение отправлено!", message: "", theme: .success, view: self.view)
-        //            self.navigationController!.popViewController(animated: true)
-        //        }
+        if  textUI.text == "" {
+            //            let title = NSLocalizedString("Ошибка!", comment: "LoginViewController")
+            //            let message = NSLocalizedString("Нужно написать текст!", comment: "LoginViewController")
+            //
+            //            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.tableView)
+            return
+        }
+        
+        loadingPlaceholderViewHidden = false
+        var replyMessage: Message?
+        let indexOfLastRowInLastSection = tableView.numberOfRows(inSection: 0)
+        if indexOfLastRowInLastSection > 0 {
+            let indexPath = IndexPath(row: indexOfLastRowInLastSection - 1, section: 0)
+            replyMessage = fetchController.object(at: indexPath) as? Message
+        }
+        
+        MessageManager.sendMessage(replyMessage: replyMessage, text: textUI.text) { (error, message) in
+            if let error = error  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                self.loadingPlaceholderViewHidden = true
+                return
+            }
+            
+            MessageManager.setMainID()
+            self.textUI.text = ""
+            
+            if self.messageMain == nil && message != nil {
+                self.messageMain = message
+                self.fetchController = nil
+                self.performFetch()
+                self.reloadData()
+            }
+            
+            self.loadingPlaceholderViewHidden = true
+         }
     }
     
     
@@ -227,25 +250,52 @@ class ViewMessageViewController: BaseFetchTableViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 //==================================================
 extension ViewMessageViewController {
+    
+    func scrollToLastRow()  {
+        let numberOfSections = tableView.numberOfSections
+        let numberOfRows = tableView.numberOfRows(inSection: numberOfSections-1)
+        
+        if numberOfRows > 0 {
+            let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
+    }
+
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellAdmin", for: indexPath) as! ViewMessageTableViewCell
         let message = fetchController.object(at: indexPath) as! Message
         
-        cell.dateUI.text = DateManager.dateAndTimeToString(date: message.dateUpdate!)
-        cell.messageUI.text = message.text
-        
-        
-        return cell
+        if message.kind == MessageKind.inbox.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellAdmin", for: indexPath) as! ViewMessageTableViewCell
+            cell.dateUI.text = DateManager.dateAndTimeToString(date: message.dateUpdate!)
+            cell.photoUI.image = UIImage(named: "logo")
+            cell.messageUI.text = message.text
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellUser", for: indexPath) as! ViewMessageTableViewCell
+            cell.dateUI.text = DateManager.dateAndTimeToString(date: message.dateUpdate!)
+            cell.photoUI.image = AppDataManager.shared.currentUser?.photoImage
+            cell.messageUI.text = message.text
+            return cell
+        }
+ 
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                scrollToLastRow()
+            }
+        }
+    }
+    
+    
+    override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+        
+        scrollToLastRow()
+      }
+    
+    
 }
 

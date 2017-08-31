@@ -120,7 +120,7 @@ class NewMessageViewController: BaseViewController {
         
         loadingPlaceholderViewHidden = false
         
-        MessageManager.sendMessage(adminMessage: messageMain, text: textUI.text) { (error) in
+        MessageManager.sendMessage(replyMessage: messageMain, text: textUI.text) { (error, message) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                 self.loadingPlaceholderViewHidden = true

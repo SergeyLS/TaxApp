@@ -50,6 +50,8 @@ class SyncManager{
                     return
                 }
                 
+                MessageManager.setMainID() 
+                
             }
             
             

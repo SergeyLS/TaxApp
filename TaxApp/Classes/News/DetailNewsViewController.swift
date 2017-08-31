@@ -131,7 +131,7 @@ class DetailNewsViewController: BaseViewController {
     //==================================================
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "newMessage") {
-            let destinationController = segue.destination as! NewMessageViewController
+            let destinationController = segue.destination as! ViewMessageViewController
             destinationController.article = sender as? Article
         }
     }
