@@ -127,6 +127,12 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             self.performSegue(withIdentifier: "editProfile", sender: nil)
         case 1:
             self.performSegue(withIdentifier: "theme", sender: nil)
+        case 2:
+            self.performSegue(withIdentifier: "confidential", sender: nil)
+        case 3:
+            self.performSegue(withIdentifier: "changePassword", sender: nil)
+        case 4:
+            self.performSegue(withIdentifier: "aboutApp", sender: nil)
         default:
             return
         }

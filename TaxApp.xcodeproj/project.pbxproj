@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7E905BBC3131641B573B3B22 /* Pods_TaxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */; };
+		A5FA477E1F598C5100EAD4D4 /* ConfidentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477D1F598C5000EAD4D4 /* ConfidentialViewController.swift */; };
+		A5FA47801F598CAA00EAD4D4 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477F1F598CAA00EAD4D4 /* AboutApp.swift */; };
+		A5FA47821F59A4BA00EAD4D4 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA47811F59A4BA00EAD4D4 /* ChangePassword.swift */; };
 		F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */; };
 		F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */; };
 		F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */; };
@@ -87,6 +90,9 @@
 
 /* Begin PBXFileReference section */
 		3EB21A186C238B15727789A6 /* Pods-TaxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A5FA477D1F598C5000EAD4D4 /* ConfidentialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidentialViewController.swift; sourceTree = "<group>"; };
+		A5FA477F1F598CAA00EAD4D4 /* AboutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
+		A5FA47811F59A4BA00EAD4D4 /* ChangePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
 		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = ../TaxApp.entitlements; sourceTree = "<group>"; };
@@ -256,6 +262,9 @@
 				F77D2A001F5403AB0032227F /* MessageViewController.swift */,
 				F77D2A011F5403AB0032227F /* ThemeTableViewCell.swift */,
 				F77D2A021F5403AB0032227F /* SettingTableViewCell.swift */,
+				A5FA477D1F598C5000EAD4D4 /* ConfidentialViewController.swift */,
+				A5FA47811F59A4BA00EAD4D4 /* ChangePassword.swift */,
+				A5FA477F1F598CAA00EAD4D4 /* AboutApp.swift */,
 			);
 			name = "Profile&Setting";
 			path = Profile;
@@ -524,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EC746EF85459167511D1456E /* [CP] Copy Pods Resources */ = {
@@ -582,6 +591,7 @@
 				F77D29F81F54039B0032227F /* LoginViewController.swift in Sources */,
 				F77D29D51F5402C20032227F /* ThemeManager.swift in Sources */,
 				F77D29ED1F54036A0032227F /* BaseFetchTableViewController.swift in Sources */,
+				A5FA477E1F598C5100EAD4D4 /* ConfidentialViewController.swift in Sources */,
 				F783F53A1F486B19009FC9F3 /* String+Extensions.swift in Sources */,
 				F77D29F11F54037B0032227F /* LeftMenuTableViewCell.swift in Sources */,
 				F77D29D81F5402C20032227F /* CoreDataManager.swift in Sources */,
@@ -604,9 +614,11 @@
 				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
 				F7F623221F56CEAE00BD52DE /* FileManagerTax.swift in Sources */,
 				F77D29F61F54039B0032227F /* SignUpViewController.swift in Sources */,
+				A5FA47821F59A4BA00EAD4D4 /* ChangePassword.swift in Sources */,
 				F77D29DB1F5402F40032227F /* NotificationManager.swift in Sources */,
 				F77D29EA1F54036A0032227F /* BaseFieldTableViewCell.swift in Sources */,
 				F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */,
+				A5FA47801F598CAA00EAD4D4 /* AboutApp.swift in Sources */,
 				F77D29D21F5402C20032227F /* CategoryManager.swift in Sources */,
 				F77D2A061F5403AB0032227F /* SelectCategoryTableViewCell.swift in Sources */,
 				F77D2A051F5403AB0032227F /* SelectCategoryViewController.swift in Sources */,

@@ -107,6 +107,7 @@ class SignUpViewController: BaseViewController {
                 if let user = User(userName: login) {
                     user.eMail = eMail
                     user.lastLogin = Date()
+                    user.password  = password
                     CoreDataManager.shared.saveContext()
                     
                     self.loadingPlaceholderViewHidden = true

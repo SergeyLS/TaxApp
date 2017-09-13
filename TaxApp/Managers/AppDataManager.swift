@@ -44,6 +44,13 @@ class AppDataManager {
             UserDefaults.standard.set(newValue, forKey: userLoginKey)
         }
     }
+    
+    public var isUserLogin: Bool {
+        if AppDataManager.shared.userLogin == "noLoginUser" {
+            return false
+        }
+        return true
+    }
 
     public var currentUser: User? {
         
@@ -74,6 +81,5 @@ class AppDataManager {
             UserDefaults.standard.set(newValue, forKey: currentMenuKey)
         }
     }
-
 
 }

@@ -21,6 +21,7 @@ extension User {
     @NSManaged public var lastLogin: Date?
     @NSManaged public var lastName: String?
     @NSManaged public var middleName: String?
+    @NSManaged public var password: String?
     @NSManaged public var photo: Data?
     @NSManaged public var userName: String?
     @NSManaged public var articlies: NSSet?

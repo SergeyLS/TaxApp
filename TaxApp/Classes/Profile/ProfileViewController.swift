@@ -154,13 +154,11 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileExit", themeApp: ThemeManager.shared.currentTheme())
-            cell.nameUI.text = "Выход"
+            cell.nameUI.text = AppDataManager.shared.isUserLogin == true ? "Выход" : "Вход"
             cell.countUI.setTitle("", for: .normal)
             cell.countUI.isHidden = true
              return cell
-            
-            
-            
+
         default:
             let cell = UITableViewCell()
             return cell

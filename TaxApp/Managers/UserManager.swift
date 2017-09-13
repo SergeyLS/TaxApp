@@ -226,6 +226,47 @@ class UserManager {
     }
     
     
+    //patchChangeUserPassword
+    static func patchUserPasswordAPI(password: String,completion: @escaping (_ error: String?) -> Void)  {
+        
+        let token = AppDataManager.shared.userToken
+        
+        let headers: HTTPHeaders = [
+            "authorization": "Bearer "+token,
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        
+        let  parameters = [
+            "password"  : password,
+            ] as [String : Any]
+        
+        
+        let req = request(ConfigAPI.getUserURL(), method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseJSON { response in
+            if response.result.isFailure  {
+                //print(response.result.error!)
+                completion(response.result.error?.localizedDescription)
+                return
+            }
+            
+            guard let responseJSON = response.result.value as? [String: Any] else {
+                completion("Invalid tag information received from service")
+                return
+            }
+            
+            if (responseJSON.keys).contains("username") == true {
+                completion(nil)
+                return
+            }
+            
+            
+            completion("Invalid func patchUserAPI")
+        }
+    }
+    
+    
     
     //postUserPhotoAPI
     static func postUserPhotoAPI(userName: String,

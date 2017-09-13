@@ -123,6 +123,11 @@ class LoginViewController: BaseViewController {
                         return
                     }
                     
+                    if let user = AppDataManager.shared.currentUser {
+                        user.password  = password
+                        CoreDataManager.shared.saveContext()
+                    }
+                    
                     if AppDataManager.shared.currentUser != nil {
                         UserManager.getUserAvatarFromAPI(token: AppDataManager.shared.userToken) { (errorAvatar) in
                             if errorAvatar != nil {
