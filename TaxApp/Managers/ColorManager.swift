@@ -19,6 +19,7 @@ class ColorManager {
     static let colorThemeNight: UIColor = UIColor(hex: "143590")
     
     static let colorGrayBorder: UIColor = UIColor(hex: "E6E6E6")
+    static let colorEnglish: UIColor = UIColor(hex: "F95D4E")
     
 }
 

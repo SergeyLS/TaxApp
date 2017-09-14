@@ -11,6 +11,15 @@
 		A5FA477E1F598C5100EAD4D4 /* ConfidentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477D1F598C5000EAD4D4 /* ConfidentialViewController.swift */; };
 		A5FA47801F598CAA00EAD4D4 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477F1F598CAA00EAD4D4 /* AboutApp.swift */; };
 		A5FA47821F59A4BA00EAD4D4 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA47811F59A4BA00EAD4D4 /* ChangePassword.swift */; };
+		F71CF6711F6939340096860F /* English.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71CF6701F6939340096860F /* English.storyboard */; };
+		F71CF6731F6970F50096860F /* BaseFetchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6721F6970F50096860F /* BaseFetchCollectionViewController.swift */; };
+		F71CF6761F6972D10096860F /* ListEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6751F6972D10096860F /* ListEnglishViewController.swift */; };
+		F71CF6791F697AA20096860F /* MenuEnglish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6771F697AA20096860F /* MenuEnglish+CoreDataClass.swift */; };
+		F71CF67A1F697AA20096860F /* MenuEnglish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6781F697AA20096860F /* MenuEnglish+CoreDataProperties.swift */; };
+		F73EB0C91F6A854800B39931 /* MenuEnglishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0C81F6A854800B39931 /* MenuEnglishManager.swift */; };
+		F73EB0CB1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */; };
+		F73EB0CE1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */; };
+		F73EB0CF1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */; };
 		F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */; };
 		F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */; };
 		F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */; };
@@ -66,7 +75,6 @@
 		F77D2A271F542D530032227F /* ListMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */; };
 		F77D2A291F5434850032227F /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A281F5434850032227F /* MessageManager.swift */; };
 		F77D2A2B1F5440B70032227F /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2A1F5440B70032227F /* SyncManager.swift */; };
-		F77D2A2D1F5563F40032227F /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */; };
 		F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D2A2E1F55A7270032227F /* UITextView+Extension.swift */; };
 		F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */; };
 		F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */; };
@@ -96,6 +104,15 @@
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
 		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = ../TaxApp.entitlements; sourceTree = "<group>"; };
+		F71CF6701F6939340096860F /* English.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = English.storyboard; sourceTree = "<group>"; };
+		F71CF6721F6970F50096860F /* BaseFetchCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFetchCollectionViewController.swift; sourceTree = "<group>"; };
+		F71CF6751F6972D10096860F /* ListEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishViewController.swift; sourceTree = "<group>"; };
+		F71CF6771F697AA20096860F /* MenuEnglish+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MenuEnglish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F71CF6781F697AA20096860F /* MenuEnglish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MenuEnglish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F73EB0C81F6A854800B39931 /* MenuEnglishManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEnglishManager.swift; sourceTree = "<group>"; };
+		F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishCollectionViewCell.swift; sourceTree = "<group>"; };
+		F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMenuEnglish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMenuEnglish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageTableViewCell.swift; sourceTree = "<group>"; };
 		F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -151,7 +168,6 @@
 		F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMessagesTableViewCell.swift; sourceTree = "<group>"; };
 		F77D2A281F5434850032227F /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		F77D2A2A1F5440B70032227F /* SyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
-		F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		F77D2A2E1F55A7270032227F /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		F78031401F4C6CFC00C46751 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F783F5251F486AD5009FC9F3 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -203,6 +219,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F71CF6741F69723F0096860F /* English */ = {
+			isa = PBXGroup;
+			children = (
+				F71CF6751F6972D10096860F /* ListEnglishViewController.swift */,
+				F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */,
+			);
+			path = English;
+			sourceTree = "<group>";
+		};
 		F74F774B1F30A2470006FCD7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +249,7 @@
 				F77D29E41F54036A0032227F /* BaseFetchViewController.swift */,
 				F77D29E51F54036A0032227F /* BaseNavigationViewController.swift */,
 				F77D29E61F54036A0032227F /* BaseFetchTableViewController.swift */,
+				F71CF6721F6970F50096860F /* BaseFetchCollectionViewController.swift */,
 			);
 			name = BaseViewControllers;
 			path = Base;
@@ -243,7 +269,6 @@
 			children = (
 				F77D2A241F54232B0032227F /* ListMessagesViewController.swift */,
 				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
-				F77D2A2C1F5563F40032227F /* NewMessageViewController.swift */,
 				F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */,
 				F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */,
 			);
@@ -283,6 +308,7 @@
 				F77D29C41F5402C20032227F /* AuthorizationManager.swift */,
 				F77D29C51F5402C20032227F /* CategoryManager.swift */,
 				F77D29C61F5402C20032227F /* MenuManager.swift */,
+				F73EB0C81F6A854800B39931 /* MenuEnglishManager.swift */,
 				F77D29C71F5402C20032227F /* DateManager.swift */,
 				F77D29C81F5402C20032227F /* ThemeManager.swift */,
 				F77D29C91F5402C20032227F /* ColorManager.swift */,
@@ -311,6 +337,10 @@
 				F783F52A1F486AD5009FC9F3 /* Category+CoreDataProperties.swift */,
 				F783F52C1F486AD5009FC9F3 /* Menu+CoreDataClass.swift */,
 				F783F52B1F486AD5009FC9F3 /* Menu+CoreDataProperties.swift */,
+				F71CF6771F697AA20096860F /* MenuEnglish+CoreDataClass.swift */,
+				F71CF6781F697AA20096860F /* MenuEnglish+CoreDataProperties.swift */,
+				F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */,
+				F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */,
 				F783F5351F486AFD009FC9F3 /* TaxApp.xcdatamodeld */,
 			);
 			name = Model;
@@ -387,9 +417,10 @@
 		F7B42BCC1F2F6A0A007632BC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F77D2A0E1F5403BB0032227F /* Login.storyboard */,
 				F77D2A0C1F5403BB0032227F /* LaunchScreen.storyboard */,
 				F77D2A0D1F5403BB0032227F /* Main.storyboard */,
-				F77D2A0E1F5403BB0032227F /* Login.storyboard */,
+				F71CF6701F6939340096860F /* English.storyboard */,
 			);
 			name = Storyboards;
 			path = TaxApp/Storyboards;
@@ -405,6 +436,7 @@
 				F77D2A231F5422F50032227F /* Message */,
 				F74F774B1F30A2470006FCD7 /* Login */,
 				F77EF5CE1F3F52AD00C85957 /* Profile&Setting */,
+				F71CF6741F69723F0096860F /* English */,
 			);
 			name = Classes;
 			path = TaxApp/Classes;
@@ -496,6 +528,7 @@
 				F77D2A101F5403BB0032227F /* Main.storyboard in Resources */,
 				F77D2A0F1F5403BB0032227F /* LaunchScreen.storyboard in Resources */,
 				F77D2A1A1F5403E00032227F /* Login.strings in Resources */,
+				F71CF6711F6939340096860F /* English.storyboard in Resources */,
 				F78031411F4C6CFC00C46751 /* GoogleService-Info.plist in Resources */,
 				F77D2A111F5403BB0032227F /* Login.storyboard in Resources */,
 				F77D2A191F5403E00032227F /* Assets.xcassets in Resources */,
@@ -512,9 +545,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -527,13 +579,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TaxApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC746EF85459167511D1456E /* [CP] Copy Pods Resources */ = {
@@ -561,6 +616,7 @@
 				F77D2A041F5403AB0032227F /* EditProfileViewController.swift in Sources */,
 				F77D2A071F5403AB0032227F /* SettingViewController.swift in Sources */,
 				F783F5341F486AD5009FC9F3 /* Menu+CoreDataClass.swift in Sources */,
+				F71CF67A1F697AA20096860F /* MenuEnglish+CoreDataProperties.swift in Sources */,
 				F783F52E1F486AD5009FC9F3 /* Article+CoreDataProperties.swift in Sources */,
 				F77D29E71F54036A0032227F /* BaseImageViewController.swift in Sources */,
 				F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */,
@@ -581,8 +637,11 @@
 				F77D29D31F5402C20032227F /* MenuManager.swift in Sources */,
 				F77D29BD1F5402290032227F /* NotificationKind.swift in Sources */,
 				F783F5401F486E24009FC9F3 /* ListNewsViewController.swift in Sources */,
+				F73EB0CF1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift in Sources */,
 				F77D29DF1F5403580032227F /* AppDelegate.swift in Sources */,
 				F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */,
+				F71CF6791F697AA20096860F /* MenuEnglish+CoreDataClass.swift in Sources */,
+				F73EB0CB1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift in Sources */,
 				F77D29F01F54037B0032227F /* LeftMenuViewController.swift in Sources */,
 				F77D2A0B1F5403AB0032227F /* SettingTableViewCell.swift in Sources */,
 				F77D2A251F54232B0032227F /* ListMessagesViewController.swift in Sources */,
@@ -596,11 +655,11 @@
 				F77D29F11F54037B0032227F /* LeftMenuTableViewCell.swift in Sources */,
 				F77D29D81F5402C20032227F /* CoreDataManager.swift in Sources */,
 				F77D29EB1F54036A0032227F /* BaseFetchViewController.swift in Sources */,
+				F73EB0CE1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift in Sources */,
 				F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */,
 				F77D29D41F5402C20032227F /* DateManager.swift in Sources */,
 				F77D29DD1F54030D0032227F /* AppDataManager+Theme.swift in Sources */,
 				F77D2A291F5434850032227F /* MessageManager.swift in Sources */,
-				F77D2A2D1F5563F40032227F /* NewMessageViewController.swift in Sources */,
 				F77D29E91F54036A0032227F /* BaseLabelTableViewCell.swift in Sources */,
 				F77D29D91F5402C20032227F /* MessagerManager.swift in Sources */,
 				F77D29F91F54039B0032227F /* RestorePasswordViewController.swift in Sources */,
@@ -622,12 +681,15 @@
 				F77D29D21F5402C20032227F /* CategoryManager.swift in Sources */,
 				F77D2A061F5403AB0032227F /* SelectCategoryTableViewCell.swift in Sources */,
 				F77D2A051F5403AB0032227F /* SelectCategoryViewController.swift in Sources */,
+				F71CF6761F6972D10096860F /* ListEnglishViewController.swift in Sources */,
 				F77D2A091F5403AB0032227F /* MessageViewController.swift in Sources */,
 				F77D29D01F5402C20032227F /* ImageManager.swift in Sources */,
 				F77D29CD1F5402C20032227F /* ArticleManager.swift in Sources */,
 				F783F5321F486AD5009FC9F3 /* Category+CoreDataProperties.swift in Sources */,
+				F73EB0C91F6A854800B39931 /* MenuEnglishManager.swift in Sources */,
 				F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */,
 				F77D29E81F54036A0032227F /* BaseViewController.swift in Sources */,
+				F71CF6731F6970F50096860F /* BaseFetchCollectionViewController.swift in Sources */,
 				F77D2A271F542D530032227F /* ListMessagesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

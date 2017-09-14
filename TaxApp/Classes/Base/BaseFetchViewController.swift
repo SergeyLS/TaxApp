@@ -82,12 +82,12 @@ class BaseFetchViewController: BaseViewController {
     
     public func requestDataIfNeeded() {
         //        print("[BaseFetchVC] requestDataIfNeeded[\(String(describing: shouldRequest))]")
-        if shouldRequest {
-            shouldRequest = false
-            
+//        if shouldRequest {
+//            shouldRequest = false
+        
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(requestData), object: nil)
-            perform(#selector(requestData), with: nil, afterDelay: 10 * kBaseFetchVCDelay)
-        }
+            perform(#selector(requestData), with: nil, afterDelay: kBaseFetchVCDelay)
+//        }
     }
 }
 

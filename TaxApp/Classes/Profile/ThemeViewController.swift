@@ -132,7 +132,7 @@ extension ThemeViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 0:
             let date = Calendar.current.date(byAdding: .minute, value: ThemeManager.shared.theme1Minutes, to: startDay )
-            DatePickerDialog().show(title: "Установить время",
+            DatePickerDialog().show("Установить время",
                                     doneButtonTitle: "Применить",
                                     cancelButtonTitle: "Отмена",
                                     defaultDate:date!,
@@ -148,7 +148,7 @@ extension ThemeViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             let date = Calendar.current.date(byAdding: .minute, value: ThemeManager.shared.theme2Minutes, to: startDay )
-            DatePickerDialog().show(title: "Установить время",
+            DatePickerDialog().show("Установить время",
                                     doneButtonTitle: "Применить",
                                     cancelButtonTitle: "Отмена",
                                     defaultDate:date!,
@@ -164,7 +164,7 @@ extension ThemeViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 2:
             let date = Calendar.current.date(byAdding: .minute, value: ThemeManager.shared.theme3Minutes, to: startDay )
-            DatePickerDialog().show(title: "Установить время",
+            DatePickerDialog().show("Установить время",
                                     doneButtonTitle: "Применить",
                                     cancelButtonTitle: "Отмена",
                                     defaultDate:date!,

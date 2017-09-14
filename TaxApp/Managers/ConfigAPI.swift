@@ -24,6 +24,7 @@ class ConfigAPI {
     static var getCategoryString = "/user/categories"
     
     static var getMenuString = "/menu"
+    static var getMenuEnglishString = "/menu/english"
     
     static var getArticleString = "/article/section/"
     static var getNewsString = "/news"
@@ -65,6 +66,10 @@ class ConfigAPI {
     static func getMenuURL() -> URL {
         return URL(string: serverAPI.appending(getMenuString))!
     }
+    static func getMenuEnglishURL() -> URL {
+        return URL(string: serverAPI.appending(getMenuEnglishString))!
+    }
+
     
     //news
     static func getNewsURL() -> URL {

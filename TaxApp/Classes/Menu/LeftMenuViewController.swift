@@ -15,6 +15,8 @@ class LeftMenuViewController: BaseFetchTableViewController {
     @IBOutlet weak var nameUI: UILabel!
     @IBOutlet weak var fonUI: UIImageView!
     
+    let nameEnglishMenu = "English with Tax App"
+    
     //==================================================
     // MARK: - General
     //==================================================
@@ -30,10 +32,10 @@ class LeftMenuViewController: BaseFetchTableViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         photoUI.addGestureRecognizer(tapGesture)
         photoUI.isUserInteractionEnabled = true
-
+        
         loadUserInfo()
         configTheme()
-      }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +48,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     func configTheme()  {
         fonUI.image = ThemeManager.shared.findImage(name: "menuFon", themeApp: ThemeManager.shared.currentTheme())
     }
-
+    
     func loadUserInfo() {
         if let user = AppDataManager.shared.currentUser  {
             photoUI.image = user.photoImage
@@ -66,7 +68,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     }
     
     
-
+    
     
     
     //==================================================
@@ -75,7 +77,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     @IBAction func homeAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "openNews", sender: nil)
     }
-
+    
     
     
     func imageTapped(gesture: UIGestureRecognizer) {
@@ -83,7 +85,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
             self.performSegue(withIdentifier: "profile", sender: nil)
         }
     }
-   
+    
     //==================================================
     // MARK: - Fetch Data
     //==================================================
@@ -100,7 +102,6 @@ class LeftMenuViewController: BaseFetchTableViewController {
                 if AppDataManager.shared.currentUser != nil {
                     arrayPredicate.append(NSPredicate(format: "user = %@", AppDataManager.shared.currentUser!))
                 }
-                
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
                 
                 fetchRequest.predicate = predicate
@@ -117,13 +118,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     }
     
     internal override func requestData() {
-        
-        MenuManager.getMenuFromAPI() { (error) in
-            if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-                return
-            }
-        }
+        SyncManager.syncMenu(view: view)
     }
     
     
@@ -146,28 +141,71 @@ class LeftMenuViewController: BaseFetchTableViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 //==================================================
 extension LeftMenuViewController {
+    
+    func countObject(section: Int) -> Int {
+        if let sections = fetchController.sections,
+            sections.count > 0  {
+            return sections[section].numberOfObjects
+        }
+        return 0
+        
+    }
+    
     //MARK: UITableViewDataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var resultNumber: Int = 0
+        if let sections = fetchController.sections,
+            sections.count > section {
+            let sectionInfo = sections[section]
+            resultNumber = sectionInfo.numberOfObjects
+        }
+        return resultNumber + 1
+    }
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! LeftMenuTableViewCell
-        let menu = fetchController.object(at: indexPath) as! Menu
+        let rowNumber = indexPath.row + 1
+        var menuTitle = ""
+        
         
         cell.nextImageUI.image = ThemeManager.shared.findImage(name: "menuTableNext", themeApp: ThemeManager.shared.currentTheme())
-        if menu.title == AppDataManager.shared.currentMenu {
+        
+        if rowNumber <= countObject(section: indexPath.section) {
+            let menu = fetchController.object(at: indexPath) as! Menu
+            menuTitle = menu.title!
+            
+            cell.nameUI.text = menuTitle
+            cell.nameUI.textColor =  UIColor(hex: "4D4D4D")
+        } else {
+            menuTitle = nameEnglishMenu
+            cell.nameUI.text = menuTitle
+            cell.nameUI.textColor = UIColor.red
+        }
+        
+        if menuTitle == AppDataManager.shared.currentMenu {
             cell.nextImageUI.isHidden = false
         } else {
             cell.nextImageUI.isHidden = true
         }
         
-        cell.nameUI.text = menu.title
         
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let menu = fetchController.object(at: indexPath) as! Menu
-        AppDataManager.shared.currentMenu = menu.title!
-        self.performSegue(withIdentifier: "openNews", sender: menu)
+        let rowNumber = indexPath.row + 1
+        if rowNumber <= countObject(section: indexPath.section) {
+            let menu = fetchController.object(at: indexPath) as! Menu
+            self.performSegue(withIdentifier: "openNews", sender: menu)
+            AppDataManager.shared.currentMenu = menu.title!
+        } else {
+            self.performSegue(withIdentifier: "openEnglish", sender: nil)
+            AppDataManager.shared.currentMenu = nameEnglishMenu
+            reloadData()
+        }
+        
     }
     
 }

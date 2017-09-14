@@ -19,7 +19,7 @@ public class User: NSManagedObject {
         if let tempPhoto = self.photo {
             return UIImage(data: tempPhoto as Data)
         } else {
-            return UIImage(named: "noImage")
+            return UIImage(named: "userNoPhoto")
         }
         
     }

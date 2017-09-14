@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/28/17.
+//  Created by Sergey Leskov on 9/13/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
 //
 
@@ -26,9 +26,10 @@ extension User {
     @NSManaged public var userName: String?
     @NSManaged public var articlies: NSSet?
     @NSManaged public var category: Category?
-    @NSManaged public var menuMany: NSSet?
-    @NSManaged public var notifications: NSSet?
+    @NSManaged public var menuList: NSSet?
     @NSManaged public var messages: NSSet?
+    @NSManaged public var notifications: NSSet?
+    @NSManaged public var menuEnglishList: NSSet?
 
 }
 
@@ -49,20 +50,37 @@ extension User {
 
 }
 
-// MARK: Generated accessors for menuMany
+// MARK: Generated accessors for menuList
 extension User {
 
-    @objc(addMenuManyObject:)
-    @NSManaged public func addToMenuMany(_ value: Menu)
+    @objc(addMenuListObject:)
+    @NSManaged public func addToMenuList(_ value: Menu)
 
-    @objc(removeMenuManyObject:)
-    @NSManaged public func removeFromMenuMany(_ value: Menu)
+    @objc(removeMenuListObject:)
+    @NSManaged public func removeFromMenuList(_ value: Menu)
 
-    @objc(addMenuMany:)
-    @NSManaged public func addToMenuMany(_ values: NSSet)
+    @objc(addMenuList:)
+    @NSManaged public func addToMenuList(_ values: NSSet)
 
-    @objc(removeMenuMany:)
-    @NSManaged public func removeFromMenuMany(_ values: NSSet)
+    @objc(removeMenuList:)
+    @NSManaged public func removeFromMenuList(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for messages
+extension User {
+
+    @objc(addMessagesObject:)
+    @NSManaged public func addToMessages(_ value: Message)
+
+    @objc(removeMessagesObject:)
+    @NSManaged public func removeFromMessages(_ value: Message)
+
+    @objc(addMessages:)
+    @NSManaged public func addToMessages(_ values: NSSet)
+
+    @objc(removeMessages:)
+    @NSManaged public func removeFromMessages(_ values: NSSet)
 
 }
 
@@ -83,19 +101,19 @@ extension User {
 
 }
 
-// MARK: Generated accessors for messages
+// MARK: Generated accessors for menuEnglishList
 extension User {
 
-    @objc(addMessagesObject:)
-    @NSManaged public func addToMessages(_ value: Message)
+    @objc(addMenuEnglishListObject:)
+    @NSManaged public func addToMenuEnglishList(_ value: MenuEnglish)
 
-    @objc(removeMessagesObject:)
-    @NSManaged public func removeFromMessages(_ value: Message)
+    @objc(removeMenuEnglishListObject:)
+    @NSManaged public func removeFromMenuEnglishList(_ value: MenuEnglish)
 
-    @objc(addMessages:)
-    @NSManaged public func addToMessages(_ values: NSSet)
+    @objc(addMenuEnglishList:)
+    @NSManaged public func addToMenuEnglishList(_ values: NSSet)
 
-    @objc(removeMessages:)
-    @NSManaged public func removeFromMessages(_ values: NSSet)
+    @objc(removeMenuEnglishList:)
+    @NSManaged public func removeFromMenuEnglishList(_ values: NSSet)
 
 }

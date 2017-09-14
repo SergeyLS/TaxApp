@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - DatePickerDialog (1.1.7)
+  - DatePickerDialog (2.0)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -15,12 +15,12 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.24.0):
+  - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.24.0):
+  - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
   - SideMenu (2.3.3)
-  - SwiftMessages (3.4.0)
+  - SwiftMessages (3.5.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -30,16 +30,16 @@ DEPENDENCIES:
   - SwiftMessages
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
+  DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
-  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
+  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
-  SwiftMessages: e20aa1557fde1525ea369361bec4943cc0d08e7c
+  SwiftMessages: ea0184c801030e52674c603896812c392c129248
 
 PODFILE CHECKSUM: e161eacf33e71b5571660d0a3122fdca651e8fc8
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

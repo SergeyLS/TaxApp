@@ -11,6 +11,30 @@ import UIKit
 
 class SyncManager{
     
+    static func syncMenu(view: UIView)  {
+        print("[SyncManager] - syncMenu")
+        
+        MenuManager.getMenuFromAPI() { (error) in
+            if let error = error  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                return
+            }
+        }
+    }
+    
+    
+    static func syncEnglishMenu(view: UIView)  {
+        print("[SyncManager] - syncEnglishMenu")
+        
+        MenuManagerEnglish.getMenuEnglishFromAPI() { (error) in
+            if let error = error  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                return
+            }
+        }
+    }
+
+    
     static func syncArticles(view: UIView)  {
         print("[SyncManager] - syncArticles")
         
@@ -37,7 +61,7 @@ class SyncManager{
             return
         }
 
-        print("[syncMessages] - requestData")
+        print("[SyncManager] - syncMessages")
         MessageManager.getMessageFromAPI(messageKind: MessageKind.inbox) { (error) in
             if let error = error  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
