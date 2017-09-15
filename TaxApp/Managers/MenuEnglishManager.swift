@@ -13,7 +13,7 @@ import Alamofire
 class MenuManagerEnglish {
     
     //getMenuByID
-    static func getMenuEnglishByID(id: Int,
+    static func getMenuEnglishByID(id: Int64,
                             context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> MenuEnglish? {
         
         if  id == 0 { return nil }
@@ -37,20 +37,24 @@ class MenuManagerEnglish {
     
     
     //getSubMenuEnglishByID
-    static func getSubMenuEnglishByID(id: Int,
-                                      menuEnglish: MenuEnglish) -> SubMenuEnglish? {
+    static func getSubMenuEnglishByID(id: Int64,
+                                      menuEnglish: MenuEnglish?) -> SubMenuEnglish? {
         
         if  id == 0 { return nil }
+        
+        if menuEnglish == nil {
+            return nil
+        }
         
         let request = NSFetchRequest<SubMenuEnglish>(entityName: SubMenuEnglish.type)
         
         var arrayPredicate:[NSPredicate] = []
-        arrayPredicate.append(NSPredicate(format: "menuEnglish = %@", menuEnglish))
+        arrayPredicate.append(NSPredicate(format: "menuEnglish = %@", menuEnglish!))
         arrayPredicate.append(NSPredicate(format: "id = %i", id))
         let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: arrayPredicate)
         request.predicate = predicate
         
-        let resultsArray = (try? menuEnglish.managedObjectContext!.fetch(request))
+        let resultsArray = (try? menuEnglish!.managedObjectContext!.fetch(request))
         
         return resultsArray?.first ?? nil
     }
@@ -62,13 +66,13 @@ class MenuManagerEnglish {
             if let tempSection = section as? [String: Any] {
                 
                 guard
-                    let id = tempSection["id"] as? Int
+                    let id = tempSection["id"] as? Int64
                     else {
                         print("error - no section id")
                         continue
                 }
                 
-                if let _ = getSubMenuEnglishByID(id: id, menuEnglish: menuEnglish)  {
+                if let _ = getSubMenuEnglishByID(id: Int64(id), menuEnglish: menuEnglish)  {
                     //update
                 } else {
                     // New
@@ -111,7 +115,7 @@ class MenuManagerEnglish {
                 for menu in menuJSON {
                     if let tempMenu = menu as? [String: Any] {
                         guard
-                            let id = tempMenu["id"] as? Int
+                            let id = tempMenu["id"] as? Int64
                             else {
                                 print("error - no id")
                                 isErrors = true

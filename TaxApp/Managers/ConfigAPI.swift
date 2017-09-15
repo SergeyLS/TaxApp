@@ -13,82 +13,80 @@ class ConfigAPI {
     static var server = "http://185.79.244.158"
     static var serverAPI = server + "/taxapp/api"
     
-    
-    static var loginString = "/login"
-    static var loginSocialString = "/login/by-key"
-    static var signUpString = "/login/signup"
-    static var resetString = "/login/reset"
-    
-    static var getUserString = "/user"
-    static var getUserAvatarString = "/user/avatar"
-    static var getCategoryString = "/user/categories"
-    
-    static var getMenuString = "/menu"
-    static var getMenuEnglishString = "/menu/english"
-    
-    static var getArticleString = "/article/section/"
-    static var getNewsString = "/news"
-    static var getArticleLikeString = "/article/like/"
-    static var getArticleSearchString = "/article/search/"
-    static var getArticlePayString = server + "/taxapp/payments/authorize"
-    
-    static var getMessageSentString = "/message/sent"
-    static var getMessageInboxString = "/message/inbox"
-    static var getMessageString = "/message"
-    
     //login
     static func loginURL() -> URL {
+        let loginString = "/login"
         return URL(string: serverAPI.appending(loginString))!
     }
     static func loginSocial() -> URL {
+        let loginSocialString = "/login/by-key"
         return URL(string: serverAPI.appending(loginSocialString))!
     }
     static func signUpURL() -> URL {
+        let signUpString = "/login/signup"
         return URL(string: serverAPI.appending(signUpString))!
     }
     static func resetURL() -> URL {
+        let resetString = "/login/reset"
         return URL(string: serverAPI.appending(resetString))!
     }
     
-    
     //user
+    static var getUserAvatarString = "/user/avatar"
+    
     static func getUserURL() -> URL {
+        let getUserString = "/user"
         return URL(string: serverAPI.appending(getUserString))!
     }
     static func getUserAvatarURL() -> URL {
         return URL(string: serverAPI.appending(getUserAvatarString))!
     }
-    static func getCategoryURL() -> URL {
-        return URL(string: serverAPI.appending(getCategoryString))!
-    }
     
     //menu
     static func getMenuURL() -> URL {
+        let getMenuString = "/menu"
         return URL(string: serverAPI.appending(getMenuString))!
     }
     static func getMenuEnglishURL() -> URL {
+        let getMenuEnglishString = "/menu/english"
         return URL(string: serverAPI.appending(getMenuEnglishString))!
     }
 
+    static func getCategoryURL() -> URL {
+        let getCategoryString = "/user/categories"
+        return URL(string: serverAPI.appending(getCategoryString))!
+    }
+
     
-    //news
+    //Article
+    static var getArticleLikeString = "/article/like/"
+    static var getArticleSearchString = "/article/search/"
+    static var getArticlePayString = server + "/taxapp/payments/authorize"
+
     static func getNewsURL() -> URL {
+        let getNewsString = "/news"
         return URL(string: serverAPI.appending(getNewsString))!
     }
     
     
     //Message
     static func getMessageSentURL() -> URL {
+        let getMessageSentString = "/message/sent"
         return URL(string: serverAPI.appending(getMessageSentString))!
     }
     
     static func getMessageInboxURL() -> URL {
+        let getMessageInboxString = "/message/inbox"
         return URL(string: serverAPI.appending(getMessageInboxString))!
     }
     static func getMessageURL() -> URL {
+        let getMessageString = "/message"
         return URL(string: serverAPI.appending(getMessageString))!
     }
 
+    // English
+    static var getArticlesEnglishString = serverAPI + "/english/section/"
     
+  
 }
 

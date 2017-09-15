@@ -55,6 +55,23 @@ class SyncManager{
     }
     
     
+    static func syncEnglishArticles(menuEnglish: MenuEnglish?, view: UIView)  {
+        print("[SyncManager] - syncEnglishArticles")
+        
+        if menuEnglish == nil {
+            return
+        }
+        
+        ArticleEnglishManager.getArticleEnglishFromAPI(menuEnglish: menuEnglish!) { (errorArticle) in
+            if let error = errorArticle  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                return
+            }
+            
+        }
+    }
+
+    
     static func syncMessages(view: UIView)  {
         
         if AppDataManager.shared.userLogin == User.noLoginUserKey {

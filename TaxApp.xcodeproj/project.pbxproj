@@ -20,6 +20,9 @@
 		F73EB0CB1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */; };
 		F73EB0CE1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */; };
 		F73EB0CF1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */; };
+		F74C1F661F6BEF63009E4FDB /* ArticleEnglish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1F641F6BEF63009E4FDB /* ArticleEnglish+CoreDataClass.swift */; };
+		F74C1F671F6BEF63009E4FDB /* ArticleEnglish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1F651F6BEF63009E4FDB /* ArticleEnglish+CoreDataProperties.swift */; };
+		F74C1F691F6BF373009E4FDB /* ArticleEnglishManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74C1F681F6BF373009E4FDB /* ArticleEnglishManager.swift */; };
 		F77257D41F5762C4004D0C79 /* ViewMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */; };
 		F77D29BA1F5401960032227F /* Notification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */; };
 		F77D29BB1F5401960032227F /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */; };
@@ -92,6 +95,9 @@
 		F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53D1F486E24009FC9F3 /* ListNewsTableViewCell.swift */; };
 		F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */; };
 		F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */; };
+		F7D76A7F1F6BDEEE002A562E /* SelectSubEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */; };
+		F7D76A811F6BE8EE002A562E /* ListEnglishArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */; };
+		F7D76A831F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */; };
 		F7F623221F56CEAE00BD52DE /* FileManagerTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */; };
 		F7F623261F56F26700BD52DE /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +119,9 @@
 		F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishCollectionViewCell.swift; sourceTree = "<group>"; };
 		F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMenuEnglish+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMenuEnglish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F74C1F641F6BEF63009E4FDB /* ArticleEnglish+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArticleEnglish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F74C1F651F6BEF63009E4FDB /* ArticleEnglish+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArticleEnglish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F74C1F681F6BF373009E4FDB /* ArticleEnglishManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEnglishManager.swift; sourceTree = "<group>"; };
 		F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageTableViewCell.swift; sourceTree = "<group>"; };
 		F77D29B81F5401960032227F /* Notification+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F77D29B91F5401960032227F /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -186,6 +195,9 @@
 		F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubEnglishViewController.swift; sourceTree = "<group>"; };
+		F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesViewController.swift; sourceTree = "<group>"; };
+		F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesTableViewCell.swift; sourceTree = "<group>"; };
 		F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTax.swift; sourceTree = "<group>"; };
 		F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +236,9 @@
 			children = (
 				F71CF6751F6972D10096860F /* ListEnglishViewController.swift */,
 				F73EB0CA1F6AA27600B39931 /* ListEnglishCollectionViewCell.swift */,
+				F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */,
+				F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */,
+				F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */,
 			);
 			path = English;
 			sourceTree = "<group>";
@@ -316,6 +331,7 @@
 				F77D2A281F5434850032227F /* MessageManager.swift */,
 				F77D2A2A1F5440B70032227F /* SyncManager.swift */,
 				F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */,
+				F74C1F681F6BF373009E4FDB /* ArticleEnglishManager.swift */,
 			);
 			name = Managers;
 			path = TaxApp/Managers;
@@ -341,6 +357,8 @@
 				F71CF6781F697AA20096860F /* MenuEnglish+CoreDataProperties.swift */,
 				F73EB0CC1F6AB31100B39931 /* SubMenuEnglish+CoreDataClass.swift */,
 				F73EB0CD1F6AB31100B39931 /* SubMenuEnglish+CoreDataProperties.swift */,
+				F74C1F641F6BEF63009E4FDB /* ArticleEnglish+CoreDataClass.swift */,
+				F74C1F651F6BEF63009E4FDB /* ArticleEnglish+CoreDataProperties.swift */,
 				F783F5351F486AFD009FC9F3 /* TaxApp.xcdatamodeld */,
 			);
 			name = Model;
@@ -617,6 +635,7 @@
 				F77D2A071F5403AB0032227F /* SettingViewController.swift in Sources */,
 				F783F5341F486AD5009FC9F3 /* Menu+CoreDataClass.swift in Sources */,
 				F71CF67A1F697AA20096860F /* MenuEnglish+CoreDataProperties.swift in Sources */,
+				F7D76A831F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift in Sources */,
 				F783F52E1F486AD5009FC9F3 /* Article+CoreDataProperties.swift in Sources */,
 				F77D29E71F54036A0032227F /* BaseImageViewController.swift in Sources */,
 				F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */,
@@ -648,6 +667,7 @@
 				F783F53B1F486B19009FC9F3 /* UIColor+Extensions.swift in Sources */,
 				F77D29D71F5402C20032227F /* AppDataManager.swift in Sources */,
 				F77D29F81F54039B0032227F /* LoginViewController.swift in Sources */,
+				F74C1F671F6BEF63009E4FDB /* ArticleEnglish+CoreDataProperties.swift in Sources */,
 				F77D29D51F5402C20032227F /* ThemeManager.swift in Sources */,
 				F77D29ED1F54036A0032227F /* BaseFetchTableViewController.swift in Sources */,
 				A5FA477E1F598C5100EAD4D4 /* ConfidentialViewController.swift in Sources */,
@@ -668,6 +688,7 @@
 				F783F5311F486AD5009FC9F3 /* Category+CoreDataClass.swift in Sources */,
 				F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */,
 				F77D2A1F1F5411D40032227F /* Message+CoreDataProperties.swift in Sources */,
+				F7D76A7F1F6BDEEE002A562E /* SelectSubEnglishViewController.swift in Sources */,
 				F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */,
 				F783F5331F486AD5009FC9F3 /* Menu+CoreDataProperties.swift in Sources */,
 				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
@@ -684,6 +705,8 @@
 				F71CF6761F6972D10096860F /* ListEnglishViewController.swift in Sources */,
 				F77D2A091F5403AB0032227F /* MessageViewController.swift in Sources */,
 				F77D29D01F5402C20032227F /* ImageManager.swift in Sources */,
+				F74C1F661F6BEF63009E4FDB /* ArticleEnglish+CoreDataClass.swift in Sources */,
+				F74C1F691F6BF373009E4FDB /* ArticleEnglishManager.swift in Sources */,
 				F77D29CD1F5402C20032227F /* ArticleManager.swift in Sources */,
 				F783F5321F486AD5009FC9F3 /* Category+CoreDataProperties.swift in Sources */,
 				F73EB0C91F6A854800B39931 /* MenuEnglishManager.swift in Sources */,
@@ -691,6 +714,7 @@
 				F77D29E81F54036A0032227F /* BaseViewController.swift in Sources */,
 				F71CF6731F6970F50096860F /* BaseFetchCollectionViewController.swift in Sources */,
 				F77D2A271F542D530032227F /* ListMessagesTableViewCell.swift in Sources */,
+				F7D76A811F6BE8EE002A562E /* ListEnglishArticlesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

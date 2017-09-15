@@ -81,6 +81,17 @@ class ListEnglishViewController: BaseFetchCollectionViewController {
     @IBAction func leftMenuAction(_ sender: UIBarButtonItem) {
         self.navigationController?.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
+    
+    //==================================================
+    // MARK: - navigation
+    //==================================================
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "subMenu" {
+            let destinationController = segue.destination as! SelectSubEnglishViewController
+            destinationController.menuEnglish = sender as? MenuEnglish
+        }
+        
+     }
 }
 
 
@@ -101,6 +112,13 @@ extension ListEnglishViewController {
         
         return cell
     }
+    
+    // MARK: UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menuEnglish = fetchController.object(at: indexPath) as! MenuEnglish
+        self.performSegue(withIdentifier: "subMenu", sender: menuEnglish)
+    }
+
     
 }
 
