@@ -8,9 +8,7 @@
 
 import UIKit
 
-var MyObservationContext = 0
-
-class DetailNewsViewController: BaseViewController {
+class DetailEnglishViewController: BaseViewController {
     
     @IBOutlet weak var scrollViewUI: UIScrollView!
     @IBOutlet weak var photoUI: UIImageView!
@@ -25,30 +23,32 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var spinerImage: UIActivityIndicatorView!
     
     
-    var article: Article!
+    var articleEnglish: ArticleEnglish!
     
     var observing = false
+    var MyObservationContext = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         DispatchQueue.main.async {
-            ArticleManager.getImage(article: self.article,
+            ArticleEnglishManager.getImage(articleEnglish: self.articleEnglish,
                                     width: Int(self.photoUI.layer.bounds.width),
                                     height: Int(self.photoUI.layer.bounds.height)) { (image) in
-                                        self.photoUI.image = self.article.photoImage
+                                        self.photoUI.image = self.articleEnglish.photoImage
                                         self.spinerImage.stopAnimating()
             }
         }
         
-        titleUI.text = article.title
-        dateUI.text = DateManager.dateAndTimeToString(date: article.dateCreated!)
+        titleUI.text = articleEnglish.title
+        dateUI.text = DateManager.dateAndTimeToString(date: articleEnglish.dateCreated!)
         
         
         webView.delegate = self
         
-        if let url = FileManagerTax.getFileURL(article: article) {
+        if let url = FileManagerTax.getFileURL(articleEnglish: articleEnglish) {
             let request = URLRequest(url: url)
             webView.loadRequest(request)
         }
@@ -68,7 +68,7 @@ class DetailNewsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let menu = article.menu {
+        if let menu = articleEnglish.menuEnglish {
             navigationItem.title = menu.title
         }
         configTheme()
@@ -87,13 +87,13 @@ class DetailNewsViewController: BaseViewController {
     }
     
     func chengeLike()  {
-        if article.isLike {
+        if articleEnglish.isLike {
             likeButtonUI.setImage(UIImage(named: "buttonLikeOn"), for: .normal)
         } else {
             likeButtonUI.setImage(UIImage(named: "buttonLike"), for: .normal)
         }
         
-        likeButtonUI.setTitle(String(article.likes), for: .normal)
+        likeButtonUI.setTitle(String(articleEnglish.likes), for: .normal)
     }
     
     //==================================================
@@ -102,11 +102,11 @@ class DetailNewsViewController: BaseViewController {
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
-        if article.isLike {
+        if articleEnglish.isLike {
             return
         }
         
-        ArticleManager.getArticleLike(article: article) { (errorArticle) in
+        ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
             if let error = errorArticle  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                 return
@@ -122,18 +122,18 @@ class DetailNewsViewController: BaseViewController {
             return
         }
 
-        performSegue(withIdentifier: "newMessage", sender: article)
+        performSegue(withIdentifier: "newMessage", sender: articleEnglish)
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        let defaultText = article.title ?? ""
+        let defaultText = articleEnglish.title ?? ""
         
         var activityItems = [Any]()
         activityItems.append(defaultText)
-        if let image = article.photoImage {
+        if let image = articleEnglish.photoImage {
             activityItems.append(image)
         }
-        if let url = URL(string: article.linkText!) {
+        if let url = URL(string: articleEnglish.linkText!) {
             activityItems.append(url)
         }
         
@@ -153,8 +153,8 @@ class DetailNewsViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "newMessage") {
             let destinationController = segue.destination as! ViewMessageViewController
-            if let articleTemp =  sender as? Article  {
-                destinationController.textMessage = "Сообщение к статье: '\(String(describing: (articleTemp.title!) ))' \n"
+            if let articleEnglishTemp =  sender as? ArticleEnglish  {
+                destinationController.textMessage = "Сообщение к English: '\(String(describing: (articleEnglishTemp.title!) ))' \n"
             }
         }
     }
@@ -197,7 +197,7 @@ class DetailNewsViewController: BaseViewController {
 //==================================================
 // MARK: - extension - UIWebViewDelegate
 //==================================================
-extension DetailNewsViewController: UIWebViewDelegate {
+extension DetailEnglishViewController: UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         spinner.startAnimating()

@@ -113,7 +113,7 @@ class ListEnglishArticlesViewController: BaseFetchTableViewController {
     }
     
     internal override func requestData() {
-        SyncManager.syncEnglishArticles(menuEnglish: menuEnglish, view: view)
+        SyncManager.syncEnglishArticles(subMenuEnglish: subMenuEnglish, view: view)
     }
     
     //==================================================
@@ -160,18 +160,21 @@ class ListEnglishArticlesViewController: BaseFetchTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "fullText") {
-            let destinationController = segue.destination as! DetailNewsViewController
-            destinationController.article = sender as! Article
+            let destinationController = segue.destination as! DetailEnglishViewController
+            destinationController.articleEnglish = sender as! ArticleEnglish
         }
         
-        if (segue.identifier == "openWeb") {
-            let destinationController = segue.destination as! WebViewViewController
-            destinationController.article = sender as! Article
+        if (segue.identifier == "buyEnglish") {
+            let destinationController = segue.destination as! BuyEnglishViewController
+            destinationController.articleEnglish = sender as! ArticleEnglish
         }
         
         if (segue.identifier == "newMessage") {
             let destinationController = segue.destination as! ViewMessageViewController
-            destinationController.article = sender as? Article
+            if let articleEnglishTemp =  sender as? ArticleEnglish  {
+                destinationController.textMessage = "Сообщение к English статье: '\(String(describing: (articleEnglishTemp.title!) ))' \n"
+            }
+            
         }
     }
 }
@@ -183,32 +186,32 @@ class ListEnglishArticlesViewController: BaseFetchTableViewController {
 extension ListEnglishArticlesViewController {
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListNewsTableViewCell
-        let article = fetchController.object(at: indexPath) as! Article
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListEnglishArticlesTableViewCell
+        let articleEnglish = fetchController.object(at: indexPath) as! ArticleEnglish
         
-        cell.article = article
+        cell.articleEnglish = articleEnglish
         cell.mainView = view
-        //cell.topController = self
+        cell.topController = self
         
-        cell.titleUI.text = article.title
-        cell.descriptUI.text = article.shortDescr
-        cell.nameMenuUI.text = article.menu?.title
-        if let date  = article.dateCreated {
+        cell.titleUI.text = articleEnglish.title
+        cell.descriptUI.text = articleEnglish.shortDescr
+        cell.nameMenuUI.text = articleEnglish.menuEnglish?.title
+        if let date  = articleEnglish.dateCreated {
             cell.dateUI.text = DateManager.dateToString(date: date)
         } else {
             cell.dateUI.text = ""
         }
         
         
-        if article.isLike {
+        if articleEnglish.isLike {
             cell.likeButtonUI.setImage(UIImage(named: "buttonLikeOn"), for: .normal)
         } else {
             cell.likeButtonUI.setImage(UIImage(named: "buttonLike"), for: .normal)
         }
-        cell.likeButtonUI.setTitle(" " + String(article.likes), for: .normal)
+        cell.likeButtonUI.setTitle(" " + String(articleEnglish.likes), for: .normal)
         
-        if article.price > 0 {
-            cell.payButtonUI.setTitle(" " + String(article.price), for: .normal)
+        if articleEnglish.price > 0 {
+            cell.payButtonUI.setTitle(" " + String(articleEnglish.price), for: .normal)
         } else {
             cell.payButtonUI.setTitle(" free", for: .normal)
         }
@@ -216,7 +219,7 @@ extension ListEnglishArticlesViewController {
         cell.photoUI.image = UIImage()
         cell.indicatorUI.startAnimating()
         DispatchQueue.main.async {
-            ArticleManager.getImage(article: article, width: Int(cell.photoUI.layer.bounds.width), height: Int(cell.photoUI.layer.bounds.height)) { (image) in
+            ArticleEnglishManager.getImage(articleEnglish: articleEnglish, width: Int(cell.photoUI.layer.bounds.width), height: Int(cell.photoUI.layer.bounds.height)) { (image) in
                 cell.photoUI.image = image
                 cell.indicatorUI.stopAnimating()
             }
@@ -226,17 +229,16 @@ extension ListEnglishArticlesViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let article = fetchController.object(at: indexPath) as! Article
+        let articleEnglish = fetchController.object(at: indexPath) as! ArticleEnglish
         
-        if article.isCanOpen {
-            self.performSegue(withIdentifier: "fullText", sender: article)
+        if articleEnglish.isCanOpen {
+            self.performSegue(withIdentifier: "fullText", sender: articleEnglish)
         } else {
             MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error, view: self.view)
         }
         
     }
-    
- }
+}
 
 
 //==================================================
@@ -246,8 +248,10 @@ extension ListEnglishArticlesViewController: UISearchResultsUpdating, UISearchBa
     // MARK: - UISearchBarDelegate
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        tempMenuEnglish = menuEnglish
-    }
+        if menuEnglish != nil {
+            tempMenuEnglish = menuEnglish
+        }
+     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearch = false
@@ -268,18 +272,20 @@ extension ListEnglishArticlesViewController: UISearchResultsUpdating, UISearchBa
             MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 4-х букв!", theme: .warning, view: self.view)
         }
         
+        menuEnglish = nil
+        
         searchBar.endEditing(true)
         fetchController = nil
         performFetch()
         reloadData()
         
-        //        ArticleManager.getArticleSearchFromAPI(search: searchString) { (errorArticle) in
-        //            if let error = errorArticle  {
-        //                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-        //                return
-        //            }
-        //
-        //        }
+        ArticleEnglishManager.getArticleEnglishSearchFromAPI(search: searchString) { (errorArticle) in
+            if let error = errorArticle  {
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                return
+            }
+            
+        }
     }
     
     // MARK: - UISearchResultsUpdating

@@ -86,6 +86,8 @@ class ConfigAPI {
 
     // English
     static var getArticlesEnglishString = serverAPI + "/english/section/"
+    static var getArticleEnglishLikeString = serverAPI + "/english/like/"
+    static var getArticleEnglishSearchString = serverAPI + "/english/search/"
     
   
 }

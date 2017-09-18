@@ -98,6 +98,8 @@
 		F7D76A7F1F6BDEEE002A562E /* SelectSubEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */; };
 		F7D76A811F6BE8EE002A562E /* ListEnglishArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */; };
 		F7D76A831F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */; };
+		F7F20AEB1F6FDA6E008B773B /* DetailEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F20AEA1F6FDA6E008B773B /* DetailEnglishViewController.swift */; };
+		F7F20AED1F6FE0E3008B773B /* BuyEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F20AEC1F6FE0E3008B773B /* BuyEnglishViewController.swift */; };
 		F7F623221F56CEAE00BD52DE /* FileManagerTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */; };
 		F7F623261F56F26700BD52DE /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -198,6 +200,8 @@
 		F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubEnglishViewController.swift; sourceTree = "<group>"; };
 		F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesViewController.swift; sourceTree = "<group>"; };
 		F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesTableViewCell.swift; sourceTree = "<group>"; };
+		F7F20AEA1F6FDA6E008B773B /* DetailEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEnglishViewController.swift; sourceTree = "<group>"; };
+		F7F20AEC1F6FE0E3008B773B /* BuyEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyEnglishViewController.swift; sourceTree = "<group>"; };
 		F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTax.swift; sourceTree = "<group>"; };
 		F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +243,8 @@
 				F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */,
 				F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */,
 				F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */,
+				F7F20AEA1F6FDA6E008B773B /* DetailEnglishViewController.swift */,
+				F7F20AEC1F6FE0E3008B773B /* BuyEnglishViewController.swift */,
 			);
 			path = English;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 			files = (
 				F77D2A041F5403AB0032227F /* EditProfileViewController.swift in Sources */,
 				F77D2A071F5403AB0032227F /* SettingViewController.swift in Sources */,
+				F7F20AEB1F6FDA6E008B773B /* DetailEnglishViewController.swift in Sources */,
 				F783F5341F486AD5009FC9F3 /* Menu+CoreDataClass.swift in Sources */,
 				F71CF67A1F697AA20096860F /* MenuEnglish+CoreDataProperties.swift in Sources */,
 				F7D76A831F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift in Sources */,
@@ -648,6 +655,7 @@
 				F77D29D61F5402C20032227F /* ColorManager.swift in Sources */,
 				F77D29F71F54039B0032227F /* MainNavigationController.swift in Sources */,
 				F77D2A031F5403AB0032227F /* ProfileViewController.swift in Sources */,
+				F7F20AED1F6FE0E3008B773B /* BuyEnglishViewController.swift in Sources */,
 				F77D29CF1F5402C20032227F /* UserManager.swift in Sources */,
 				F783F52F1F486AD5009FC9F3 /* User+CoreDataProperties.swift in Sources */,
 				F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */,

@@ -194,7 +194,9 @@ class ListNewsViewController: BaseFetchTableViewController {
 
         if (segue.identifier == "newMessage") {
             let destinationController = segue.destination as! ViewMessageViewController
-            destinationController.article = sender as? Article
+            if let articleTemp =  sender as? Article  {
+                destinationController.textMessage = "Сообщение к статье: '\(String(describing: (articleTemp.title!) ))' \n"
+            }
         }
 
         

@@ -42,4 +42,39 @@ class FileManagerTax {
         
         return url
     }
+    
+    
+    static func getFileURL(articleEnglish: ArticleEnglish) -> URL? {
+        guard  let link = articleEnglish.linkText else {
+            return nil
+        }
+        
+        guard  let url = URL(string: link) else {
+            return nil
+        }
+        
+        
+        let localFileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(articleEnglish.id! + ".html")
+        
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: localFileURL.path) {
+            //print("use local file: \(localFileURL.path)")
+            return localFileURL
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            do {
+                _ = try!  data.write(to: localFileURL)
+                return localFileURL
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        
+        return url
+    }
+
 }

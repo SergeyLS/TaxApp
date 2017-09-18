@@ -41,7 +41,7 @@ public class ArticleEnglish: NSManagedObject {
     }
     
     
-    func update(menuEnglishID: Int64, dictionary: NSDictionary){
+    func update(dictionary: NSDictionary){
         
         var dateCreatedTemp = Date()
         var dateUpdateTemp = Date()
@@ -85,7 +85,9 @@ public class ArticleEnglish: NSManagedObject {
             }
         }
         
+        let menuEnglishID = dictionary["main_id"] as? Int64 ?? 0
         menuEnglish = MenuManagerEnglish.getMenuEnglishByID(id: menuEnglishID, context: managedObjectContext!)
+        
         let sectionId = dictionary["section_id"] as? Int64 ?? 0
         subMenuEnglish = MenuManagerEnglish.getSubMenuEnglishByID(id: sectionId, menuEnglish: menuEnglish)
         

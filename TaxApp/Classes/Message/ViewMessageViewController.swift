@@ -22,7 +22,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
     var messageMain: Message?
     var date = Date()
     var textMessage = ""
-    var article: Article?
+    //var article: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +41,11 @@ class ViewMessageViewController: BaseFetchTableViewController {
         deleteUI.isEnabled = false
         
         
-        textUI.text = ""
-        if article != nil {
-            textUI.text = "Сообщение к статье: '\(String(describing: (article?.title!)! ))' \n"
-            //textUI.becomeFirstResponder()
-        }
+        textUI.text = textMessage
+//        if article != nil {
+//            textUI.text = "Сообщение к статье: '\(String(describing: (article?.title!)! ))' \n"
+//            //textUI.becomeFirstResponder()
+//        }
         
         if let message = messageMain  {
             

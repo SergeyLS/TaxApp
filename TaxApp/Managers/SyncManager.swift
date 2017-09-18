@@ -55,14 +55,14 @@ class SyncManager{
     }
     
     
-    static func syncEnglishArticles(menuEnglish: MenuEnglish?, view: UIView)  {
+    static func syncEnglishArticles(subMenuEnglish: SubMenuEnglish?, view: UIView)  {
         print("[SyncManager] - syncEnglishArticles")
         
-        if menuEnglish == nil {
+        if subMenuEnglish == nil {
             return
         }
         
-        ArticleEnglishManager.getArticleEnglishFromAPI(menuEnglish: menuEnglish!) { (errorArticle) in
+        ArticleEnglishManager.getArticleEnglishFromAPI(subMenuEnglish: subMenuEnglish!) { (errorArticle) in
             if let error = errorArticle  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
                 return

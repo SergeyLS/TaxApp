@@ -25,9 +25,9 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
     @IBOutlet weak var payButtonUI: UIButton!
     
     
-    var article: Article!
+    var articleEnglish: ArticleEnglish!
     var mainView: UIView!
-    var topController: ListNewsViewController?
+    var topController: ListEnglishArticlesViewController?
 
     
     override func awakeFromNib() {
@@ -74,24 +74,22 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
-        if article.isLike {
+        if articleEnglish.isLike {
             return
         }
         
-        ArticleManager.getArticleLike(article: article) { (errorArticle) in
+        ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
             if let error = errorArticle  {
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
                 return
             }
-  
-            
-         }
+          }
      }
     
     
     @IBAction func payButtonAction(_ sender: UIButton) {
-        if article.isCanOpen {
-            topController?.performSegue(withIdentifier: "fullText", sender: article)
+        if articleEnglish.isCanOpen {
+            topController?.performSegue(withIdentifier: "fullText", sender: articleEnglish)
             return
         }
 
@@ -100,7 +98,7 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
             return
         }
         
-        topController?.performSegue(withIdentifier: "openWeb", sender: article)
+        topController?.performSegue(withIdentifier: "buyEnglish", sender: articleEnglish)
       }
     
     
@@ -110,7 +108,7 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
             return
         }
 
-        topController?.performSegue(withIdentifier: "newMessage", sender: article)
+        topController?.performSegue(withIdentifier: "newMessage", sender: articleEnglish)
     }
     
 
