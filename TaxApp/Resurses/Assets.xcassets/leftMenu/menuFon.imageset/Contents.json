@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "750x1334_morning.png",
+      "filename" : "750x1334_day.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "1242x2208_morning.png",
+      "filename" : "1242x2208_day.png",
       "scale" : "3x"
     }
   ],

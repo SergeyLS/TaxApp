@@ -449,12 +449,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Не найдено" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S54-Su-9bt">
+                                <rect key="frame" x="20" y="20" width="335" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="S54-Su-9bt" secondAttribute="trailing" constant="20" id="9Bj-cJ-eLP"/>
                             <constraint firstAttribute="trailing" secondItem="Gu8-Sj-X5G" secondAttribute="trailing" id="Zet-PF-LOK"/>
                             <constraint firstItem="Gu8-Sj-X5G" firstAttribute="top" secondItem="4Kz-iU-ivR" secondAttribute="bottom" id="huO-7q-L5c"/>
+                            <constraint firstItem="S54-Su-9bt" firstAttribute="leading" secondItem="1CG-lE-l9U" secondAttribute="leading" constant="20" id="k8B-b3-5C7"/>
                             <constraint firstItem="6P7-yN-jbF" firstAttribute="top" secondItem="Gu8-Sj-X5G" secondAttribute="bottom" id="tOk-8D-b5x"/>
+                            <constraint firstItem="S54-Su-9bt" firstAttribute="top" secondItem="4Kz-iU-ivR" secondAttribute="bottom" constant="20" id="yCB-Nk-GRd"/>
                             <constraint firstItem="Gu8-Sj-X5G" firstAttribute="leading" secondItem="1CG-lE-l9U" secondAttribute="leading" id="yZT-Sy-ZVF"/>
                         </constraints>
                     </view>
@@ -462,6 +471,7 @@
                     <navigationItem key="navigationItem" title="Articles" id="cEW-M7-FNv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="notFoundUI" destination="S54-Su-9bt" id="Qoh-LL-4HT"/>
                         <outlet property="tableView" destination="Gu8-Sj-X5G" id="ati-6y-dO9"/>
                         <segue destination="OSZ-wi-I5H" kind="show" identifier="newMessage" id="jmO-48-jpp"/>
                         <segue destination="PHm-e6-GOH" kind="show" identifier="fullText" id="yKl-qe-oyI"/>
@@ -769,6 +779,6 @@
         <image name="noImage" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HVp-N9-zSk"/>
+        <segue reference="jmO-48-jpp"/>
     </inferredMetricsTieBreakers>
 </document>

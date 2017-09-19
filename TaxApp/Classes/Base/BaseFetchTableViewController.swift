@@ -104,5 +104,8 @@ extension BaseFetchTableViewController {
     override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         //        print("[BaseFetchTableVC] controllerDidChangeContent:")
         tableView.endUpdates()
+        
+        
+
     }
 }

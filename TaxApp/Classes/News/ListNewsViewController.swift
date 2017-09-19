@@ -12,8 +12,9 @@ import CoreData
 
 class ListNewsViewController: BaseFetchTableViewController {
     
-    var menu: Menu?
+    @IBOutlet weak var notFoundUI: UILabel!
     
+    var menu: Menu?
     lazy var searchBar:UISearchBar = UISearchBar()
     lazy var barButtonItemSearch:UIBarButtonItem =  UIBarButtonItem()
     
@@ -41,7 +42,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         }
         barButtonItemSearch = UIBarButtonItem(customView:searchBar)
         
-        
+        notFoundUI.isHidden = true
         
         configSideMenu()
         changeRightBarButton()
@@ -212,6 +213,8 @@ class ListNewsViewController: BaseFetchTableViewController {
 extension ListNewsViewController {
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.notFoundUI.isHidden = true
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListNewsTableViewCell
         let article = fetchController.object(at: indexPath) as! Article
         
@@ -293,9 +296,11 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         fetchController = nil
         performFetch()
         reloadData()
+        notFoundUI.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        notFoundUI.isHidden = true
         if let searchText = searchBar.text {
             searchString = searchText
         }
@@ -315,6 +320,14 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
                 return
             }
             
+            if let sections = self.fetchController.sections,
+                sections.count > 0 {
+                let sectionInfo = sections[0]
+                if sectionInfo.numberOfObjects == 0 {
+                    self.notFoundUI.isHidden = false
+                    self.notFoundUI.text = "По запросу '\(self.searchString)' ничего не найдено!"
+                }
+            }
         }
     }
     

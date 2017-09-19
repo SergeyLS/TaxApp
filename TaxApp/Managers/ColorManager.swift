@@ -14,8 +14,8 @@ class ColorManager {
     // MARK: - Stored Properties
     //==================================================
     
-    static let colorThemeMorning: UIColor = UIColor(hex: "1976D2")
-    static let colorThemeDay: UIColor = UIColor(hex: "FF9D59")
+    static let colorThemeMorning: UIColor = UIColor(hex: "FF9D59")
+    static let colorThemeDay: UIColor = UIColor(hex: "1976D2")
     static let colorThemeNight: UIColor = UIColor(hex: "143590")
     
     static let colorGrayBorder: UIColor = UIColor(hex: "E6E6E6")

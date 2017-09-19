@@ -12,6 +12,8 @@ import CoreData
 
 class ListEnglishArticlesViewController: BaseFetchTableViewController {
     
+    @IBOutlet weak var notFoundUI: UILabel!
+    
     var menuEnglish: MenuEnglish?
     var tempMenuEnglish: MenuEnglish?
     var subMenuEnglish: SubMenuEnglish?
@@ -43,7 +45,7 @@ class ListEnglishArticlesViewController: BaseFetchTableViewController {
         }
         barButtonItemSearch = UIBarButtonItem(customView:searchBar)
         
-        
+         notFoundUI.isHidden = true
         
         changeRightBarButton()
         // configFetchController()
@@ -186,6 +188,7 @@ class ListEnglishArticlesViewController: BaseFetchTableViewController {
 extension ListEnglishArticlesViewController {
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        notFoundUI.isHidden = true
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListEnglishArticlesTableViewCell
         let articleEnglish = fetchController.object(at: indexPath) as! ArticleEnglish
         
@@ -284,7 +287,16 @@ extension ListEnglishArticlesViewController: UISearchResultsUpdating, UISearchBa
                 MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
                 return
             }
-            
+         
+            if let sections = self.fetchController.sections,
+                sections.count > 0 {
+                let sectionInfo = sections[0]
+                if sectionInfo.numberOfObjects == 0 {
+                    self.notFoundUI.isHidden = false
+                    self.notFoundUI.text = "По запросу '\(self.searchString)' ничего не найдено!"
+                }
+            }
+
         }
     }
     
