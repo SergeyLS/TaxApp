@@ -16,7 +16,7 @@ class BaseImageViewController: BaseViewController {
     
     func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
-            selectImage()
+            selectImage(view: gesture.view!)
         }
     }
     
@@ -50,14 +50,18 @@ extension BaseImageViewController: UIImagePickerControllerDelegate, UINavigation
     //==================================================
     // MARK: - Select image
     //==================================================
-    func selectImage()    {
+    func selectImage(view: UIView)    {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
         
         let alert:UIAlertController=UIAlertController(title: NSLocalizedString("Где взять фото?", comment: "Select photo"), message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         alert.view.tintColor = ThemeManager.shared.mainColor()
-        
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = view
+            popoverController.sourceRect = view.bounds
+        }
+
         let cameraAction = UIAlertAction(title: NSLocalizedString("Камера", comment: "From camera"), style: UIAlertActionStyle.default)
         {
             UIAlertAction in
