@@ -46,8 +46,6 @@ class MainNavigationController: UINavigationController {
         
         setViewControllers([splashViewController], animated:false)
         
-        navBarUI.barTintColor = ThemeManager.shared.mainColor()
-        
         addObservers()
     }
     
@@ -63,25 +61,20 @@ class MainNavigationController: UINavigationController {
     //==================================================
     // MARK: - func
     //==================================================
-    private func reloadData(animated: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            if let strongSelf = self {
-                if let _ = strongSelf.appDataManager.currentUser {
-                    
-                    strongSelf.performSegue(withIdentifier: "openNews", sender: nil)
-                    
-                    //strongSelf.setViewControllers([strongSelf.loginViewController], animated:animated)
-                } else {
-                    strongSelf.setViewControllers([strongSelf.loginViewController], animated:animated)
-                }
-            }
-        }
-    }
+//    private func reloadData(animated: Bool) {
+//        DispatchQueue.main.async { [weak self] in
+//            if let strongSelf = self {
+//                if let _ = strongSelf.appDataManager.currentUser {
+//                    strongSelf.performSegue(withIdentifier: "openNews", sender: nil)
+//                     } else {
+//                    strongSelf.setViewControllers([strongSelf.loginViewController], animated:animated)
+//                }
+//            }
+//        }
+//    }
     
-    
-    
-    
-    //==================================================
+
+     //==================================================
     // MARK: - Notifications
     //==================================================
     
@@ -103,7 +96,10 @@ class MainNavigationController: UINavigationController {
     
     
     @objc private func applicationDidBecomeActive(_ notification: Notification) {
-        reloadData(animated: false)
+        performSegue(withIdentifier: "tutorial", sender: nil)
+        
+        
+        //reloadData(animated: false)
     }
     
     

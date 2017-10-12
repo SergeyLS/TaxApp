@@ -23,6 +23,7 @@ class ListNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButtonUI: UIButton!
     @IBOutlet weak var mailButtonUI: UIButton!
     @IBOutlet weak var payButtonUI: UIButton!
+    @IBOutlet weak var likeActivity: UIActivityIndicatorView!
     
     
     var article: Article!
@@ -33,6 +34,7 @@ class ListNewsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        likeActivity.tintColor = ThemeManager.shared.mainColor()
         
         addShadow()
     }
@@ -74,19 +76,31 @@ class ListNewsTableViewCell: UITableViewCell {
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
-        if article.isLike {
-            return
-        }
+        likeActivity.startAnimating()
+        likeButtonUI.isUserInteractionEnabled = false
         
-        ArticleManager.getArticleLike(article: article) { (errorArticle) in
-            if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
-                return
+        if article.isLike {
+            ArticleManager.getArticleUnLike(article: article) { (errorArticle) in
+                self.likeActivity.stopAnimating()
+                self.likeButtonUI.isUserInteractionEnabled = true
+                
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    return
+                }
             }
-  
-            
-         }
-     }
+         } else {
+            ArticleManager.getArticleLike(article: article) { (errorArticle) in
+                self.likeActivity.stopAnimating()
+                self.likeButtonUI.isUserInteractionEnabled = true
+
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    return
+                }
+            }
+        }
+      }
     
     
     @IBAction func payButtonAction(_ sender: UIButton) {

@@ -66,12 +66,12 @@ extension BaseFetchTableViewController: UITableViewDataSource, UITableViewDelega
 
 extension BaseFetchTableViewController {
     final override func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        //        print("[BaseFetchTableVC] controllerWillChangeContent:")
+       // print("[BaseFetchTableVC] controllerWillChangeContent:")
         tableView.beginUpdates()
     }
     
     final override func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        //        print("[BaseFetchTableVC] controller:didChange:atSectionIndex[\(String(describing: sectionIndex))]:for[\(String(describing: type))]")
+        //print("[BaseFetchTableVC] controller:didChange:atSectionIndex[\(String(describing: sectionIndex))]:for[\(String(describing: type))]")
         switch type {
         case .insert:
             tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
@@ -102,10 +102,7 @@ extension BaseFetchTableViewController {
     }
     
     override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        //        print("[BaseFetchTableVC] controllerDidChangeContent:")
+        // print("[BaseFetchTableVC] controllerDidChangeContent:")
         tableView.endUpdates()
-        
-        
-
-    }
+     }
 }

@@ -64,22 +64,15 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         switch row {
             
+           
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
-            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingCabinet", themeApp: ThemeManager.shared.currentTheme())
-            cell.nameUI.text = "Личный кабинет"
-            cell.countUI.setTitle("", for: .normal)
-            cell.countUI.isHidden = true
-            return cell
-            
-        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingThema", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Настройки темы"
@@ -87,7 +80,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.countUI.isHidden = true
             return cell
             
-        case 2:
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingConf", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Конфиденциальность"
@@ -95,7 +88,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.countUI.isHidden = true
             return cell
             
-        case 3:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingPassword", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Сменить пароль"
@@ -103,7 +96,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.countUI.isHidden = true
             return cell
             
-        case 4:
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingAbout", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "О программе"
@@ -124,14 +117,12 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         let row = indexPath.row
         switch row {
         case 0:
-            self.performSegue(withIdentifier: "editProfile", sender: nil)
-        case 1:
             self.performSegue(withIdentifier: "theme", sender: nil)
-        case 2:
+        case 1:
             self.performSegue(withIdentifier: "confidential", sender: nil)
-        case 3:
+        case 2:
             self.performSegue(withIdentifier: "changePassword", sender: nil)
-        case 4:
+        case 3:
             self.performSegue(withIdentifier: "aboutApp", sender: nil)
         default:
             return

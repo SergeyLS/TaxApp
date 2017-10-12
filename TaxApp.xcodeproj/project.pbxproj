@@ -11,6 +11,7 @@
 		A5FA477E1F598C5100EAD4D4 /* ConfidentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477D1F598C5000EAD4D4 /* ConfidentialViewController.swift */; };
 		A5FA47801F598CAA00EAD4D4 /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA477F1F598CAA00EAD4D4 /* AboutApp.swift */; };
 		A5FA47821F59A4BA00EAD4D4 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA47811F59A4BA00EAD4D4 /* ChangePassword.swift */; };
+		F710BB5C1F73C7D300D49437 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710BB5B1F73C7D300D49437 /* TutorialViewController.swift */; };
 		F71CF6711F6939340096860F /* English.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71CF6701F6939340096860F /* English.storyboard */; };
 		F71CF6731F6970F50096860F /* BaseFetchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6721F6970F50096860F /* BaseFetchCollectionViewController.swift */; };
 		F71CF6761F6972D10096860F /* ListEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CF6751F6972D10096860F /* ListEnglishViewController.swift */; };
@@ -112,6 +113,7 @@
 		D461ECED81B82DEE6391736E /* Pods_TaxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E190B930054C22E3D2CDEDC4 /* Pods-TaxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxApp/Pods-TaxApp.release.xcconfig"; sourceTree = "<group>"; };
 		F70DC4481F38B5A10006773E /* TaxApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaxApp.entitlements; path = ../TaxApp.entitlements; sourceTree = "<group>"; };
+		F710BB5B1F73C7D300D49437 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		F71CF6701F6939340096860F /* English.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = English.storyboard; sourceTree = "<group>"; };
 		F71CF6721F6970F50096860F /* BaseFetchCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFetchCollectionViewController.swift; sourceTree = "<group>"; };
 		F71CF6751F6972D10096860F /* ListEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				F77D29F31F54039B0032227F /* MainNavigationController.swift */,
 				F77D29F41F54039B0032227F /* LoginViewController.swift */,
 				F77D29F51F54039B0032227F /* RestorePasswordViewController.swift */,
+				F710BB5B1F73C7D300D49437 /* TutorialViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -289,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				F77D2A241F54232B0032227F /* ListMessagesViewController.swift */,
-				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
 				F7F623251F56F26700BD52DE /* ViewMessageViewController.swift */,
+				F77D2A261F542D530032227F /* ListMessagesTableViewCell.swift */,
 				F77257D31F5762C4004D0C79 /* ViewMessageTableViewCell.swift */,
 			);
 			path = Message;
@@ -653,6 +656,7 @@
 				F77D2A2B1F5440B70032227F /* SyncManager.swift in Sources */,
 				F77D2A1E1F5411D40032227F /* Message+CoreDataClass.swift in Sources */,
 				F77D29D61F5402C20032227F /* ColorManager.swift in Sources */,
+				F710BB5C1F73C7D300D49437 /* TutorialViewController.swift in Sources */,
 				F77D29F71F54039B0032227F /* MainNavigationController.swift in Sources */,
 				F77D2A031F5403AB0032227F /* ProfileViewController.swift in Sources */,
 				F7F20AED1F6FE0E3008B773B /* BuyEnglishViewController.swift in Sources */,

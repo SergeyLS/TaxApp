@@ -102,19 +102,24 @@ class DetailNewsViewController: BaseViewController {
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
-        if article.isLike {
-            return
-        }
         
-        ArticleManager.getArticleLike(article: article) { (errorArticle) in
-            if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-                return
+        if article.isLike {
+            ArticleManager.getArticleUnLike(article: article) { (errorArticle) in
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
             }
-            
-            self.chengeLike()
+        } else {
+            ArticleManager.getArticleLike(article: article) { (errorArticle) in
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
+            }
         }
-    }
+        self.chengeLike()
+     }
     
     @IBAction func messageAction(_ sender: UIButton) {
         if AppDataManager.shared.userLogin == User.noLoginUserKey {
@@ -144,6 +149,9 @@ class DetailNewsViewController: BaseViewController {
     
     @IBAction func saveToDiskAction(_ sender: UIButton) {
         MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success, view: self.view)
+        
+        article.isArhiv = true
+        CoreDataManager.shared.saveContext()
     }
     
     

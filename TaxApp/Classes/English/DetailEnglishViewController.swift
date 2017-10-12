@@ -102,18 +102,34 @@ class DetailEnglishViewController: BaseViewController {
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
-        if articleEnglish.isLike {
-            return
-        }
+//         ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
+//            if let error = errorArticle  {
+//                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+//                return
+//            }
+//
+//            self.chengeLike()
+//        }
         
-        ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
-            if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
-                return
+        if articleEnglish.isLike {
+            ArticleEnglishManager.getArticleEnglishUnLike(articleEnglish: articleEnglish) { (errorArticle) in
+                
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
             }
-            
-            self.chengeLike()
+        } else {
+            ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
+                
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    return
+                }
+            }
         }
+
+        self.chengeLike()
     }
     
     @IBAction func messageAction(_ sender: UIButton) {

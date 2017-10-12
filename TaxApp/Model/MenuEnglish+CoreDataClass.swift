@@ -24,7 +24,7 @@ public class MenuEnglish: NSManagedObject {
         if let tempPhoto = self.photo {
             return UIImage(data: tempPhoto)
         } else {
-            return UIImage(named: "noImage")
+            return ImageManager.noImage
         }
     }
 

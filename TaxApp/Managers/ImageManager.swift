@@ -9,6 +9,7 @@
 import UIKit
 class ImageManager {
     
+    static var noImage = UIImage(named: "noImage")!
     
     static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         

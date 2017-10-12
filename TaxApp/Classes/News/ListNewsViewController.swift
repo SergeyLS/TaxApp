@@ -12,13 +12,14 @@ import CoreData
 
 class ListNewsViewController: BaseFetchTableViewController {
     
-    @IBOutlet weak var notFoundUI: UILabel!
     
     var menu: Menu?
     lazy var searchBar:UISearchBar = UISearchBar()
     lazy var barButtonItemSearch:UIBarButtonItem =  UIBarButtonItem()
+    @IBOutlet weak var backViewUI: UIView!
     
     var isSearch: Bool = false
+    var isArhiv: Bool = false
     var searchString: String = ""
     
     //==================================================
@@ -42,7 +43,7 @@ class ListNewsViewController: BaseFetchTableViewController {
         }
         barButtonItemSearch = UIBarButtonItem(customView:searchBar)
         
-        notFoundUI.isHidden = true
+        backViewUI.isHidden = true
         
         configSideMenu()
         changeRightBarButton()
@@ -84,8 +85,12 @@ class ListNewsViewController: BaseFetchTableViewController {
                 fetchRequest.sortDescriptors = [sortDescriptor]
                 
                 var arrayPredicate:[NSPredicate] = []
-                if menu != nil {
-                    arrayPredicate.append(NSPredicate(format: "menu = %@", menu!))
+                if isArhiv {
+                     arrayPredicate.append(NSPredicate(format: "isArhiv = true"))
+                } else {
+                    if menu != nil {
+                        arrayPredicate.append(NSPredicate(format: "menu = %@", menu!))
+                    }
                 }
                 if searchString != "" {
                     arrayPredicate.append(NSPredicate(format: "forSearch CONTAINS[cd] %@", searchString))
@@ -111,8 +116,18 @@ class ListNewsViewController: BaseFetchTableViewController {
     
     internal override func requestData() {
         SyncManager.syncArticles(view: view)
+        
+        if let sections = fetchController.sections,
+            sections.count > 0 {
+            let sectionInfo = sections[0]
+            let resultNumber = sectionInfo.numberOfObjects
+            if resultNumber == 0 {
+                backViewUI.isHidden = false
+            }
+        }
     }
     
+
     //==================================================
     // MARK: - func
     //==================================================
@@ -133,12 +148,12 @@ class ListNewsViewController: BaseFetchTableViewController {
         
         // Set up a cool background image for demo purposes
         //SideMenuManager.menuAnimationBackgroundColor = UIColor(patternImage: UIImage(named: "background")!)
-
+        
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuFadeStatusBar = false
         SideMenuManager.menuWidth = view.layer.bounds.width * 0.8 //80%
         SideMenuManager.menuEnableSwipeGestures = true
-     }
+    }
     
     func changeRightBarButton()  {
         
@@ -159,7 +174,12 @@ class ListNewsViewController: BaseFetchTableViewController {
     }
     
     func changeTitleNavigation()  {
-        if menu == nil {
+        if isArhiv == true {
+            navigationItem.title = NSLocalizedString("Архив", comment: "ListNewsViewController - navigationItem.title")
+            return
+        }
+        
+        if menu == nil && isArhiv == false {
             navigationItem.title = NSLocalizedString("Все новости", comment: "ListNewsViewController - navigationItem.title")
             AppDataManager.shared.currentMenu = ""
         } else {
@@ -192,16 +212,13 @@ class ListNewsViewController: BaseFetchTableViewController {
             let destinationController = segue.destination as! WebViewViewController
             destinationController.article = sender as! Article
         }
-
+        
         if (segue.identifier == "newMessage") {
             let destinationController = segue.destination as! ViewMessageViewController
             if let articleTemp =  sender as? Article  {
                 destinationController.textMessage = "Сообщение к статье: '\(String(describing: (articleTemp.title!) ))' \n"
             }
         }
-
-        
-        
     }
     
 }
@@ -211,9 +228,19 @@ class ListNewsViewController: BaseFetchTableViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 //==================================================
 extension ListNewsViewController {
+    
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        let sectionCount = (fetchController.sections != nil) ? fetchController.sections!.count : 0
+//
+////        if sectionCount == 0 {
+////             backViewUI.isHidden = false
+////        }
+//        return sectionCount
+//    }
+
     //MARK: UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.notFoundUI.isHidden = true
+         self.backViewUI.isHidden = true
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListNewsTableViewCell
         let article = fetchController.object(at: indexPath) as! Article
@@ -253,7 +280,7 @@ extension ListNewsViewController {
                 cell.indicatorUI.stopAnimating()
             }
         }
-
+        
         return cell
     }
     
@@ -268,14 +295,6 @@ extension ListNewsViewController {
         
     }
     
-   
-    //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    //        return UITableViewAutomaticDimension
-    //    }
-    //
-    //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    //        return UITableViewAutomaticDimension
-    //    }
 }
 
 
@@ -296,17 +315,19 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         fetchController = nil
         performFetch()
         reloadData()
-        notFoundUI.isHidden = true
+        backViewUI.isHidden = true
+        isArhiv = false
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        notFoundUI.isHidden = true
+        backViewUI.isHidden = true
+        isArhiv = false
         if let searchText = searchBar.text {
             searchString = searchText
         }
         
-        if searchString.characters.count < 4 {
-            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 4-х букв!", theme: .warning, view: self.view)
+        if searchString.characters.count < 3 {
+            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 3-х букв!", theme: .warning, view: self.view)
         }
         
         searchBar.endEditing(true)
@@ -324,9 +345,8 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
                 sections.count > 0 {
                 let sectionInfo = sections[0]
                 if sectionInfo.numberOfObjects == 0 {
-                    self.notFoundUI.isHidden = false
-                    self.notFoundUI.text = "По запросу '\(self.searchString)' ничего не найдено!"
-                }
+                    self.backViewUI.isHidden = false
+                 }
             }
         }
     }

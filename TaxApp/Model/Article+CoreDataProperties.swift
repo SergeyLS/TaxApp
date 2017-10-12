@@ -2,8 +2,9 @@
 //  Article+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 8/19/17.
+//  Created by Sergey Leskov on 9/25/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
+//
 //
 
 import Foundation
@@ -30,6 +31,7 @@ extension Article {
     @NSManaged public var price: Double
     @NSManaged public var shortDescr: String?
     @NSManaged public var title: String?
+    @NSManaged public var isArhiv: Bool
     @NSManaged public var menu: Menu?
     @NSManaged public var user: User?
 

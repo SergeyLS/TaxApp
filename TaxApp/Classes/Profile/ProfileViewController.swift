@@ -131,6 +131,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
+            cell.leftImageUI.image = ThemeManager.shared.findImage(name: "settingCabinet", themeApp: ThemeManager.shared.currentTheme())
+            cell.nameUI.text = "Личный кабинет"
+            cell.countUI.setTitle("", for: .normal)
+            cell.countUI.isHidden = true
+            return cell
+
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileMail", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Сообщения"
             if NotificationManager.allCount() == 0 {
@@ -143,7 +151,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.reloadData()
             return cell
             
-        case 1:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileSetting", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = "Настройки"
@@ -151,7 +159,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.countUI.isHidden = true
              return cell
             
-        case 2:
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SettingTableViewCell
             cell.leftImageUI.image = ThemeManager.shared.findImage(name: "profileExit", themeApp: ThemeManager.shared.currentTheme())
             cell.nameUI.text = AppDataManager.shared.isUserLogin == true ? "Выход" : "Вход"
@@ -175,14 +183,20 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 UserManager.messageNoLogin(view: view)
                 return
             }
-            self.performSegue(withIdentifier: "message", sender: nil)
+            self.performSegue(withIdentifier: "editProfile", sender: nil)
         case 1:
             if AppDataManager.shared.userLogin == User.noLoginUserKey  {
                 UserManager.messageNoLogin(view: view)
                 return
             }
-            self.performSegue(withIdentifier: "setting", sender: nil)
+            self.performSegue(withIdentifier: "message", sender: nil)
         case 2:
+            if AppDataManager.shared.userLogin == User.noLoginUserKey  {
+                UserManager.messageNoLogin(view: view)
+                return
+            }
+            self.performSegue(withIdentifier: "setting", sender: nil)
+        case 3:
             AppDataManager.shared.userLogin = ""
             AppDataManager.shared.userToken = ""
             self.performSegue(withIdentifier: "exitUser", sender: nil)

@@ -73,17 +73,24 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
     
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
-        
         if articleEnglish.isLike {
-            return
-        }
-        
-        ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
-            if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
-                return
+            ArticleEnglishManager.getArticleEnglishUnLike(articleEnglish: articleEnglish) { (errorArticle) in
+                
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    return
+                }
             }
-          }
+        } else {
+            ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
+                
+                if let error = errorArticle  {
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    return
+                }
+            }
+        }
+
      }
     
     

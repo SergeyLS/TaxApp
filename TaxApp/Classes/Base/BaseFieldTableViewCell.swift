@@ -27,7 +27,9 @@ class BaseFieldTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         nameUI.text = nil
-        fieldUI.text = nil
+        if fieldUI != nil {
+            fieldUI.text = nil
+        }
     }
 
 }

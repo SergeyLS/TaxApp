@@ -115,6 +115,11 @@ extension ListEnglishViewController {
     
     // MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if AppDataManager.shared.userLogin == User.noLoginUserKey  {
+            UserManager.messageNoLogin(view: view)
+            return
+        }
+
         let menuEnglish = fetchController.object(at: indexPath) as! MenuEnglish
         self.performSegue(withIdentifier: "subMenu", sender: menuEnglish)
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -132,7 +132,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQs-qm-GTe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cE8-Iy-EU6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -246,7 +246,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6P7-yN-jbF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1CG-lE-l9U">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gu8-Sj-X5G">
@@ -318,7 +318,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="AO3-dE-T7z" secondAttribute="trailing" id="kHu-Ja-RnL"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q0P-gD-LrW">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="q0P-gD-LrW">
                                                             <rect key="frame" x="0.0" y="130" width="375" height="200"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="200" id="AT4-CE-T5b"/>
@@ -499,7 +499,7 @@
                         <viewControllerLayoutGuide type="bottom" id="o30-zH-toa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D0c-d9-uD7">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZM-5F-gPW">
@@ -508,7 +508,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12G-4H-t27">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="549"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-4O-BOK">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-4O-BOK">
                                                 <rect key="frame" x="0.0" y="0.0" width="365" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="9KV-uH-a4q"/>
@@ -776,9 +776,9 @@
         <image name="englishMainBack" width="375" height="667"/>
         <image name="englishMenuBack" width="375" height="350"/>
         <image name="menuLeft" width="20" height="15"/>
-        <image name="noImage" width="300" height="300"/>
+        <image name="noImage" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jmO-48-jpp"/>
+        <segue reference="HVp-N9-zSk"/>
     </inferredMetricsTieBreakers>
 </document>

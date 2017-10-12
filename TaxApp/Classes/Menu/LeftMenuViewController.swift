@@ -16,6 +16,9 @@ class LeftMenuViewController: BaseFetchTableViewController {
     @IBOutlet weak var fonUI: UIImageView!
     
     let nameEnglishMenu = "English with Tax App"
+    let nameArhivMenu = "Архив"
+    var rowsCount = 0
+    var isArhiv = false
     
     //==================================================
     // MARK: - General
@@ -130,6 +133,8 @@ class LeftMenuViewController: BaseFetchTableViewController {
         if (segue.identifier == "openNews") {
             let destinationController = segue.destination as! ListNewsViewController
             destinationController.menu = sender as? Menu
+            destinationController.isArhiv =  isArhiv
+            
         }
     }
     
@@ -159,7 +164,8 @@ extension LeftMenuViewController {
             let sectionInfo = sections[section]
             resultNumber = sectionInfo.numberOfObjects
         }
-        return resultNumber + 1
+        rowsCount = resultNumber + 2
+        return rowsCount
     }
     
     
@@ -178,9 +184,16 @@ extension LeftMenuViewController {
             cell.nameUI.text = menuTitle
             cell.nameUI.textColor =  UIColor(hex: "4D4D4D")
         } else {
-            menuTitle = nameEnglishMenu
-            cell.nameUI.text = menuTitle
-            cell.nameUI.textColor = UIColor.red
+            if rowNumber == rowsCount {
+                menuTitle = nameArhivMenu
+                cell.nameUI.text = menuTitle
+                cell.nameUI.textColor = UIColor.black
+                
+            } else {
+                menuTitle = nameEnglishMenu
+                cell.nameUI.text = menuTitle
+                cell.nameUI.textColor = UIColor.red
+            }
         }
         
         if menuTitle == AppDataManager.shared.currentMenu {
@@ -198,12 +211,20 @@ extension LeftMenuViewController {
         let rowNumber = indexPath.row + 1
         if rowNumber <= countObject(section: indexPath.section) {
             let menu = fetchController.object(at: indexPath) as! Menu
+            isArhiv = false
             self.performSegue(withIdentifier: "openNews", sender: menu)
             AppDataManager.shared.currentMenu = menu.title!
         } else {
-            self.performSegue(withIdentifier: "openEnglish", sender: nil)
-            AppDataManager.shared.currentMenu = nameEnglishMenu
-            reloadData()
+            if rowNumber == rowsCount {
+                isArhiv = true
+                self.performSegue(withIdentifier: "openNews", sender: true)
+                AppDataManager.shared.currentMenu = nameArhivMenu
+                reloadData()
+            } else {
+                self.performSegue(withIdentifier: "openEnglish", sender: nil)
+                AppDataManager.shared.currentMenu = nameEnglishMenu
+                reloadData()
+            }
         }
         
     }

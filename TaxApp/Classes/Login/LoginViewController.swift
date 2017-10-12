@@ -138,7 +138,7 @@ class LoginViewController: BaseViewController {
                         }
                     }
                     self.loadingPlaceholderViewHidden = true
-                    MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                    MessagerManager.showMessage(title: "Вы авторизированы", message: "", theme: .success, view: self.view)
                     self.performSegue(withIdentifier: "openNews", sender: nil)
                   } //getUserFromAPI
             } //getCategoryFromAPI

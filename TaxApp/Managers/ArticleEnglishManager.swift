@@ -14,7 +14,7 @@ class ArticleEnglishManager {
     
     //getArticleByID
     static func getArticleEnglishByID(id: String,
-                               context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> ArticleEnglish? {
+                                      context: NSManagedObjectContext = CoreDataManager.shared.viewContext) -> ArticleEnglish? {
         
         if  id == "" { return nil }
         
@@ -36,9 +36,9 @@ class ArticleEnglishManager {
     }
     
     
-    
     //getArticleFromAPI
     static func getArticleEnglishFromAPI(subMenuEnglish: SubMenuEnglish,
+                                         directLink: String = "",
                                          completion: @escaping (_ error: String?) -> Void)  {
         
         let headers: HTTPHeaders = [
@@ -46,12 +46,16 @@ class ArticleEnglishManager {
             "content-type": "application/json",
             "cache-control": "no-cache"
         ]
-        
-        let subMenuEnglishIdString = String(subMenuEnglish.id)
-        let url = URL(string: ConfigAPI.getArticlesEnglishString.appending(subMenuEnglishIdString))!
-
+        let url: URL!
+        if directLink == "" {
+            let subMenuEnglishIdString = String(subMenuEnglish.id)
+            url = URL(string: ConfigAPI.getArticlesEnglishString.appending(subMenuEnglishIdString))!
+        } else {
+            url = URL(string: directLink)!
+        }
         
         let req = request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
         
         req.responseJSON { response in
             if response.result.isFailure  {
@@ -59,6 +63,33 @@ class ArticleEnglishManager {
                 completion(response.result.error?.localizedDescription)
                 return
             }
+            
+            print("[getArticleEnglishFromAPI] - Load: \(url.absoluteString)")
+            
+            var linkNext = ""
+            if let arrayHeader = response.response?.allHeaderFields as? [String: Any] {
+                if let link = arrayHeader["Link"] as? String {
+                    var slice1 = ""
+                    var slice2 = ""
+                    if let slice = link.slice(from: "rel=prev", to: "rel=next") {
+                        if let linkTemp = slice.slice(from: "<", to: ">"){
+                            slice1 = linkTemp
+                        }
+                    }
+                    if let slice = link.slice(from: "rel=self", to: "rel=next") {
+                        if let linkTemp = slice.slice(from: "<", to: ">"){
+                            slice2 = linkTemp
+                        }
+                    }
+                    
+                    if slice1 != "" {
+                        linkNext = slice1
+                    } else {
+                        linkNext = slice2
+                    }
+                }
+               }
+            
             
             guard let array = response.result.value as? [Any] else {
                 completion("Invalid tag information received from service")
@@ -89,7 +120,7 @@ class ArticleEnglishManager {
                             if articleEnglish.likes != likes {
                                 articleEnglish.likes = likes
                             }
-                        
+                            
                         } else {
                             // New
                             if AppDataManager.shared.currentUser == nil {
@@ -111,10 +142,14 @@ class ArticleEnglishManager {
             
             
             if isErrors == false {
+                if linkNext != "" {
+                    ArticleEnglishManager.getArticleEnglishFromAPI(subMenuEnglish: subMenuEnglish, directLink: linkNext) {_ in
+                    }
+                }
                 completion(nil)
                 return
             }
-            
+
             completion("Invalid func getArticleFromAPI")
             
         }
@@ -124,7 +159,7 @@ class ArticleEnglishManager {
     
     static func getImage(articleEnglish: ArticleEnglish, width: Int, height: Int, completion: @escaping (_ image: UIImage) -> Void)  {
         
-        let empfyPhoto = UIImage()
+        let empfyPhoto = ImageManager.noImage
         
         if articleEnglish.photo != nil {
             completion(articleEnglish.photoImage!)
@@ -143,15 +178,15 @@ class ArticleEnglishManager {
         
         let indexChar = linkPhoto.findLastChar(charOfSerch: ".")
         if indexChar > 0 {
-           let stringBefore = linkPhoto.substring(to: indexChar-1)
-           let stringAfter = linkPhoto.substring(from: indexChar-1)
+            let stringBefore = linkPhoto.substring(to: indexChar-1)
+            let stringAfter = linkPhoto.substring(from: indexChar-1)
             
-           linkPhoto = stringBefore + "_\(width)x\(height)" + stringAfter
+            linkPhoto = stringBefore + "_\(width)x\(height)" + stringAfter
         }
         
         
-
-       let req = request(linkPhoto, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
+        let req = request(linkPhoto, method: .get, encoding: JSONEncoding.default, headers: headers)
         
         req.responseData { response in
             if response.result.isFailure  {
@@ -168,7 +203,7 @@ class ArticleEnglishManager {
             return
         }
     } //func getImage
-
+    
     
     
     //getArticleLike
@@ -213,6 +248,47 @@ class ArticleEnglishManager {
     }
     
     
+    //getArticleLike
+    static func getArticleEnglishUnLike(articleEnglish: ArticleEnglish, completion: @escaping (_ error: String?) -> Void)  {
+        
+        let headers: HTTPHeaders = [
+            "authorization": "Bearer "+AppDataManager.shared.userToken,
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        let articleIdString = articleEnglish.id!
+        let url = URL(string: ConfigAPI.getArticleEnglishUnLikeString.appending(articleIdString))!
+        
+        let req = request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseJSON { response in
+            if response.result.isFailure  {
+                //print(response.result.error!)
+                completion(response.result.error?.localizedDescription)
+                return
+            }
+            
+            guard let array = response.result.value as? [String: Any] else {
+                completion("Invalid tag information received from service")
+                return
+            }
+            
+            if let countLikes = (array["likes"] as? Int)  {
+                
+                articleEnglish.isLike = false
+                articleEnglish.likes = Int64(countLikes)
+                CoreDataManager.shared.saveContext()
+                
+                completion(nil)
+                return
+            }
+            
+            
+            completion("Invalid func getArticleFromAPI")
+            
+        }
+    }
+
     
     
     //getArticleFromAPI

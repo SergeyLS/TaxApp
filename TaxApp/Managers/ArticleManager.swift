@@ -213,7 +213,7 @@ class ArticleManager {
     
     static func getImage(article: Article, width: Int, height: Int, completion: @escaping (_ image: UIImage) -> Void)  {
         
-        let empfyPhoto = UIImage()
+        let empfyPhoto = ImageManager.noImage
         
         if article.photo != nil {
             completion(article.photoImage!)
@@ -300,6 +300,48 @@ class ArticleManager {
         }
     }
     
+    
+    //getArticleUnLike
+    static func getArticleUnLike(article: Article, completion: @escaping (_ error: String?) -> Void)  {
+        
+        let headers: HTTPHeaders = [
+            "authorization": "Bearer "+AppDataManager.shared.userToken,
+            "content-type": "application/json",
+            "cache-control": "no-cache"
+        ]
+        let articleIdString = article.id!
+        let url = URL(string: ConfigAPI.serverAPI.appending(ConfigAPI.getArticleUnLikeString).appending(articleIdString))!
+        
+        let req = request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+        
+        req.responseJSON { response in
+            if response.result.isFailure  {
+                //print(response.result.error!)
+                completion(response.result.error?.localizedDescription)
+                return
+            }
+            
+            guard let array = response.result.value as? [String: Any] else {
+                completion("Invalid tag information received from service")
+                return
+            }
+            
+            if let countLikes = (array["likes"] as? Int)  {
+                
+                article.isLike = false
+                article.likes = Int64(countLikes)
+                CoreDataManager.shared.saveContext()
+                
+                completion(nil)
+                return
+            }
+            
+            
+            completion("Invalid func getArticleFromAPI")
+            
+        }
+    }
+
     
     
     

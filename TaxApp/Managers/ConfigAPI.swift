@@ -59,7 +59,8 @@ class ConfigAPI {
 
     
     //Article
-    static var getArticleLikeString = "/article/like/"
+    static var getArticleLikeString = "/news/like/"
+    static var getArticleUnLikeString = "/news/unlike/"
     static var getArticleSearchString = "/article/search/"
     static var getArticlePayString = server + "/taxapp/payments/authorize"
 
@@ -87,6 +88,7 @@ class ConfigAPI {
     // English
     static var getArticlesEnglishString = serverAPI + "/english/section/"
     static var getArticleEnglishLikeString = serverAPI + "/english/like/"
+     static var getArticleEnglishUnLikeString = serverAPI + "/english/unlike/"
     static var getArticleEnglishSearchString = serverAPI + "/english/search/"
     
   

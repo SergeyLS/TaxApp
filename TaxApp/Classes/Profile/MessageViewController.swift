@@ -12,7 +12,8 @@ class MessageViewController: BaseImageViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var fonUI: UIImageView!
-
+    @IBOutlet weak var mainButtonUI: UIButton!
+    
     //==================================================
     // MARK: - General
     //==================================================
@@ -23,6 +24,7 @@ class MessageViewController: BaseImageViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        configButton(button: mainButtonUI, isMakeCircle: true, isShadow: true)
         configTheme()
 
     }
@@ -42,12 +44,22 @@ class MessageViewController: BaseImageViewController {
         requestData()
     }
 
+    //==================================================
+    // MARK: - action
+    //==================================================
+    @IBAction func newMessageButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "newMessage", sender: nil)
+    }
+
     
     //==================================================
     // MARK: - func
     //==================================================
+    
+    
     func configTheme()  {
         fonUI.image = ThemeManager.shared.findImage(name: "messageFon", themeApp: ThemeManager.shared.currentTheme())
+        mainButtonUI.backgroundColor = ThemeManager.shared.mainColor()
     }
 
     func requestData() {

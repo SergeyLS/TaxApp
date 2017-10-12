@@ -38,7 +38,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
         configButton(button: mainButtonUI, isMakeCircle: true, isShadow: true)
         textUI.layer.cornerRadius = 5
         
-        deleteUI.isEnabled = false
+        //deleteUI.isEnabled = false
         
         
         textUI.text = textMessage
@@ -218,29 +218,29 @@ class ViewMessageViewController: BaseFetchTableViewController {
     
     @IBAction func deleteAction(_ sender: UIBarButtonItem) {
         
-        //        let alert:UIAlertController=UIAlertController(title: NSLocalizedString("Удалить сообщение?", comment: "NewMessageViewController - UIAlertController"), message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        //        alert.view.tintColor = ThemeManager.shared.mainColor()
-        //
-        //        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)   { UIAlertAction in
-        //
-        //            if let message = self.messageMain {
-        //                message.kind = MessageKind.delete.rawValue
-        //                CoreDataManager.shared.saveContext()
-        //                self.navigationController!.popViewController(animated: true)
-        //            }
-        //
-        //
-        //        }
-        //        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel)   { UIAlertAction in
-        //            return
-        //
-        //        }
-        //
-        //        // Add the actions
-        //        alert.addAction(yesAction)
-        //        alert.addAction(noAction)
-        //        self.present(alert, animated: true, completion: nil)
-        //
+                let alert:UIAlertController=UIAlertController(title: NSLocalizedString("Удалить сообщение?", comment: "NewMessageViewController - UIAlertController"), message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+                alert.view.tintColor = ThemeManager.shared.mainColor()
+        
+                let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)   { UIAlertAction in
+        
+                    if let message = self.messageMain {
+                        message.kind = MessageKind.delete.rawValue
+                        CoreDataManager.shared.saveContext()
+                        self.navigationController!.popViewController(animated: true)
+                    }
+        
+        
+                }
+                let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel)   { UIAlertAction in
+                    return
+        
+                }
+        
+                // Add the actions
+                alert.addAction(yesAction)
+                alert.addAction(noAction)
+                self.present(alert, animated: true, completion: nil)
+        
     }
     
 }
