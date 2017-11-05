@@ -24,6 +24,8 @@ class DetailNewsViewController: BaseViewController {
     @IBOutlet weak var likeButtonUI: UIButton!
     @IBOutlet weak var spinerImage: UIActivityIndicatorView!
     
+    @IBOutlet weak var likeActivity: UIActivityIndicatorView!
+    
     
     var article: Article!
     
@@ -58,6 +60,8 @@ class DetailNewsViewController: BaseViewController {
         scrollViewUI.layer.cornerRadius = 5
         webView.scrollView.isScrollEnabled = false
         webView.delegate = self
+        
+        likeActivity.tintColor = ThemeManager.shared.mainColor()
         
     }
     
@@ -103,22 +107,33 @@ class DetailNewsViewController: BaseViewController {
     @IBAction func likeButtonAction(_ sender: UIButton) {
         
         
+        likeActivity.startAnimating()
+        likeButtonUI.isUserInteractionEnabled = false
+        
         if article.isLike {
             ArticleManager.getArticleUnLike(article: article) { (errorArticle) in
+                self.likeActivity.stopAnimating()
+                self.likeButtonUI.isUserInteractionEnabled = true
+                self.chengeLike()
+                
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
         } else {
             ArticleManager.getArticleLike(article: article) { (errorArticle) in
+                self.likeActivity.stopAnimating()
+                self.likeButtonUI.isUserInteractionEnabled = true
+                self.chengeLike()
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
         }
-        self.chengeLike()
+        
+        
      }
     
     @IBAction func messageAction(_ sender: UIButton) {
@@ -148,7 +163,7 @@ class DetailNewsViewController: BaseViewController {
     }
     
     @IBAction func saveToDiskAction(_ sender: UIButton) {
-        MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success, view: self.view)
+        MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success)
         
         article.isArhiv = true
         CoreDataManager.shared.saveContext()

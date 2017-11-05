@@ -58,19 +58,19 @@ class RestorePasswordViewController: BaseViewController {
             let title = NSLocalizedString("Ошибка!", comment: "Oops")
             let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "SignUpViewController - signUpAction")
             
-            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .error)
             return
         }
         
         AuthorizationManager.resetPassword(eMail: eMail) { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
             
             let title = NSLocalizedString("Успех!", comment: "RestorePasswordViewController - title")
             let message = NSLocalizedString("Новый пароль отправлен на Ваш e-mail!", comment: "RestorePasswordViewController - message")
-            MessagerManager.showMessage(title: title, message: message, theme: .success, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .success)
             
         }
         

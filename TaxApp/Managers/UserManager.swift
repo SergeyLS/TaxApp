@@ -127,7 +127,7 @@ class UserManager {
         let title = NSLocalizedString("Нужна авторизация!", comment: "messageNoLogin")
         let message = NSLocalizedString("Только для авторизованных пользователей!", comment: "messageNoLogin")
         
-        MessagerManager.showMessage(title: title, message: message, theme: .warning, view: view)
+        MessagerManager.showMessage(title: title, message: message, theme: .warning)
         
     }
     

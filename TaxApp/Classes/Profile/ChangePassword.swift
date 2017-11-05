@@ -84,7 +84,7 @@ class ChangePassword: BaseImageViewController  {
             }
             
             if message.length > 0 {
-                MessagerManager.showMessage(title: title, message: message, theme: .error, view: view)
+                MessagerManager.showMessage(title: title, message: message, theme: .error)
                 return;
             }
             
@@ -100,18 +100,18 @@ class ChangePassword: BaseImageViewController  {
                 self.view.isUserInteractionEnabled = true
                 
                 if let error = errorUser  {
-                    MessagerManager.showMessage(title: NSLocalizedString("Ошибка!", comment: "error"), message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: NSLocalizedString("Ошибка!", comment: "error"), message: error, theme: .error)
                     return
                 }
                 user.password  = self.newPassField.text
                 CoreDataManager.shared.saveContext()
-                MessagerManager.showMessage(title: NSLocalizedString("Пароль изменен!", comment: "passwordChanged"), message: "", theme: .success, view: self.view)
+                MessagerManager.showMessage(title: NSLocalizedString("Пароль изменен!", comment: "passwordChanged"), message: "", theme: .success)
                 self.oldPassField.text = ""
                 self.newPassField.text = ""
                 self.retryNewPassField.text = ""
             }
         }else {
-            MessagerManager.showMessage(title: NSLocalizedString("Вы не авторизированы!", comment: "notLogin"), message: "", theme: .success, view: self.view)
+            MessagerManager.showMessage(title: NSLocalizedString("Вы не авторизированы!", comment: "notLogin"), message: "", theme: .success)
         }
     }
     

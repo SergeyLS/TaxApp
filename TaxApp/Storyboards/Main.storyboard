@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1977,6 +1977,9 @@ Cg
                                         <state key="normal" title="Оценить приложение">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ratingButton:" destination="slh-oA-Tww" eventType="touchUpInside" id="AR9-Mu-5D3"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TH3-U6-FNq">
                                         <rect key="frame" x="0.0" y="90" width="398" height="1"/>
@@ -1994,6 +1997,9 @@ Cg
                                         <state key="normal" title="Рекомендовать другу">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="recommendButton:" destination="slh-oA-Tww" eventType="touchUpInside" id="UKM-jK-i75"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMG-Bd-Vp7">
                                         <rect key="frame" x="0.0" y="45" width="398" height="1"/>
@@ -2275,7 +2281,7 @@ Cg
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lc-FC-K5I">
-                                                        <rect key="frame" x="236.33333333333331" y="12" width="24.999999999999943" height="25"/>
+                                                        <rect key="frame" x="236.33333333333334" y="12" width="25.000000000000028" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="i10-ER-KIs"/>
                                                             <constraint firstAttribute="width" constant="25" id="zX4-1n-3Vt"/>
@@ -2286,7 +2292,7 @@ Cg
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-Af-ccF">
-                                                        <rect key="frame" x="58.666666666666671" y="13" width="35.000000000000014" height="25"/>
+                                                        <rect key="frame" x="58.666666666666657" y="13" width="35" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="EyH-Lh-4aX"/>
                                                         </constraints>
@@ -2303,7 +2309,7 @@ Cg
                                                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-dA-VSs">
-                                                        <rect key="frame" x="93.666666666666657" y="0.0" width="58.999999999999972" height="50"/>
+                                                        <rect key="frame" x="93.666666666666671" y="0.0" width="59.000000000000014" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-H9-eQn">
@@ -2311,11 +2317,11 @@ Cg
                                                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmZ-zR-hmW">
-                                                        <rect key="frame" x="177.66666666666666" y="0.0" width="58.666666666666686" height="50"/>
+                                                        <rect key="frame" x="177.66666666666666" y="0.0" width="58.666666666666657" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-bt-Nu1">
-                                                        <rect key="frame" x="345.33333333333326" y="0.0" width="58.666666666666686" height="50"/>
+                                                        <rect key="frame" x="345.33333333333331" y="0.0" width="58.666666666666686" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voW-0L-P4H">
@@ -2329,9 +2335,13 @@ Cg
                                                             <action selector="saveToDiskAction:" destination="sT1-sF-K6Z" eventType="touchUpInside" id="Wen-GK-HdF"/>
                                                         </connections>
                                                     </button>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3J5-da-eT5">
+                                                        <rect key="frame" x="66" y="15.666666666666629" width="20" height="20"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="3J5-da-eT5" firstAttribute="centerX" secondItem="Um8-Af-ccF" secondAttribute="centerX" id="1Kp-zx-PhY"/>
                                                     <constraint firstItem="Um8-Af-ccF" firstAttribute="leading" secondItem="CyB-mG-kMI" secondAttribute="trailing" id="2Qr-z5-no6"/>
                                                     <constraint firstItem="1lc-FC-K5I" firstAttribute="leading" secondItem="JmZ-zR-hmW" secondAttribute="trailing" id="2vY-Xf-xUX"/>
                                                     <constraint firstItem="1lc-FC-K5I" firstAttribute="centerY" secondItem="d7u-7x-6Bt" secondAttribute="centerY" id="54E-LA-gz8"/>
@@ -2349,6 +2359,7 @@ Cg
                                                     <constraint firstItem="EuP-H9-eQn" firstAttribute="top" secondItem="d7u-7x-6Bt" secondAttribute="top" id="ZBI-99-so9"/>
                                                     <constraint firstAttribute="bottom" secondItem="CyB-mG-kMI" secondAttribute="bottom" id="ZCg-bG-YT3"/>
                                                     <constraint firstItem="EuP-H9-eQn" firstAttribute="width" secondItem="CyB-mG-kMI" secondAttribute="width" id="Zqs-Lx-vhL"/>
+                                                    <constraint firstItem="3J5-da-eT5" firstAttribute="centerY" secondItem="Um8-Af-ccF" secondAttribute="centerY" id="aKT-cq-3sp"/>
                                                     <constraint firstItem="voW-0L-P4H" firstAttribute="centerY" secondItem="d7u-7x-6Bt" secondAttribute="centerY" id="c7a-yu-Fwx"/>
                                                     <constraint firstItem="quu-Ux-6QN" firstAttribute="leading" secondItem="MkI-dA-VSs" secondAttribute="trailing" id="hIz-ZH-nLg"/>
                                                     <constraint firstAttribute="bottom" secondItem="f0t-bt-Nu1" secondAttribute="bottom" id="kuh-zu-7qC"/>
@@ -2430,6 +2441,7 @@ Cg
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dateUI" destination="s39-v2-KYx" id="12W-cp-Lhd"/>
+                        <outlet property="likeActivity" destination="3J5-da-eT5" id="68Q-9P-tho"/>
                         <outlet property="likeButtonUI" destination="Um8-Af-ccF" id="Ktl-nf-CKY"/>
                         <outlet property="photoUI" destination="DJ9-eA-aVx" id="TaV-AV-LTf"/>
                         <outlet property="scrollViewUI" destination="MeX-wG-iTA" id="frc-A9-ALZ"/>
@@ -3096,7 +3108,7 @@ Cg
     <inferredMetricsTieBreakers>
         <segue reference="N19-Xr-bcJ"/>
         <segue reference="BZv-ge-Z6H"/>
-        <segue reference="2Ti-ec-Rcq"/>
+        <segue reference="ibG-jl-b8I"/>
         <segue reference="XGG-oM-w2r"/>
     </inferredMetricsTieBreakers>
 </document>

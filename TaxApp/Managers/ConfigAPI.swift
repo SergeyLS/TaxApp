@@ -10,8 +10,8 @@ import Foundation
 
 class ConfigAPI {
     
-    static var server = "http://185.79.244.158"
-    static var serverAPI = server + "/taxapp/api"
+    static var server = "http://185.159.128.243"
+    static var serverAPI = server + "/api"
     
     //login
     static func loginURL() -> URL {

@@ -77,7 +77,7 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
             ArticleEnglishManager.getArticleEnglishUnLike(articleEnglish: articleEnglish) { (errorArticle) in
                 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
@@ -85,7 +85,7 @@ class ListEnglishArticlesTableViewCell: UITableViewCell {
             ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
                 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }

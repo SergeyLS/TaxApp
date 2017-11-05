@@ -115,7 +115,7 @@ class DetailEnglishViewController: BaseViewController {
             ArticleEnglishManager.getArticleEnglishUnLike(articleEnglish: articleEnglish) { (errorArticle) in
                 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
@@ -123,7 +123,7 @@ class DetailEnglishViewController: BaseViewController {
             ArticleEnglishManager.getArticleEnglishLike(articleEnglish: articleEnglish) { (errorArticle) in
                 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
@@ -159,7 +159,7 @@ class DetailEnglishViewController: BaseViewController {
     }
     
     @IBAction func saveToDiskAction(_ sender: UIButton) {
-        MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success, view: self.view)
+        MessagerManager.showMessage(title: "", message: "Статья сохранена, можно читать offline!", theme: .success)
     }
     
     

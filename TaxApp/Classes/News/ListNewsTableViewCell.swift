@@ -85,7 +85,7 @@ class ListNewsTableViewCell: UITableViewCell {
                 self.likeButtonUI.isUserInteractionEnabled = true
                 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }
@@ -95,7 +95,7 @@ class ListNewsTableViewCell: UITableViewCell {
                 self.likeButtonUI.isUserInteractionEnabled = true
 
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.mainView)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
             }

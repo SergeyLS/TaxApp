@@ -11,10 +11,10 @@ import SwiftMessages
 
 class MessagerManager {
     
-    static func showMessage(title: String, message: String, theme: Theme, view: UIView, layoutMessageView: MessageView.Layout = .MessageView)  {
-        let view: MessageView
-        view = MessageView.viewFromNib(layout: layoutMessageView)
-        view.configureContent(title: title, body: message, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Hide", buttonTapHandler: { _ in SwiftMessages.hide() })
+    static func showMessage(title: String, message: String, theme: Theme, layoutMessageView: MessageView.Layout = .MessageView)  {
+        let viewMessage: MessageView
+        viewMessage = MessageView.viewFromNib(layout: layoutMessageView)
+        viewMessage.configureContent(title: title, body: message, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Hide", buttonTapHandler: { _ in SwiftMessages.hide() })
         
         let iconStyle: IconStyle = .subtle
         var config = SwiftMessages.defaultConfig
@@ -23,20 +23,20 @@ class MessagerManager {
         
         switch theme {
         case .info:
-            view.configureTheme(.info, iconStyle: iconStyle)
+            viewMessage.configureTheme(.info, iconStyle: iconStyle)
         case .success:
-            view.configureTheme(.success, iconStyle: iconStyle)
+            viewMessage.configureTheme(.success, iconStyle: iconStyle)
         case .warning:
-            view.configureTheme(.warning, iconStyle: iconStyle)
+            viewMessage.configureTheme(.warning, iconStyle: iconStyle)
         case .error:
-            view.configureTheme(.error, iconStyle: iconStyle)
+            viewMessage.configureTheme(.error, iconStyle: iconStyle)
         }
         
-        view.configureDropShadow()
-        view.button?.isHidden = true
+        viewMessage.configureDropShadow()
+        viewMessage.button?.isHidden = true
         config.duration = .seconds(seconds: 1)
         config.interactiveHide = true
         
-        SwiftMessages.show(config: config, view: view)
+        SwiftMessages.show(config: config, view: viewMessage)
     }
 }

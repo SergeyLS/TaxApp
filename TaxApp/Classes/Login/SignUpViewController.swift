@@ -74,7 +74,7 @@ class SignUpViewController: BaseViewController {
             let title = NSLocalizedString("Ошибка!", comment: "Oops")
             let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "SignUpViewController - signUpAction")
             
-            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .error)
             return
         }
         
@@ -82,21 +82,21 @@ class SignUpViewController: BaseViewController {
             let title = NSLocalizedString("Ошибка!", comment: "Oops")
             let message = NSLocalizedString("Пароли не совпадают!", comment: "SignUpViewController - signUpAction")
             
-            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .error)
             return
         }
         
         loadingPlaceholderViewHidden = false
         AuthorizationManager.registration(eMail: eMail, login: login, password: password) { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 self.loadingPlaceholderViewHidden = true
                 return
             }
             
             CategoryManager.getCategoryFromAPI() { (error) in
                 if let error = error  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     self.loadingPlaceholderViewHidden = true
                     return
                 }
@@ -111,7 +111,7 @@ class SignUpViewController: BaseViewController {
                     CoreDataManager.shared.saveContext()
                     
                     self.loadingPlaceholderViewHidden = true
-                    MessagerManager.showMessage(title: "Success", message: "", theme: .success, view: self.view)
+                    MessagerManager.showMessage(title: "Success", message: "", theme: .success)
                     self.performSegue(withIdentifier: "openNews", sender: nil)
                 }
              } //getCategoryFromAPI

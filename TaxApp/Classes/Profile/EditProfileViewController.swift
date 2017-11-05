@@ -53,7 +53,7 @@ class EditProfileViewController: BaseImageViewController {
         
         CategoryManager.getCategoryFromAPI() { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
         }
@@ -119,7 +119,7 @@ class EditProfileViewController: BaseImageViewController {
             let title = NSLocalizedString("Ошибка!", comment: "LoginViewController")
             let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "LoginViewController")
             
-            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .error)
             return
         }
         
@@ -128,7 +128,7 @@ class EditProfileViewController: BaseImageViewController {
         UserManager.postUserPhotoAPI(userName: AppDataManager.shared.userLogin,
                                      photoImage: photoUI.image!) { (errorPhoto) in
                                         if let error = errorPhoto  {
-                                            MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                                            MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                                             self.loadingPlaceholderViewHidden = true
                                             return
                                         }
@@ -140,7 +140,7 @@ class EditProfileViewController: BaseImageViewController {
                                                                     
                                                                     self.loadingPlaceholderViewHidden = true
                                                                     if let error = errorUser  {
-                                                                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                                                                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                                                                         return
                                                                     }
                                                                     
@@ -152,7 +152,7 @@ class EditProfileViewController: BaseImageViewController {
                                                                         CoreDataManager.shared.saveContext()
                                                                     }
                                                                     
-                                                                    MessagerManager.showMessage(title: "Изменения сохранены!", message: "", theme: .success, view: self.view)
+                                                                    MessagerManager.showMessage(title: "Изменения сохранены!", message: "", theme: .success)
                                         }
         }
     }

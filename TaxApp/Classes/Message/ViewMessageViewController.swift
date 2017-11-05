@@ -196,7 +196,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
         
         MessageManager.sendMessage(replyMessage: replyMessage, text: textUI.text) { (error, message) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 self.loadingPlaceholderViewHidden = true
                 return
             }

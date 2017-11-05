@@ -237,7 +237,7 @@ extension ListEnglishArticlesViewController {
         if articleEnglish.isCanOpen {
             self.performSegue(withIdentifier: "fullText", sender: articleEnglish)
         } else {
-            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error, view: self.view)
+            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error)
         }
         
     }
@@ -272,7 +272,7 @@ extension ListEnglishArticlesViewController: UISearchResultsUpdating, UISearchBa
         }
         
         if searchString.characters.count < 4 {
-            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 4-х букв!", theme: .warning, view: self.view)
+            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 4-х букв!", theme: .warning)
         }
         
         menuEnglish = nil
@@ -284,7 +284,7 @@ extension ListEnglishArticlesViewController: UISearchResultsUpdating, UISearchBa
         
         ArticleEnglishManager.getArticleEnglishSearchFromAPI(search: searchString) { (errorArticle) in
             if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
          

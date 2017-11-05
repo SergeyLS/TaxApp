@@ -290,7 +290,7 @@ extension ListNewsViewController {
         if article.isCanOpen {
             self.performSegue(withIdentifier: "fullText", sender: article)
         } else {
-            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error, view: self.view)
+            MessagerManager.showMessage(title: "", message: "Данная статья требует покупки!", theme: .error)
         }
         
     }
@@ -327,7 +327,7 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         }
         
         if searchString.characters.count < 3 {
-            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 3-х букв!", theme: .warning, view: self.view)
+            MessagerManager.showMessage(title: "", message: "Поиск корректно работает от 3-х букв!", theme: .warning)
         }
         
         searchBar.endEditing(true)
@@ -337,7 +337,7 @@ extension ListNewsViewController: UISearchResultsUpdating, UISearchBarDelegate {
         
         ArticleManager.getArticleSearchFromAPI(search: searchString) { (errorArticle) in
             if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
             

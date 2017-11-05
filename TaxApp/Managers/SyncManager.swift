@@ -16,7 +16,7 @@ class SyncManager{
         
         MenuManager.getMenuFromAPI() { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
         }
@@ -28,7 +28,7 @@ class SyncManager{
         
         MenuManagerEnglish.getMenuEnglishFromAPI() { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
         }
@@ -40,13 +40,13 @@ class SyncManager{
         
         MenuManager.getMenuFromAPI() { (errorMenu) in
             if let error = errorMenu  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
             
             ArticleManager.getArticleFromAPI() { (errorArticle) in
                 if let error = errorArticle  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
                 
@@ -64,7 +64,7 @@ class SyncManager{
         
         ArticleEnglishManager.getArticleEnglishFromAPI(subMenuEnglish: subMenuEnglish!) { (errorArticle) in
             if let error = errorArticle  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
             
@@ -81,13 +81,13 @@ class SyncManager{
         print("[SyncManager] - syncMessages")
         MessageManager.getMessageFromAPI(messageKind: MessageKind.inbox) { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 return
             }
             
             MessageManager.getMessageFromAPI(messageKind: MessageKind.sent) { (error) in
                 if let error = error  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     return
                 }
                 

@@ -96,21 +96,21 @@ class LoginViewController: BaseViewController {
             let title = NSLocalizedString("Ошибка!", comment: "LoginViewController")
             let message = NSLocalizedString("Не заполнены все обязательные поля!", comment: "LoginViewController")
             
-            MessagerManager.showMessage(title: title, message: message, theme: .error, view: self.view)
+            MessagerManager.showMessage(title: title, message: message, theme: .error)
             return
         }
         
         loadingPlaceholderViewHidden = false
         AuthorizationManager.login(eMailOrLogin: eMail, password: password) { (error) in
             if let error = error  {
-                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                 self.loadingPlaceholderViewHidden = true
                 return
             }
             
             CategoryManager.getCategoryFromAPI() { (error) in
                 if let error = error  {
-                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                    MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                     self.loadingPlaceholderViewHidden = true
                     return
                 }
@@ -118,7 +118,7 @@ class LoginViewController: BaseViewController {
                 
                 UserManager.getUserFromAPI(token: AppDataManager.shared.userToken) { (errorUser) in
                     if let error = errorUser  {
-                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                         self.loadingPlaceholderViewHidden = true
                         return
                     }
@@ -138,7 +138,7 @@ class LoginViewController: BaseViewController {
                         }
                     }
                     self.loadingPlaceholderViewHidden = true
-                    MessagerManager.showMessage(title: "Вы авторизированы", message: "", theme: .success, view: self.view)
+                    MessagerManager.showMessage(title: "Вы авторизированы", message: "", theme: .success)
                     self.performSegue(withIdentifier: "openNews", sender: nil)
                   } //getUserFromAPI
             } //getCategoryFromAPI
@@ -166,7 +166,7 @@ class LoginViewController: BaseViewController {
                 //                defaults.set(accessToken.userId, forKey: "facebookUserID")
                 AuthorizationManager.login(socialNetwork: .facebook, userId: accessToken.userId!) { (error) in
                     if let error = error  {
-                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error, view: self.view)
+                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
                         return
                     }
                     
