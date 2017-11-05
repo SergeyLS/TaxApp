@@ -11,7 +11,7 @@ import SwiftMessages
 
 class MessagerManager {
     
-    static func showMessage(title: String, message: String, theme: Theme, layoutMessageView: MessageView.Layout = .MessageView)  {
+    static func showMessage(title: String, message: String, theme: Theme, layoutMessageView: MessageView.Layout = .messageView)  {
         let viewMessage: MessageView
         viewMessage = MessageView.viewFromNib(layout: layoutMessageView)
         viewMessage.configureContent(title: title, body: message, iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Hide", buttonTapHandler: { _ in SwiftMessages.hide() })

@@ -89,7 +89,7 @@ class ProfileViewController: BaseImageViewController {
     //==================================================
     // MARK: - action
     //==================================================
-    func imageProfileTapped(gesture: UIGestureRecognizer) {
+    @objc func imageProfileTapped(gesture: UIGestureRecognizer) {
         if AppDataManager.shared.userLogin == User.noLoginUserKey  {
             UserManager.messageNoLogin(view: view)
             return

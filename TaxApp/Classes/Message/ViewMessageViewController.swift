@@ -85,7 +85,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
     // MARK: - keyboard
     //==================================================
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let _ = self.view.window?.frame {
             
@@ -101,7 +101,7 @@ class ViewMessageViewController: BaseFetchTableViewController {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         
         if !isActivKeyboard  {
             return

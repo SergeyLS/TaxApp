@@ -33,7 +33,7 @@ class BaseFetchViewController: BaseViewController {
     public var shouldRequest: Bool = true
     public var shouldReloadData: Bool = true
     
-    func performFetch() {
+    @objc func performFetch() {
         //        print("[BaseFetchVC] performFetch")
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: nil)
         

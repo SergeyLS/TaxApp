@@ -14,6 +14,7 @@ class AboutApp: BaseImageViewController {
     //==================================================
     @IBOutlet weak var fonUI: UIImageView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var versionButtonUI: UIButton!
     
     //==================================================
     // MARK: - LifeCicle
@@ -21,6 +22,8 @@ class AboutApp: BaseImageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTheme()
+        
+        versionButtonUI.setTitle("Версия " + UsefulFunctions.version(), for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +58,9 @@ class AboutApp: BaseImageViewController {
         if let image = UIImage(named: "logo") {
             activityItems.append(image)
         }
-//        if let url = URL(string: article.linkText!) {
-//            activityItems.append(url)
-//        }
+        if let url = URL(string: "https://itunes.apple.com/us/app/tax-app/id1268527832?l=ru&ls=1&mt=8") {
+            activityItems.append(url)
+        }
         
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         self.present(activityController, animated: true, completion: nil)

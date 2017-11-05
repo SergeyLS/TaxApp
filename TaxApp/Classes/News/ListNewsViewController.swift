@@ -190,7 +190,7 @@ class ListNewsViewController: BaseFetchTableViewController {
     //==================================================
     // MARK: - action
     //==================================================
-    func myRightSideBarButtonItemTapped(gesture: UIGestureRecognizer) {
+    @objc func myRightSideBarButtonItemTapped(gesture: UIGestureRecognizer) {
         isSearch = true
         changeRightBarButton()
         searchBar.becomeFirstResponder()

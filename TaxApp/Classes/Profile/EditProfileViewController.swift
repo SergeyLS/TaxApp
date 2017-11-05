@@ -160,7 +160,7 @@ class EditProfileViewController: BaseImageViewController {
     //==================================================
     // MARK: - keyboard
     //==================================================
-    func keyboardWasShown(notification: NSNotification){
+    @objc func keyboardWasShown(notification: NSNotification){
         let userInfo = notification.userInfo!
         if let textFieldFrame = activeTextField?.frame,
             let keyboardRect = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) {
@@ -180,7 +180,7 @@ class EditProfileViewController: BaseImageViewController {
         }
     }
     
-    func keyboardWillBeHidden(notification: NSNotification){
+    @objc func keyboardWillBeHidden(notification: NSNotification){
         UIView.animate(withDuration: 0.3, animations: {
             if let insets = self.contentInsets {
                 self.tableView.contentInset = insets

@@ -2063,6 +2063,7 @@ Cg
                     <connections>
                         <outlet property="bottomView" destination="0YD-tM-o3m" id="wbV-Be-Mfv"/>
                         <outlet property="fonUI" destination="A7h-Yy-xCZ" id="E8D-IM-uEo"/>
+                        <outlet property="versionButtonUI" destination="h8Y-7s-FPf" id="WHU-jz-0cp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xus-v0-6aT" userLabel="First Responder" sceneMemberID="firstResponder"/>

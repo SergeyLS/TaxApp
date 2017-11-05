@@ -79,7 +79,7 @@ class ListEnglishViewController: BaseFetchCollectionViewController {
     // MARK: - action
     //==================================================
     @IBAction func leftMenuAction(_ sender: UIBarButtonItem) {
-        self.navigationController?.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+        self.navigationController?.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     //==================================================

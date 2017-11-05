@@ -83,7 +83,7 @@ class LeftMenuViewController: BaseFetchTableViewController {
     
     
     
-    func imageTapped(gesture: UIGestureRecognizer) {
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
         if (gesture.view as? UIImageView) != nil {
             self.performSegue(withIdentifier: "profile", sender: nil)
         }

@@ -35,7 +35,7 @@ class TutorialViewController: UIViewController {
         fonUI.image = ThemeManager.shared.findImage(name: "startLogo", themeApp: ThemeManager.shared.currentTheme())
     }
 
-    func callback() {
+    @objc func callback() {
         //reloadData(animated: false)
         if let _ = AppDataManager.shared.currentUser {
             performSegue(withIdentifier: "openNews", sender: nil)

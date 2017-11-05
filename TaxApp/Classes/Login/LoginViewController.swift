@@ -149,31 +149,31 @@ class LoginViewController: BaseViewController {
     
     @IBAction func facebookAction(_ sender: UIButton) {
         
-        let loginManager = LoginManager()
-        loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success( _, _, let accessToken):
-                //                print("Logged into Facebook")
-                //                print(grantedPermissions)
-                //                print(declinedPermissions)
-                //                // Save Facebook info in cookies
-                //                let defaults = UserDefaults.standard
-                //                defaults.set(accessToken.authenticationToken, forKey: "facebookAuthenticationToken")
-                //                defaults.set(accessToken.userId, forKey: "facebookUserID")
-                AuthorizationManager.login(socialNetwork: .facebook, userId: accessToken.userId!) { (error) in
-                    if let error = error  {
-                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
-                        return
-                    }
-                    
-                    
-                }
-            }
-        }
+//        let loginManager = LoginManager()
+//        loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+//            switch loginResult {
+//            case .failed(let error):
+//                print(error)
+//            case .cancelled:
+//                print("User cancelled login.")
+//            case .success( _, _, let accessToken):
+//                //                print("Logged into Facebook")
+//                //                print(grantedPermissions)
+//                //                print(declinedPermissions)
+//                //                // Save Facebook info in cookies
+//                //                let defaults = UserDefaults.standard
+//                //                defaults.set(accessToken.authenticationToken, forKey: "facebookAuthenticationToken")
+//                //                defaults.set(accessToken.userId, forKey: "facebookUserID")
+//                AuthorizationManager.login(socialNetwork: .facebook, userId: accessToken.userId!) { (error) in
+//                    if let error = error  {
+//                        MessagerManager.showMessage(title: "Ошибка!", message: error, theme: .error)
+//                        return
+//                    }
+//
+//
+//                }
+//            }
+//        }
     }
     
     

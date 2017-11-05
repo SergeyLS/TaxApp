@@ -95,6 +95,7 @@
 		F783F5411F486E24009FC9F3 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53D1F486E24009FC9F3 /* ListNewsTableViewCell.swift */; };
 		F783F5421F486E24009FC9F3 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */; };
 		F783F5431F486E24009FC9F3 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */; };
+		F7D2459B1FAF648F00A9AEAA /* UsefulFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D2459A1FAF648F00A9AEAA /* UsefulFunctions.swift */; };
 		F7D76A7F1F6BDEEE002A562E /* SelectSubEnglishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */; };
 		F7D76A811F6BE8EE002A562E /* ListEnglishArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */; };
 		F7D76A831F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */; };
@@ -198,6 +199,7 @@
 		F783F53E1F486E24009FC9F3 /* WebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		F783F53F1F486E24009FC9F3 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		F7B42BB61F2F63D6007632BC /* TaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7D2459A1FAF648F00A9AEAA /* UsefulFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulFunctions.swift; sourceTree = "<group>"; };
 		F7D76A7E1F6BDEEE002A562E /* SelectSubEnglishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubEnglishViewController.swift; sourceTree = "<group>"; };
 		F7D76A801F6BE8EE002A562E /* ListEnglishArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesViewController.swift; sourceTree = "<group>"; };
 		F7D76A821F6BEC99002A562E /* ListEnglishArticlesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEnglishArticlesTableViewCell.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				F77D2A2A1F5440B70032227F /* SyncManager.swift */,
 				F7F623211F56CEAE00BD52DE /* FileManagerTax.swift */,
 				F74C1F681F6BF373009E4FDB /* ArticleEnglishManager.swift */,
+				F7D2459A1FAF648F00A9AEAA /* UsefulFunctions.swift */,
 			);
 			name = Managers;
 			path = TaxApp/Managers;
@@ -513,6 +516,7 @@
 					F7B42BB51F2F63D6007632BC = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = EG6AMXNLL4;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -699,6 +703,7 @@
 				F783F52D1F486AD5009FC9F3 /* Article+CoreDataClass.swift in Sources */,
 				F77D2A1F1F5411D40032227F /* Message+CoreDataProperties.swift in Sources */,
 				F7D76A7F1F6BDEEE002A562E /* SelectSubEnglishViewController.swift in Sources */,
+				F7D2459B1FAF648F00A9AEAA /* UsefulFunctions.swift in Sources */,
 				F77D2A2F1F55A7270032227F /* UITextView+Extension.swift in Sources */,
 				F783F5331F486AD5009FC9F3 /* Menu+CoreDataProperties.swift in Sources */,
 				F77D29EC1F54036A0032227F /* BaseNavigationViewController.swift in Sources */,
@@ -852,7 +857,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitsolutions.taxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -868,7 +874,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitsolutions.taxapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
