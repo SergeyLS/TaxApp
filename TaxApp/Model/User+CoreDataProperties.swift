@@ -2,8 +2,9 @@
 //  User+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 9/13/17.
+//  Created by Sergey Leskov on 11/6/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
+//
 //
 
 import Foundation
@@ -26,10 +27,11 @@ extension User {
     @NSManaged public var userName: String?
     @NSManaged public var articlies: NSSet?
     @NSManaged public var category: Category?
+    @NSManaged public var menuEnglishList: NSSet?
     @NSManaged public var menuList: NSSet?
     @NSManaged public var messages: NSSet?
     @NSManaged public var notifications: NSSet?
-    @NSManaged public var menuEnglishList: NSSet?
+    @NSManaged public var articliesEnglish: NSSet?
 
 }
 
@@ -47,6 +49,23 @@ extension User {
 
     @objc(removeArticlies:)
     @NSManaged public func removeFromArticlies(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for menuEnglishList
+extension User {
+
+    @objc(addMenuEnglishListObject:)
+    @NSManaged public func addToMenuEnglishList(_ value: MenuEnglish)
+
+    @objc(removeMenuEnglishListObject:)
+    @NSManaged public func removeFromMenuEnglishList(_ value: MenuEnglish)
+
+    @objc(addMenuEnglishList:)
+    @NSManaged public func addToMenuEnglishList(_ values: NSSet)
+
+    @objc(removeMenuEnglishList:)
+    @NSManaged public func removeFromMenuEnglishList(_ values: NSSet)
 
 }
 
@@ -101,19 +120,19 @@ extension User {
 
 }
 
-// MARK: Generated accessors for menuEnglishList
+// MARK: Generated accessors for articliesEnglish
 extension User {
 
-    @objc(addMenuEnglishListObject:)
-    @NSManaged public func addToMenuEnglishList(_ value: MenuEnglish)
+    @objc(addArticliesEnglishObject:)
+    @NSManaged public func addToArticliesEnglish(_ value: ArticleEnglish)
 
-    @objc(removeMenuEnglishListObject:)
-    @NSManaged public func removeFromMenuEnglishList(_ value: MenuEnglish)
+    @objc(removeArticliesEnglishObject:)
+    @NSManaged public func removeFromArticliesEnglish(_ value: ArticleEnglish)
 
-    @objc(addMenuEnglishList:)
-    @NSManaged public func addToMenuEnglishList(_ values: NSSet)
+    @objc(addArticliesEnglish:)
+    @NSManaged public func addToArticliesEnglish(_ values: NSSet)
 
-    @objc(removeMenuEnglishList:)
-    @NSManaged public func removeFromMenuEnglishList(_ values: NSSet)
+    @objc(removeArticliesEnglish:)
+    @NSManaged public func removeFromArticliesEnglish(_ values: NSSet)
 
 }

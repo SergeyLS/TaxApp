@@ -2,8 +2,9 @@
 //  MenuEnglish+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 9/15/17.
+//  Created by Sergey Leskov on 11/6/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
+//
 //
 
 import Foundation
@@ -19,26 +20,9 @@ extension MenuEnglish {
     @NSManaged public var id: Int64
     @NSManaged public var photo: Data?
     @NSManaged public var title: String?
+    @NSManaged public var articleEnglishMany: NSSet?
     @NSManaged public var subMenuMany: NSSet?
     @NSManaged public var user: User?
-    @NSManaged public var articleEnglishMany: NSSet?
-
-}
-
-// MARK: Generated accessors for subMenuMany
-extension MenuEnglish {
-
-    @objc(addSubMenuManyObject:)
-    @NSManaged public func addToSubMenuMany(_ value: SubMenuEnglish)
-
-    @objc(removeSubMenuManyObject:)
-    @NSManaged public func removeFromSubMenuMany(_ value: SubMenuEnglish)
-
-    @objc(addSubMenuMany:)
-    @NSManaged public func addToSubMenuMany(_ values: NSSet)
-
-    @objc(removeSubMenuMany:)
-    @NSManaged public func removeFromSubMenuMany(_ values: NSSet)
 
 }
 
@@ -56,5 +40,22 @@ extension MenuEnglish {
 
     @objc(removeArticleEnglishMany:)
     @NSManaged public func removeFromArticleEnglishMany(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for subMenuMany
+extension MenuEnglish {
+
+    @objc(addSubMenuManyObject:)
+    @NSManaged public func addToSubMenuMany(_ value: SubMenuEnglish)
+
+    @objc(removeSubMenuManyObject:)
+    @NSManaged public func removeFromSubMenuMany(_ value: SubMenuEnglish)
+
+    @objc(addSubMenuMany:)
+    @NSManaged public func addToSubMenuMany(_ values: NSSet)
+
+    @objc(removeSubMenuMany:)
+    @NSManaged public func removeFromSubMenuMany(_ values: NSSet)
 
 }

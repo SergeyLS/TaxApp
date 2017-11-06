@@ -2,8 +2,9 @@
 //  ArticleEnglish+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 9/15/17.
+//  Created by Sergey Leskov on 11/6/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
+//
 //
 
 import Foundation
@@ -31,7 +32,7 @@ extension ArticleEnglish {
     @NSManaged public var shortDescr: String?
     @NSManaged public var title: String?
     @NSManaged public var menuEnglish: MenuEnglish?
-    @NSManaged public var user: User?
     @NSManaged public var subMenuEnglish: SubMenuEnglish?
+    @NSManaged public var user: User?
 
 }

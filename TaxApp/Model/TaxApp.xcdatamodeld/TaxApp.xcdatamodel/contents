@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Article" representedClassName=".Article" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -34,9 +34,9 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shortDescr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menuEnglish" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="MenuEnglish" inverseName="articleEnglishMany" inverseEntity="MenuEnglish" syncable="YES"/>
+        <relationship name="menuEnglish" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuEnglish" inverseName="articleEnglishMany" inverseEntity="MenuEnglish" syncable="YES"/>
         <relationship name="subMenuEnglish" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMenuEnglish" inverseName="articleEnglishMany" inverseEntity="SubMenuEnglish" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="User" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="articliesEnglish" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -93,6 +93,7 @@
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articlies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="user" inverseEntity="Article" syncable="YES"/>
+        <relationship name="articliesEnglish" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ArticleEnglish" inverseName="user" inverseEntity="ArticleEnglish" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="users" inverseEntity="Category" syncable="YES"/>
         <relationship name="menuEnglishList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuEnglish" inverseName="user" inverseEntity="MenuEnglish" syncable="YES"/>
         <relationship name="menuList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Menu" inverseName="user" inverseEntity="Menu" syncable="YES"/>
@@ -108,6 +109,6 @@
         <element name="Message" positionX="-126" positionY="9" width="128" height="225"/>
         <element name="Notification" positionX="-135" positionY="0" width="128" height="90"/>
         <element name="SubMenuEnglish" positionX="-135" positionY="0" width="128" height="105"/>
-        <element name="User" positionX="-288" positionY="-126" width="128" height="255"/>
+        <element name="User" positionX="-288" positionY="-126" width="128" height="270"/>
     </elements>
 </model>

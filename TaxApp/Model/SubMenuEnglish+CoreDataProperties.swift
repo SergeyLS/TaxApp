@@ -2,8 +2,9 @@
 //  SubMenuEnglish+CoreDataProperties.swift
 //  TaxApp
 //
-//  Created by Sergey Leskov on 9/15/17.
+//  Created by Sergey Leskov on 11/6/17.
 //  Copyright © 2017 Sergey Leskov. All rights reserved.
+//
 //
 
 import Foundation
@@ -18,8 +19,8 @@ extension SubMenuEnglish {
 
     @NSManaged public var id: Int64
     @NSManaged public var title: String?
-    @NSManaged public var menuEnglish: MenuEnglish?
     @NSManaged public var articleEnglishMany: NSSet?
+    @NSManaged public var menuEnglish: MenuEnglish?
 
 }
 
